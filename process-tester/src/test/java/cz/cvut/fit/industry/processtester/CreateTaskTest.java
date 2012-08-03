@@ -6,27 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 import org.drools.KnowledgeBaseFactory;
-import org.drools.builder.KnowledgeBuilder;
-import org.drools.builder.KnowledgeBuilderError;
-import org.drools.builder.KnowledgeBuilderFactory;
-import org.drools.builder.ResourceType;
-import org.drools.io.ResourceFactory;
 import org.drools.logger.KnowledgeRuntimeLogger;
 import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.task.TaskService;
-import org.jbpm.task.query.TaskSummary;
-import org.jbpm.test.JbpmJUnitTestCase;
 import org.junit.Test;
 
 /**
- * This is a sample file to launch a process.
+ * Test for process 01 - Create task
  */
-public class CreateTaskTest extends JbpmJUnitTestCase {
+public class CreateTaskTest extends IndustryJUnitTestCase {
 
-	private static final String OWNER = "Pepik";
-	private static final String LANG = "en-UK";
 	private static final String[] PROCESSES = { "01 - Create task.bpmn2", "01.02 - mock.bpmn2" };
 
 	public CreateTaskTest() {
@@ -69,41 +60,10 @@ public class CreateTaskTest extends JbpmJUnitTestCase {
 			executeHumanTask(taskService, OWNER, LANG, "approveTask");
 		}
 		
-//		try {
-//			Thread.sleep(10000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		assertNodeTriggered(processInstance.getId(), "Check amount of credit");
 		consoleLog.close();
 		threadedFileLogger.close();
 		ksession.dispose();
-	}
-
-	private void validateProcesses(String... process) {
-		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-		for(String proc : process) {
-			kbuilder.add(ResourceFactory.newClassPathResource(proc), ResourceType.BPMN2);
-		}
-		for(KnowledgeBuilderError error : kbuilder.getErrors()) {
-			System.out.println("error:"+error.getMessage());
-		}
-		kbuilder.newKnowledgeBase();
-	}
-	
-	private void executeHumanTask(TaskService taskService, String owner, String lang, String taskName){
-		List<TaskSummary> list = taskService.getTasksAssignedAsPotentialOwner(owner, lang);
-		for(TaskSummary task : list) {
-			if(taskName.equals(task.getName())) {
-				System.out.println(task.getName());
-				System.out.println(owner + " is executing task: " + task.getName());
-				taskService.start(task.getId(), owner);
-				taskService.complete(task.getId(), owner, null);	// null jsou data, ktere dostaneme z tasku
-				return;
-			}
-		}
-		fail("Task \""+taskName+"\" for user "+owner+" not found. Tasks count in queue: "+list.size());
 	}
 	
 }
