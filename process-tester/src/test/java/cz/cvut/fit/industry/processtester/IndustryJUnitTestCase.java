@@ -24,7 +24,7 @@ public abstract class IndustryJUnitTestCase extends JbpmJUnitTestCase {
 		super(setupDataSource);
 	}
 
-	protected void validateProcesses(String... process) {
+	protected static void validateProcesses(String... process) {
 		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 		for(String proc : process) {
 			kbuilder.add(ResourceFactory.newClassPathResource(proc), ResourceType.BPMN2);
