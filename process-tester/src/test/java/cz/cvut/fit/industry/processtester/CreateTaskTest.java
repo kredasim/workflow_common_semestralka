@@ -11,6 +11,10 @@ import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.task.TaskService;
+import org.jbpm.task.utils.ContentMarshallerHelper;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -19,51 +23,96 @@ import org.junit.Test;
 public class CreateTaskTest extends IndustryJUnitTestCase {
 
 	private static final String[] PROCESSES = { "01 - Create task.bpmn2", "01.02 - mock.bpmn2" };
+	private StatefulKnowledgeSession ksession;
+	private TaskService taskService;
+	private KnowledgeRuntimeLogger consoleLog;
+	private KnowledgeRuntimeLogger threadedFileLogger;
 
 	public CreateTaskTest() {
 		super(true);
 		setPersistence(true);
 	}
+	
+	@BeforeClass
+	public static void beforeClass() {
+		validateProcesses(PROCESSES);
+	}
+	
+	@Before
+	public void before() {
+		ksession = createKnowledgeSession(PROCESSES);
+		taskService = getTaskService(ksession);
+		
+		consoleLog = KnowledgeRuntimeLoggerFactory.newConsoleLogger(ksession);
+		threadedFileLogger = KnowledgeRuntimeLoggerFactory.newThreadedFileLogger(ksession, "test_log", 1000);
+		System.out.println("Before in "+getClass().getCanonicalName());
+	}
+	
+	@After
+	public void after() {
+		consoleLog.close();
+		threadedFileLogger.close();
+		ksession.dispose();
+		System.out.println("After in "+getClass().getCanonicalName());
+	}
+	
+	@Test
+	public void processShouldStart() {
+		validateProcesses(PROCESSES);
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.CreateTask");
+		assertProcessInstanceActive(processInstance.getId(), ksession);
+	}
+	
+	@Test
+	public void processShouldExecuteHumanTaskNode() {
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.CreateTask");
+		assertNodeTriggered(processInstance.getId(), "01 - Enter task information");
+	}
+	
+	@Test
+	public void processShouldContinueAfterHumanTask() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);	
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.CreateTask", vars);
+		executeHumanTask(taskService, OWNER, LANG, "enterTaskInfo");
+		assertNodeTriggered(processInstance.getId(), "Subject assignment", "Check amount of credit");
+	}
 
 	@Test
-	public void testProcess() {
-		validateProcesses(PROCESSES);
-		StatefulKnowledgeSession ksession = createKnowledgeSession(PROCESSES);
-		TaskService taskService = getTaskService(ksession);
-		
-		// debug loggery
-		//KnowledgeRuntimeLogger fileLog    = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test_filename");
-		KnowledgeRuntimeLogger consoleLog = KnowledgeRuntimeLoggerFactory.newConsoleLogger(ksession);
-		KnowledgeRuntimeLogger threadedFileLogger = KnowledgeRuntimeLoggerFactory.newThreadedFileLogger(ksession, "test_log", 1000);
-		
+	public void processShouldExecuteSubprocess() {
+		Map<String, Object> vars = new HashMap<String, Object>();
 		List<String> courses = new ArrayList<String>();
 		courses.add("BI-CAO");
 		courses.add("BI-MLO");
 		courses.add("BI-OMO");
-		
-		
-		// mapa promenych procesu
-		Map<String, Object> vars = new HashMap<String, Object>();
-		vars.put("owner", OWNER);	
 		vars.put("courses", courses);
+		vars.put("owner", OWNER);	
 		ProcessInstance processInstance = ksession.startProcess("industry.impl.CreateTask", vars);
-
-		assertProcessInstanceActive(processInstance.getId(), ksession);
-		
-		assertNodeTriggered(processInstance.getId(), "01 - Enter task information");
-		
 		executeHumanTask(taskService, OWNER, LANG, "enterTaskInfo");
-		
-		assertEquals(courses.size(), taskService.getTasksAssignedAsPotentialOwner(OWNER, LANG).size());
-		
-		for(String course : courses) {
-			executeHumanTask(taskService, OWNER, LANG, "approveTask");
-		}
-		
-		assertNodeTriggered(processInstance.getId(), "Check amount of credit");
-		consoleLog.close();
-		threadedFileLogger.close();
-		ksession.dispose();
+		assertNodeTriggered(processInstance.getId(), "02 - Assign to course", "Check amount of credit");
 	}
+	
+	@Test
+	public void processShouldNotifyOnLowCredit() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("enoughCredit", false);
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.CreateTask", vars);
+		executeHumanTask(taskService, OWNER, LANG, "enterTaskInfo");
+		assertNodeTriggered(processInstance.getId(), "Inform about low account balance");
+	}
+	
+	@Test
+	public void processShouldFinish() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("enoughCredit", false);
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.CreateTask", vars);
+		executeHumanTask(taskService, OWNER, LANG, "enterTaskInfo");
+		assertNodeTriggered(processInstance.getId(), "Publish task");
+		assertProcessInstanceCompleted(processInstance.getId(), ksession);
+	}
+	
+	
 	
 }
