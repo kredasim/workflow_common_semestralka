@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.omg.org/bpmn20"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_ownerItem" structureRef="String" />
+  <itemDefinition id="_courseItem" structureRef="String" />
+  <itemDefinition id="_approvedItem" structureRef="Boolean" />
+
+  <itemDefinition id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-ownerItem" structureRef="String" />
+  <itemDefinition id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-courseItem" structureRef="String" />
+  <itemDefinition id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-approvedItem" structureRef="Boolean" />
+
+  <process processType="Private" isExecutable="true" id="industry.impl.AssignmentToCourse" name="Assignment to course" tns:packageName="industry.impl" >
+
+    <!-- process variables -->
+    <property id="owner" itemSubjectRef="_ownerItem"/>
+    <property id="course" itemSubjectRef="_courseItem"/>
+    <property id="approved" itemSubjectRef="_approvedItem"/>
+
+    <laneSet>
+      <lane name="Guarantator" >
+        <flowNodeRef>_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B</flowNodeRef>
+        <flowNodeRef>_703B20BE-5052-4A97-B681-D733DDAD1465</flowNodeRef>
+        <flowNodeRef>_2DA9C1AE-F32D-405E-86F6-D61615E70C53</flowNodeRef>
+        <flowNodeRef>_CE65470D-55C8-4718-ABCC-73FDEA1493BF</flowNodeRef>
+        <flowNodeRef>_162ACEED-324E-43A9-B186-8C594A822659</flowNodeRef>
+        <flowNodeRef>_32EABC3B-7A6C-48B4-9673-5E134CFD710F</flowNodeRef>
+      </lane>
+    </laneSet>
+    <!-- nodes -->
+    <userTask id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" name="01 - Approve task" >
+      <ioSpecification>
+        <dataInput id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput" name="TaskName" />
+        <inputSet>
+          <dataInputRefs>_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">approveTask</from>
+          <to xsi:type="tFormalExpression">_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <exclusiveGateway id="_703B20BE-5052-4A97-B681-D733DDAD1465" name="Denied?" gatewayDirection="Diverging" />
+    <scriptTask id="_2DA9C1AE-F32D-405E-86F6-D61615E70C53" name="Assign to course" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Assigned to course: "+course);</script>
+    </scriptTask>
+    <startEvent id="_CE65470D-55C8-4718-ABCC-73FDEA1493BF" name="" />
+    <endEvent id="_162ACEED-324E-43A9-B186-8C594A822659" name="Denied" >
+      <signalEventDefinition signalRef="helloEnd"/>
+    </endEvent>
+    <endEvent id="_32EABC3B-7A6C-48B4-9673-5E134CFD710F" name="Accepted" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <exclusiveGateway id="_7" name="Gateway" gatewayDirection="Diverging" />
+    <endEvent id="_8" name="Quick End" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <scriptTask id="_9" name="Script" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Approving!");</script>
+    </scriptTask>
+
+    <!-- connections -->
+    <sequenceFlow id="_7-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" sourceRef="_7" targetRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" name="constraint" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-_703B20BE-5052-4A97-B681-D733DDAD1465" sourceRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" targetRef="_703B20BE-5052-4A97-B681-D733DDAD1465" />
+    <sequenceFlow id="_703B20BE-5052-4A97-B681-D733DDAD1465-_2DA9C1AE-F32D-405E-86F6-D61615E70C53" sourceRef="_703B20BE-5052-4A97-B681-D733DDAD1465" targetRef="_2DA9C1AE-F32D-405E-86F6-D61615E70C53" name="NO" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_703B20BE-5052-4A97-B681-D733DDAD1465-_162ACEED-324E-43A9-B186-8C594A822659" sourceRef="_703B20BE-5052-4A97-B681-D733DDAD1465" targetRef="_162ACEED-324E-43A9-B186-8C594A822659" name="YES" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_2DA9C1AE-F32D-405E-86F6-D61615E70C53-_32EABC3B-7A6C-48B4-9673-5E134CFD710F" sourceRef="_2DA9C1AE-F32D-405E-86F6-D61615E70C53" targetRef="_32EABC3B-7A6C-48B4-9673-5E134CFD710F" />
+    <sequenceFlow id="_CE65470D-55C8-4718-ABCC-73FDEA1493BF-_7" sourceRef="_CE65470D-55C8-4718-ABCC-73FDEA1493BF" targetRef="_7" />
+    <sequenceFlow id="_9-_8" sourceRef="_9" targetRef="_8" />
+    <sequenceFlow id="_7-_9" sourceRef="_7" targetRef="_9" tns:priority="9999" >
+      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+    </sequenceFlow>
+
+    <association id="_DF1AEB9F-252B-4817-9716-BF14A7825120"  sourceRef="_162ACEED-324E-43A9-B186-8C594A822659"  targetRef="_2DB4D3D4-3E53-4E0B-9A5B-37A52385A7C3" />
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="industry.impl.AssignmentToCourse" >
+      <bpmndi:BPMNShape bpmnElement="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" >
+        <dc:Bounds x="187" y="128" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_703B20BE-5052-4A97-B681-D733DDAD1465" >
+        <dc:Bounds x="302" y="143" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2DA9C1AE-F32D-405E-86F6-D61615E70C53" >
+        <dc:Bounds x="432" y="127" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_CE65470D-55C8-4718-ABCC-73FDEA1493BF" >
+        <dc:Bounds x="24" y="142" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_162ACEED-324E-43A9-B186-8C594A822659" >
+        <dc:Bounds x="419" y="29" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_32EABC3B-7A6C-48B4-9673-5E134CFD710F" >
+        <dc:Bounds x="562" y="140" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" >
+        <dc:Bounds x="102" y="145" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" >
+        <dc:Bounds x="99" y="314" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9" >
+        <dc:Bounds x="86" y="235" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_7-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" >
+        <di:waypoint x="126" y="169" />
+        <di:waypoint x="237" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-_703B20BE-5052-4A97-B681-D733DDAD1465" >
+        <di:waypoint x="237" y="168" />
+        <di:waypoint x="326" y="167" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_703B20BE-5052-4A97-B681-D733DDAD1465-_2DA9C1AE-F32D-405E-86F6-D61615E70C53" >
+        <di:waypoint x="326" y="167" />
+        <di:waypoint x="482" y="167" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_703B20BE-5052-4A97-B681-D733DDAD1465-_162ACEED-324E-43A9-B186-8C594A822659" >
+        <di:waypoint x="326" y="167" />
+        <di:waypoint x="356" y="131" />
+        <di:waypoint x="443" y="53" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2DA9C1AE-F32D-405E-86F6-D61615E70C53-_32EABC3B-7A6C-48B4-9673-5E134CFD710F" >
+        <di:waypoint x="482" y="167" />
+        <di:waypoint x="586" y="164" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_CE65470D-55C8-4718-ABCC-73FDEA1493BF-_7" >
+        <di:waypoint x="48" y="166" />
+        <di:waypoint x="126" y="169" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9-_8" >
+        <di:waypoint x="126" y="259" />
+        <di:waypoint x="123" y="338" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7-_9" >
+        <di:waypoint x="126" y="169" />
+        <di:waypoint x="126" y="259" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
