@@ -13,15 +13,19 @@
              xmlns:tns="http://www.jboss.org/drools">
 
   <itemDefinition id="_ownerItem" structureRef="String" />
+  <itemDefinition id="_selectedItem" structureRef="String" />
 
   <itemDefinition id="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-ownerItem" structureRef="String" />
+  <itemDefinition id="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-selectedItem" structureRef="String" />
 
   <itemDefinition id="_0256AD1F-13B4-4305-9277-57D2333D10C7-ownerItem" structureRef="String" />
+  <itemDefinition id="_0256AD1F-13B4-4305-9277-57D2333D10C7-selectedItem" structureRef="String" />
 
   <process processType="Private" isExecutable="true" id="industry.impl.ApplyingForTask" name="Applying for the task" tns:packageName="industry.impl" >
 
     <!-- process variables -->
     <property id="owner" itemSubjectRef="_ownerItem"/>
+    <property id="selected" itemSubjectRef="_selectedItem"/>
 
     <laneSet>
       <lane name="Student" >
@@ -50,7 +54,7 @@
     <scriptTask id="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" name="Add to candidates" scriptFormat="http://www.java.com/java" >
       <script></script>
     </scriptTask>
-    <endEvent id="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="" />
+    <endEvent id="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="end" />
     <exclusiveGateway id="_361B8DC9-909C-4143-B929-2C084380AE42" name="gate1" gatewayDirection="Converging" />
     <userTask id="_0256AD1F-13B4-4305-9277-57D2333D10C7" name="01 - Look for a task" >
       <ioSpecification>
@@ -88,7 +92,7 @@
 
     <!-- connections -->
     <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" name="detail" >
-      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" >return "detail".equals(selected);</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-_23C6321D-F46C-4BD4-8E34-46E348DCADA8" sourceRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" targetRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" />
     <sequenceFlow id="_169975B9-48A2-42AF-93D4-36A095298368-_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" sourceRef="_169975B9-48A2-42AF-93D4-36A095298368" targetRef="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" />
@@ -106,7 +110,7 @@
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_169975B9-48A2-42AF-93D4-36A095298368" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_169975B9-48A2-42AF-93D4-36A095298368" name="apply" tns:priority="1" >
-      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" >return "apply".equals(selected);</conditionExpression>
     </sequenceFlow>
 
   </process>
@@ -126,7 +130,7 @@
         <dc:Bounds x="591" y="276" width="162" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_767070F0-2E63-44A7-8A95-28EB083CAD55" >
-        <dc:Bounds x="445" y="325" width="48" height="48" />
+        <dc:Bounds x="450" y="305" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_361B8DC9-909C-4143-B929-2C084380AE42" >
         <dc:Bounds x="131" y="180" width="48" height="48" />
@@ -135,13 +139,13 @@
         <dc:Bounds x="225" y="163" width="137" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873" >
-        <dc:Bounds x="444" y="181" width="48" height="48" />
+        <dc:Bounds x="448" y="179" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_169975B9-48A2-42AF-93D4-36A095298368" >
         <dc:Bounds x="645" y="178" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873-_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" >
-        <di:waypoint x="468" y="205" />
+        <di:waypoint x="472" y="203" />
         <di:waypoint x="472" y="92" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-_23C6321D-F46C-4BD4-8E34-46E348DCADA8" >
@@ -153,8 +157,8 @@
         <di:waypoint x="672" y="316" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873-_767070F0-2E63-44A7-8A95-28EB083CAD55" >
-        <di:waypoint x="468" y="205" />
-        <di:waypoint x="469" y="349" />
+        <di:waypoint x="472" y="203" />
+        <di:waypoint x="474" y="329" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_361B8DC9-909C-4143-B929-2C084380AE42" >
         <di:waypoint x="669" y="95" />
@@ -178,14 +182,14 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_0256AD1F-13B4-4305-9277-57D2333D10C7-_1F001A40-A172-4F30-815D-B2725CA51873" >
         <di:waypoint x="293" y="203" />
-        <di:waypoint x="468" y="205" />
+        <di:waypoint x="472" y="203" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_169975B9-48A2-42AF-93D4-36A095298368" >
         <di:waypoint x="669" y="95" />
         <di:waypoint x="669" y="202" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873-_169975B9-48A2-42AF-93D4-36A095298368" >
-        <di:waypoint x="468" y="205" />
+        <di:waypoint x="472" y="203" />
         <di:waypoint x="669" y="202" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
