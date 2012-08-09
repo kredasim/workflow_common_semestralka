@@ -54,11 +54,29 @@
     <exclusiveGateway id="_361B8DC9-909C-4143-B929-2C084380AE42" name="gate1" gatewayDirection="Converging" />
     <userTask id="_0256AD1F-13B4-4305-9277-57D2333D10C7" name="01 - Look for a task" >
       <ioSpecification>
+        <dataInput id="_0256AD1F-13B4-4305-9277-57D2333D10C7_SkippableInput" name="Skippable" />
+        <dataInput id="_0256AD1F-13B4-4305-9277-57D2333D10C7_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_0256AD1F-13B4-4305-9277-57D2333D10C7_SkippableInput</dataInputRefs>
+          <dataInputRefs>_0256AD1F-13B4-4305-9277-57D2333D10C7_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_0256AD1F-13B4-4305-9277-57D2333D10C7_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_0256AD1F-13B4-4305-9277-57D2333D10C7_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_0256AD1F-13B4-4305-9277-57D2333D10C7_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">01 - Look for a task</from>
+          <to xsi:type="tFormalExpression">_0256AD1F-13B4-4305-9277-57D2333D10C7_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
       <potentialOwner>
         <resourceAssignmentExpression>
           <formalExpression>#{owner}</formalExpression>
@@ -70,12 +88,12 @@
 
     <!-- connections -->
     <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" name="detail" >
-      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-_23C6321D-F46C-4BD4-8E34-46E348DCADA8" sourceRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" targetRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" />
     <sequenceFlow id="_169975B9-48A2-42AF-93D4-36A095298368-_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" sourceRef="_169975B9-48A2-42AF-93D4-36A095298368" targetRef="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" />
-    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_767070F0-2E63-44A7-8A95-28EB083CAD55" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="end" >
-      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_767070F0-2E63-44A7-8A95-28EB083CAD55" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="end" tns:priority="2" >
+      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_361B8DC9-909C-4143-B929-2C084380AE42" sourceRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" targetRef="_361B8DC9-909C-4143-B929-2C084380AE42" name="NO" >
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return false;</conditionExpression>
@@ -87,8 +105,8 @@
     <sequenceFlow id="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_169975B9-48A2-42AF-93D4-36A095298368" sourceRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" targetRef="_169975B9-48A2-42AF-93D4-36A095298368" name="YES" >
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
     </sequenceFlow>
-    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_169975B9-48A2-42AF-93D4-36A095298368" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_169975B9-48A2-42AF-93D4-36A095298368" name="apply" >
-      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_169975B9-48A2-42AF-93D4-36A095298368" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_169975B9-48A2-42AF-93D4-36A095298368" name="apply" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
     </sequenceFlow>
 
   </process>
