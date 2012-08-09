@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.omg.org/bpmn20"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="industry.impl.ApplyingForTask" name="Applying for the task" tns:packageName="industry.impl" >
+
+    <laneSet>
+      <lane name="Student" >
+        <flowNodeRef>_94D0C21A-15BC-48D6-87B2-2BAA6E1E04EC</flowNodeRef>
+        <flowNodeRef>_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7</flowNodeRef>
+        <flowNodeRef>_23C6321D-F46C-4BD4-8E34-46E348DCADA8</flowNodeRef>
+        <flowNodeRef>_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF</flowNodeRef>
+        <flowNodeRef>_767070F0-2E63-44A7-8A95-28EB083CAD55</flowNodeRef>
+        <flowNodeRef>_361B8DC9-909C-4143-B929-2C084380AE42</flowNodeRef>
+        <flowNodeRef>_0256AD1F-13B4-4305-9277-57D2333D10C7</flowNodeRef>
+        <flowNodeRef>_1F001A40-A172-4F30-815D-B2725CA51873</flowNodeRef>
+        <flowNodeRef>_169975B9-48A2-42AF-93D4-36A095298368</flowNodeRef>
+      </lane>
+    </laneSet>
+    <!-- nodes -->
+    <startEvent id="_94D0C21A-15BC-48D6-87B2-2BAA6E1E04EC" name="" />
+    <userTask id="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" name="02 - View detail and apply for the task" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </userTask>
+    <exclusiveGateway id="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" name="Applied?" gatewayDirection="Diverging" />
+    <scriptTask id="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" name="Add to candidates" scriptFormat="http://www.java.com/java" >
+      <script></script>
+    </scriptTask>
+    <endEvent id="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="" />
+    <exclusiveGateway id="_361B8DC9-909C-4143-B929-2C084380AE42" name="gate1" gatewayDirection="Converging" />
+    <userTask id="_0256AD1F-13B4-4305-9277-57D2333D10C7" name="01 - Look for a task" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </userTask>
+    <exclusiveGateway id="_1F001A40-A172-4F30-815D-B2725CA51873" name="Selected" gatewayDirection="Diverging" />
+    <exclusiveGateway id="_169975B9-48A2-42AF-93D4-36A095298368" name="" gatewayDirection="Converging" />
+
+    <!-- connections -->
+    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" name="detail" >
+      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-_23C6321D-F46C-4BD4-8E34-46E348DCADA8" sourceRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" targetRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" />
+    <sequenceFlow id="_169975B9-48A2-42AF-93D4-36A095298368-_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" sourceRef="_169975B9-48A2-42AF-93D4-36A095298368" targetRef="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" />
+    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_767070F0-2E63-44A7-8A95-28EB083CAD55" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="end" >
+      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_361B8DC9-909C-4143-B929-2C084380AE42" sourceRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" targetRef="_361B8DC9-909C-4143-B929-2C084380AE42" name="NO" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return false;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_94D0C21A-15BC-48D6-87B2-2BAA6E1E04EC-_361B8DC9-909C-4143-B929-2C084380AE42" sourceRef="_94D0C21A-15BC-48D6-87B2-2BAA6E1E04EC" targetRef="_361B8DC9-909C-4143-B929-2C084380AE42" />
+    <sequenceFlow id="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF-_361B8DC9-909C-4143-B929-2C084380AE42" sourceRef="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" targetRef="_361B8DC9-909C-4143-B929-2C084380AE42" />
+    <sequenceFlow id="_361B8DC9-909C-4143-B929-2C084380AE42-_0256AD1F-13B4-4305-9277-57D2333D10C7" sourceRef="_361B8DC9-909C-4143-B929-2C084380AE42" targetRef="_0256AD1F-13B4-4305-9277-57D2333D10C7" />
+    <sequenceFlow id="_0256AD1F-13B4-4305-9277-57D2333D10C7-_1F001A40-A172-4F30-815D-B2725CA51873" sourceRef="_0256AD1F-13B4-4305-9277-57D2333D10C7" targetRef="_1F001A40-A172-4F30-815D-B2725CA51873" />
+    <sequenceFlow id="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_169975B9-48A2-42AF-93D4-36A095298368" sourceRef="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" targetRef="_169975B9-48A2-42AF-93D4-36A095298368" name="YES" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_169975B9-48A2-42AF-93D4-36A095298368" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_169975B9-48A2-42AF-93D4-36A095298368" name="apply" >
+      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    </sequenceFlow>
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="industry.impl.ApplyingForTask" >
+      <bpmndi:BPMNShape bpmnElement="_94D0C21A-15BC-48D6-87B2-2BAA6E1E04EC" >
+        <dc:Bounds x="51" y="179" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" >
+        <dc:Bounds x="351" y="51" width="226" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23C6321D-F46C-4BD4-8E34-46E348DCADA8" >
+        <dc:Bounds x="641" y="93" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" >
+        <dc:Bounds x="591" y="276" width="162" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_767070F0-2E63-44A7-8A95-28EB083CAD55" >
+        <dc:Bounds x="445" y="325" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_361B8DC9-909C-4143-B929-2C084380AE42" >
+        <dc:Bounds x="131" y="179" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_0256AD1F-13B4-4305-9277-57D2333D10C7" >
+        <dc:Bounds x="225" y="163" width="137" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873" >
+        <dc:Bounds x="445" y="180" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_169975B9-48A2-42AF-93D4-36A095298368" >
+        <dc:Bounds x="638" y="178" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873-_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" >
+        <di:waypoint x="469" y="204" />
+        <di:waypoint x="464" y="91" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7-_23C6321D-F46C-4BD4-8E34-46E348DCADA8" >
+        <di:waypoint x="464" y="91" />
+        <di:waypoint x="665" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_169975B9-48A2-42AF-93D4-36A095298368-_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF" >
+        <di:waypoint x="662" y="202" />
+        <di:waypoint x="672" y="316" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873-_767070F0-2E63-44A7-8A95-28EB083CAD55" >
+        <di:waypoint x="469" y="204" />
+        <di:waypoint x="469" y="349" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_361B8DC9-909C-4143-B929-2C084380AE42" >
+        <di:waypoint x="665" y="117" />
+        <di:waypoint x="668" y="9" />
+        <di:waypoint x="158" y="10" />
+        <di:waypoint x="155" y="203" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_94D0C21A-15BC-48D6-87B2-2BAA6E1E04EC-_361B8DC9-909C-4143-B929-2C084380AE42" >
+        <di:waypoint x="75" y="203" />
+        <di:waypoint x="155" y="203" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_FFF62E61-79BE-4236-9D5B-DF23EE4BAEEF-_361B8DC9-909C-4143-B929-2C084380AE42" >
+        <di:waypoint x="672" y="316" />
+        <di:waypoint x="678" y="447" />
+        <di:waypoint x="158" y="447" />
+        <di:waypoint x="155" y="203" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_361B8DC9-909C-4143-B929-2C084380AE42-_0256AD1F-13B4-4305-9277-57D2333D10C7" >
+        <di:waypoint x="155" y="203" />
+        <di:waypoint x="293" y="203" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_0256AD1F-13B4-4305-9277-57D2333D10C7-_1F001A40-A172-4F30-815D-B2725CA51873" >
+        <di:waypoint x="293" y="203" />
+        <di:waypoint x="469" y="204" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23C6321D-F46C-4BD4-8E34-46E348DCADA8-_169975B9-48A2-42AF-93D4-36A095298368" >
+        <di:waypoint x="665" y="117" />
+        <di:waypoint x="662" y="202" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1F001A40-A172-4F30-815D-B2725CA51873-_169975B9-48A2-42AF-93D4-36A095298368" >
+        <di:waypoint x="469" y="204" />
+        <di:waypoint x="662" y="202" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
