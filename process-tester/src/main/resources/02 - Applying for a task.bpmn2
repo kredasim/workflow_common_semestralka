@@ -92,7 +92,7 @@
       </potentialOwner>
     </userTask>
     <exclusiveGateway id="_1F001A40-A172-4F30-815D-B2725CA51873" name="Selected" gatewayDirection="Diverging" />
-    <exclusiveGateway id="_169975B9-48A2-42AF-93D4-36A095298368" name="" gatewayDirection="Converging" />
+    <exclusiveGateway id="_169975B9-48A2-42AF-93D4-36A095298368" name="gate2" gatewayDirection="Converging" />
 
     <!-- connections -->
     <sequenceFlow id="_1F001A40-A172-4F30-815D-B2725CA51873-_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" sourceRef="_1F001A40-A172-4F30-815D-B2725CA51873" targetRef="_B5810B18-FB67-44AF-8299-FA8F5ADFA1C7" name="detail" >
