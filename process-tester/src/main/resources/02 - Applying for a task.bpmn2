@@ -51,7 +51,7 @@
       <script></script>
     </scriptTask>
     <endEvent id="_767070F0-2E63-44A7-8A95-28EB083CAD55" name="" />
-    <parallelGateway id="_361B8DC9-909C-4143-B929-2C084380AE42" name="gate1" gatewayDirection="Converging" />
+    <exclusiveGateway id="_361B8DC9-909C-4143-B929-2C084380AE42" name="gate1" gatewayDirection="Converging" />
     <userTask id="_0256AD1F-13B4-4305-9277-57D2333D10C7" name="01 - Look for a task" >
       <ioSpecification>
         <inputSet>
@@ -59,6 +59,11 @@
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <exclusiveGateway id="_1F001A40-A172-4F30-815D-B2725CA51873" name="Selected" gatewayDirection="Diverging" />
     <exclusiveGateway id="_169975B9-48A2-42AF-93D4-36A095298368" name="" gatewayDirection="Converging" />

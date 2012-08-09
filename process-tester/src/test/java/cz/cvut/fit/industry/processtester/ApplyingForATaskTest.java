@@ -54,8 +54,12 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	public void testLookForATaskFinishedTest() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
-		vars.put("aproved", "denied");
+		
+		
 		ProcessInstance processInstance = ksession.startProcess("industry.impl.ApplyingForTask", vars);		
+		
+		
+		assertNodeTriggered(processInstance.getId(), "01 - Look for a task");
 		executeHumanTask(taskService, "Pepik", LANG);
 		
 		assertNodeTriggered(processInstance.getId(), "Selected");
