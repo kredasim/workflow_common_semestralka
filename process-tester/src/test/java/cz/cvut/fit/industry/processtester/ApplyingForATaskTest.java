@@ -78,6 +78,21 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 		assertNodeTriggered(processInstance.getId(), "end");
 	}
 	
+	@Test
+	public void testSelectedDetailTest() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", "Pepik");
+		vars.put("selected", "detail");
+			
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.ApplyingForTask", vars);		
+			
+		assertNodeTriggered(processInstance.getId(), "01 - Look for a task");
+		executeHumanTask(taskService, "Pepik", LANG);
+		
+		assertNodeTriggered(processInstance.getId(), "Selected");
+		assertNodeTriggered(processInstance.getId(), "02 - View detail and apply for the task");
+	}
+	
 	private void executeHumanTask(TaskService taskService, String owner, String lang){
 		List<TaskSummary> list = taskService.getTasksAssignedAsPotentialOwner(owner, lang);
 		TaskSummary task = list.get(0);
