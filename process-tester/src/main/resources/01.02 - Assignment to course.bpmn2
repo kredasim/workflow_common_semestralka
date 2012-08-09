@@ -18,9 +18,6 @@
   <itemDefinition id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-aprovedItem" structureRef="String" />
   <itemDefinition id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-ownerItem" structureRef="String" />
 
-  <itemDefinition id="_99350BA1-3F35-4690-BACB-ACD443DFAEDD_MessageType" />
-  <message id="_99350BA1-3F35-4690-BACB-ACD443DFAEDD_Message" itemRef="_99350BA1-3F35-4690-BACB-ACD443DFAEDD_MessageType" />
-
   <process processType="Private" isExecutable="true" id="industry.impl.AssignmentToCourse" name="Assignment to course" tns:packageName="industry.impl" >
 
     <!-- process variables -->
@@ -62,13 +59,17 @@
       <signalEventDefinition signalRef=""/>
     </endEvent>
     <startEvent id="_BE33C42A-6ED6-41DD-BB98-1016DFEA8486" name="" />
-    <parallelGateway id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" name="gate1" gatewayDirection="Diverging" />
+    <exclusiveGateway id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" name="gate1" gatewayDirection="Diverging" />
 
     <!-- connections -->
-    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" />
+    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" >
+      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="_99350BA1-3F35-4690-BACB-ACD443DFAEDD-_9981A582-9C1F-49BE-B37E-B95FDE3B798C" sourceRef="_99350BA1-3F35-4690-BACB-ACD443DFAEDD" targetRef="_9981A582-9C1F-49BE-B37E-B95FDE3B798C" />
     <sequenceFlow id="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F-_99350BA1-3F35-4690-BACB-ACD443DFAEDD" sourceRef="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" targetRef="_99350BA1-3F35-4690-BACB-ACD443DFAEDD" />
-    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" />
+    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" >
+      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-_703B20BE-5052-4A97-B681-D733DDAD1465" sourceRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" targetRef="_703B20BE-5052-4A97-B681-D733DDAD1465" />
     <sequenceFlow id="_703B20BE-5052-4A97-B681-D733DDAD1465-_162ACEED-324E-43A9-B186-8C594A822659" sourceRef="_703B20BE-5052-4A97-B681-D733DDAD1465" targetRef="_162ACEED-324E-43A9-B186-8C594A822659" name="YES" >
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return "denied".equals(aproved);</conditionExpression>
