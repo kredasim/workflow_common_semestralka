@@ -47,17 +47,33 @@ public class ConfirmCollaborationTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void testLookForATaskFinishedTest() {
+	public void testDeniedDenied() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
-		vars.put("denied", "yes");
+		vars.put("denied", "denied");
 			
-		ProcessInstance processInstance = ksession.startProcess("industry.impl.ApplyingForTask", vars);		
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.ConfirmCollaboration", vars);		
 			
-		assertNodeTriggered(processInstance.getId(), "01 - Look for a task");
+		assertNodeTriggered(processInstance.getId(), "01 - Confirm collaboration");
 		executeHumanTask(taskService, "Pepik", LANG);
 		
-		assertNodeTriggered(processInstance.getId(), "Selected");
+		assertNodeTriggered(processInstance.getId(), "Denied?");
+		assertNodeTriggered(processInstance.getId(), "Denied");
+	}
+	
+	@Test
+	public void testDeniedConfirmed() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", "Pepik");
+		vars.put("denied", "confirmed");
+			
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.ConfirmCollaboration", vars);		
+			
+		assertNodeTriggered(processInstance.getId(), "01 - Confirm collaboration");
+		executeHumanTask(taskService, "Pepik", LANG);
+		
+		assertNodeTriggered(processInstance.getId(), "Denied?");
+		assertNodeTriggered(processInstance.getId(), "Confirmed");
 	}
 	
 	

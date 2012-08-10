@@ -36,11 +36,25 @@
     <!-- nodes -->
     <userTask id="_29D5412A-0A73-4A15-84DD-474C01009B45" name="01 - Confirm collaboration" >
       <ioSpecification>
+        <dataInput id="_29D5412A-0A73-4A15-84DD-474C01009B45_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_29D5412A-0A73-4A15-84DD-474C01009B45_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_29D5412A-0A73-4A15-84DD-474C01009B45_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">01 - Confirm collaboration</from>
+          <to xsi:type="tFormalExpression">_29D5412A-0A73-4A15-84DD-474C01009B45_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <exclusiveGateway id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" name="Denied?" gatewayDirection="Diverging" />
     <endEvent id="_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" name="Denied" >
@@ -60,7 +74,7 @@
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_A36E3542-0170-47C2-AECC-E5467E5B16D4" sourceRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" targetRef="_A36E3542-0170-47C2-AECC-E5467E5B16D4" name="NO" >
-      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return "no".equals(denied);</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return "confirmed".equals(denied);</conditionExpression>
     </sequenceFlow>
 
   </process>
