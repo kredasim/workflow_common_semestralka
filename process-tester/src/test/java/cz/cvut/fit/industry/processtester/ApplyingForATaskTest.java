@@ -51,7 +51,7 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	
 	// Testing if every node is triggered after finishing first HumanTask
 	@Test
-	public void testLookForATaskFinishedTest() {
+	public void testLookForATaskFinished() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
 			
@@ -64,7 +64,7 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void testSelectedEndTest() {
+	public void testSelectedEnd() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
 		vars.put("selected", "end");
@@ -79,7 +79,7 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void testSelectedDetailTest() {
+	public void testSelectedDetail() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
 		vars.put("selected", "detail");
@@ -94,7 +94,7 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void testSelectedDetailAppliedNoTest() {
+	public void testSelectedDetailAppliedNo() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
 		vars.put("selected", "detail");
@@ -118,7 +118,7 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void testSelectedDetailAppliedYesTest() {
+	public void testSelectedDetailAppliedYes() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
 		vars.put("selected", "detail");
@@ -142,7 +142,7 @@ public class ApplyingForATaskTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void testSelectedApplyTest() {
+	public void testSelectedApply() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", "Pepik");
 		vars.put("selected", "apply");
