@@ -43,9 +43,7 @@ public class ConfirmCollaborationTest extends JbpmJUnitTestCase {
 		ProcessInstance processInstance = ksession.startProcess("industry.impl.ConfirmCollaboration");		
 		
 		assertProcessInstanceActive(processInstance.getId(), ksession);
-		assertNodeTriggered(processInstance.getId(), "gate1");
-		assertNodeTriggered(processInstance.getId(), "01 - Approve task");
-		assertNodeTriggered(processInstance.getId(), "Guarantator doesnt respond");
+		assertNodeTriggered(processInstance.getId(), "01 - Confirm collaboration");
 	}
 	
 	
