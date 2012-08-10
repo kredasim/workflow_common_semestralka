@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.omg.org/bpmn20"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="industry.impl.ConfirmCollaboration" name="Confirm collaboration" tns:packageName="industry.impl" >
+
+    <laneSet>
+      <lane name="Student" >
+        <flowNodeRef>_29D5412A-0A73-4A15-84DD-474C01009B45</flowNodeRef>
+        <flowNodeRef>_47BEE4EE-51D5-4821-B31A-4FB200678F0C</flowNodeRef>
+        <flowNodeRef>_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415</flowNodeRef>
+        <flowNodeRef>_A36E3542-0170-47C2-AECC-E5467E5B16D4</flowNodeRef>
+        <flowNodeRef>_C6F8ACE5-2063-4D33-9842-CE5675529470</flowNodeRef>
+      </lane>
+    </laneSet>
+    <!-- nodes -->
+    <userTask id="_29D5412A-0A73-4A15-84DD-474C01009B45" name="01 - Confirm collaboration" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </userTask>
+    <exclusiveGateway id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" name="Denied?" gatewayDirection="Diverging" />
+    <endEvent id="_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" name="Denied" >
+      <signalEventDefinition signalRef="rejectedMsg"/>
+    </endEvent>
+    <endEvent id="_A36E3542-0170-47C2-AECC-E5467E5B16D4" name="Confirmed" >
+      <signalEventDefinition signalRef="confirmedMsg"/>
+    </endEvent>
+    <startEvent id="_C6F8ACE5-2063-4D33-9842-CE5675529470" name="Confirmation request" >
+      <signalEventDefinition signalRef="confirmationSendMsg" />
+    </startEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="_C6F8ACE5-2063-4D33-9842-CE5675529470-_29D5412A-0A73-4A15-84DD-474C01009B45" sourceRef="_C6F8ACE5-2063-4D33-9842-CE5675529470" targetRef="_29D5412A-0A73-4A15-84DD-474C01009B45" />
+    <sequenceFlow id="_29D5412A-0A73-4A15-84DD-474C01009B45-_47BEE4EE-51D5-4821-B31A-4FB200678F0C" sourceRef="_29D5412A-0A73-4A15-84DD-474C01009B45" targetRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" />
+    <sequenceFlow id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" sourceRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" targetRef="_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" name="YES" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_A36E3542-0170-47C2-AECC-E5467E5B16D4" sourceRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" targetRef="_A36E3542-0170-47C2-AECC-E5467E5B16D4" name="NO" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return false;</conditionExpression>
+    </sequenceFlow>
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="industry.impl.ConfirmCollaboration" >
+      <bpmndi:BPMNShape bpmnElement="_29D5412A-0A73-4A15-84DD-474C01009B45" >
+        <dc:Bounds x="180" y="90" width="172" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" >
+        <dc:Bounds x="407" y="107" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" >
+        <dc:Bounds x="448" y="10" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_A36E3542-0170-47C2-AECC-E5467E5B16D4" >
+        <dc:Bounds x="556" y="108" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_C6F8ACE5-2063-4D33-9842-CE5675529470" >
+        <dc:Bounds x="81" y="106" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_C6F8ACE5-2063-4D33-9842-CE5675529470-_29D5412A-0A73-4A15-84DD-474C01009B45" >
+        <di:waypoint x="105" y="130" />
+        <di:waypoint x="266" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_29D5412A-0A73-4A15-84DD-474C01009B45-_47BEE4EE-51D5-4821-B31A-4FB200678F0C" >
+        <di:waypoint x="266" y="130" />
+        <di:waypoint x="431" y="131" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" >
+        <di:waypoint x="431" y="131" />
+        <di:waypoint x="472" y="34" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_A36E3542-0170-47C2-AECC-E5467E5B16D4" >
+        <di:waypoint x="431" y="131" />
+        <di:waypoint x="580" y="132" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
