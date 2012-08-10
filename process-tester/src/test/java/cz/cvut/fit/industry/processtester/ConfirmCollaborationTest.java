@@ -46,6 +46,20 @@ public class ConfirmCollaborationTest extends JbpmJUnitTestCase {
 		assertNodeTriggered(processInstance.getId(), "01 - Confirm collaboration");
 	}
 	
+	@Test
+	public void testLookForATaskFinishedTest() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", "Pepik");
+		vars.put("denied", "yes");
+			
+		ProcessInstance processInstance = ksession.startProcess("industry.impl.ApplyingForTask", vars);		
+			
+		assertNodeTriggered(processInstance.getId(), "01 - Look for a task");
+		executeHumanTask(taskService, "Pepik", LANG);
+		
+		assertNodeTriggered(processInstance.getId(), "Selected");
+	}
+	
 	
 	private void executeHumanTask(TaskService taskService, String owner, String lang){
 		List<TaskSummary> list = taskService.getTasksAssignedAsPotentialOwner(owner, lang);

@@ -12,7 +12,17 @@
              xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
              xmlns:tns="http://www.jboss.org/drools">
 
+  <itemDefinition id="_ownerItem" structureRef="Object" />
+  <itemDefinition id="_deniedItem" structureRef="Object" />
+
+  <itemDefinition id="_29D5412A-0A73-4A15-84DD-474C01009B45-ownerItem" structureRef="Object" />
+  <itemDefinition id="_29D5412A-0A73-4A15-84DD-474C01009B45-deniedItem" structureRef="Object" />
+
   <process processType="Private" isExecutable="true" id="industry.impl.ConfirmCollaboration" name="Confirm collaboration" tns:packageName="industry.impl" >
+
+    <!-- process variables -->
+    <property id="owner" itemSubjectRef="_ownerItem"/>
+    <property id="denied" itemSubjectRef="_deniedItem"/>
 
     <laneSet>
       <lane name="Student" >
@@ -46,11 +56,11 @@
     <!-- connections -->
     <sequenceFlow id="_C6F8ACE5-2063-4D33-9842-CE5675529470-_29D5412A-0A73-4A15-84DD-474C01009B45" sourceRef="_C6F8ACE5-2063-4D33-9842-CE5675529470" targetRef="_29D5412A-0A73-4A15-84DD-474C01009B45" />
     <sequenceFlow id="_29D5412A-0A73-4A15-84DD-474C01009B45-_47BEE4EE-51D5-4821-B31A-4FB200678F0C" sourceRef="_29D5412A-0A73-4A15-84DD-474C01009B45" targetRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" />
-    <sequenceFlow id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" sourceRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" targetRef="_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" name="YES" >
+    <sequenceFlow id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" sourceRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" targetRef="_5B2CB9C0-82E9-4887-B9A6-C1A3FF10C415" name="YES" tns:priority="1" >
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_47BEE4EE-51D5-4821-B31A-4FB200678F0C-_A36E3542-0170-47C2-AECC-E5467E5B16D4" sourceRef="_47BEE4EE-51D5-4821-B31A-4FB200678F0C" targetRef="_A36E3542-0170-47C2-AECC-E5467E5B16D4" name="NO" >
-      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return false;</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return "no".equals(denied);</conditionExpression>
     </sequenceFlow>
 
   </process>
