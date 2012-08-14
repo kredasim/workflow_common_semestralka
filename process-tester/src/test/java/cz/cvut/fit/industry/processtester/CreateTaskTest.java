@@ -5,13 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.drools.KnowledgeBaseFactory;
 import org.drools.logger.KnowledgeRuntimeLogger;
 import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.task.TaskService;
-import org.jbpm.task.utils.ContentMarshallerHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;

@@ -57,11 +57,11 @@ public class AssignmentToCourseTest extends IndustryJUnitTestCase {
 	@Test
 	public void testAproveTaskGuarantatorDenied() {
 		Map<String, Object> vars = new HashMap<String, Object>();
-		vars.put("owner", "Pepik");
+		vars.put("owner", OWNER);
 		vars.put("aproved", "denied");
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID,
 				vars);
-		executeHumanTask(taskService, "Pepik", LANG, TASK_APPROVE_TASK);
+		executeHumanTask(taskService, OWNER, LANG, TASK_APPROVE_TASK);
 
 		assertNodeTriggered(processInstance.getId(), "Denied?");
 		assertNodeTriggered(processInstance.getId(), "Denied");
@@ -70,11 +70,11 @@ public class AssignmentToCourseTest extends IndustryJUnitTestCase {
 	@Test
 	public void testAproveTaskGuarantatorReturned() {
 		Map<String, Object> vars = new HashMap<String, Object>();
-		vars.put("owner", "Pepik");
+		vars.put("owner", OWNER);
 		vars.put("aproved", "returned");
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID,
 				vars);
-		executeHumanTask(taskService, "Pepik", LANG, TASK_APPROVE_TASK);
+		executeHumanTask(taskService, OWNER, LANG, TASK_APPROVE_TASK);
 
 		assertNodeTriggered(processInstance.getId(), "Returned?");
 		assertNodeTriggered(processInstance.getId(), "Returned");
@@ -83,11 +83,11 @@ public class AssignmentToCourseTest extends IndustryJUnitTestCase {
 	@Test
 	public void testAproveTaskGuarantatorAccepted() {
 		Map<String, Object> vars = new HashMap<String, Object>();
-		vars.put("owner", "Pepik");
+		vars.put("owner", OWNER);
 		vars.put("aproved", "accepted");
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID,
 				vars);
-		executeHumanTask(taskService, "Pepik", LANG, TASK_APPROVE_TASK);
+		executeHumanTask(taskService, OWNER, LANG, TASK_APPROVE_TASK);
 
 		assertNodeTriggered(processInstance.getId(), "Accepted");
 	}
