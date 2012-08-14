@@ -14,6 +14,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SolutionSubmissionTest extends IndustryJUnitTestCase{
+	private static final String TASK_ACCEPT_SOLUTION_TEACHER = "03 - Accept solution - Teacher";
+	private static final String TASK_ACCEPT_SOLUTION_TASK_MANAGER = "02 - Accept solution - TaskManager";
 	private static final String PROCESS_ID = "industry.impl.TaskSubmission";
 	private static final String PROCESS_FILE_NAME = "04 - Solution submission.bpmn2";
 	private static final String TASK_SUBMIT_SOLUTION = "01 - Submit solution";
@@ -70,7 +72,11 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
 		assertNodeTriggered(processInstance.getId(), "Check");
-		assertNodeTriggered(processInstance.getId(), "02 - Accept solution - TaskManager");
+		assertNodeTriggered(processInstance.getId(), TASK_ACCEPT_SOLUTION_TASK_MANAGER);
+		
+		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TASK_MANAGER);
+		assertNodeTriggered(processInstance.getId(), "Denied?");
+		
 	}
 	
 	@Test
@@ -82,7 +88,10 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 			
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
-		assertNodeTriggered(processInstance.getId(), "03 - Accept solution - Teacher");
+		assertNodeTriggered(processInstance.getId(), TASK_ACCEPT_SOLUTION_TEACHER);
+	
+		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
+		assertNodeTriggered(processInstance.getId(), "Denied?");
 	}
 	
 	// Testing of OR gateway - if there can be two possibilitis at one time
@@ -95,7 +104,7 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 			
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
-		assertNodeTriggered(processInstance.getId(), "02 - Accept solution - TaskManager");
-		assertNodeTriggered(processInstance.getId(), "03 - Accept solution - Teacher");
+		assertNodeTriggered(processInstance.getId(), TASK_ACCEPT_SOLUTION_TASK_MANAGER);
+		assertNodeTriggered(processInstance.getId(), TASK_ACCEPT_SOLUTION_TEACHER);
 	}
 }
