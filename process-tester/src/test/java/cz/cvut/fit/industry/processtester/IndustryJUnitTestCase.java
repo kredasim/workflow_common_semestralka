@@ -28,9 +28,11 @@ public abstract class IndustryJUnitTestCase extends JbpmJUnitTestCase {
 	}
 
 	protected static void validateProcesses(String... process) {
-		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-		for(String proc : process) {
-			kbuilder.add(ResourceFactory.newClassPathResource(proc), ResourceType.BPMN2);
+		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory
+				.newKnowledgeBuilder();
+		for (String proc : process) {
+			kbuilder.add(ResourceFactory.newClassPathResource(proc),
+					ResourceType.BPMN2);
 		}
 		for (KnowledgeBuilderError error : kbuilder.getErrors()) {
 			System.out.println("error:" + error.getMessage());
@@ -69,7 +71,8 @@ public abstract class IndustryJUnitTestCase extends JbpmJUnitTestCase {
 			}
 		}
 		fail("Task \"" + taskName + "\" for user " + owner
-				+ " not found. Tasks count in queue: " + list.size() +"expected:"+ list.get(0).getName() );
+				+ " not found. Tasks count in queue: " + list.size()
+				+ "expected:" + list.get(0).getName());
 
 	}
 

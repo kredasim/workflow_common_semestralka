@@ -138,4 +138,22 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		
 		assertNodeTriggered(processInstance.getId(), "gate2");
 	}
+	
+	@Test
+	public void testEvaluation() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("canceled", "NO");
+		vars.put("check", "teacher");
+		vars.put("denied", "NO");
+			
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
+		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
+		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
+		executeHumanTask(taskService, OWNER, LANG, "05 - Evaluate - Teacher");
+		executeHumanTask(taskService, OWNER, LANG, "04 - Evaluate - Task Manager");
+		
+		assertNodeTriggered(processInstance.getId(), "gate3");
+		assertNodeTriggered(processInstance.getId(), "Calculate reward");
+	}
 }

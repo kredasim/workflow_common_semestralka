@@ -418,7 +418,6 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F795BA72-1F37-46DB-9273-67A417E9C480-_77106F96-FF9F-475F-B5A0-24CF10917452" >
         <di:waypoint x="650" y="309" />
-        <di:waypoint x="689" y="311" />
         <di:waypoint x="697" y="308" />
         <di:waypoint x="744" y="308" />
       </bpmndi:BPMNEdge>
