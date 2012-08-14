@@ -123,4 +123,19 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		
 		assertNodeTriggered(processInstance.getId(), "Submission denied");
 	}
+	
+	@Test
+	public void testAcceptingNotDenied() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("canceled", "NO");
+		vars.put("check", "teacher");
+		vars.put("denied", "NO");
+			
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
+		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
+		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
+		
+		assertNodeTriggered(processInstance.getId(), "gate2");
+	}
 }
