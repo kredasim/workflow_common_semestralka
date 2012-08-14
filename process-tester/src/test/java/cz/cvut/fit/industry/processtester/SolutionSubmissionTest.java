@@ -84,4 +84,18 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
 		assertNodeTriggered(processInstance.getId(), "03 - Accept solution - Teacher");
 	}
+	
+	// Testing of OR gateway - if there can be two possibilitis at one time
+	@Test
+	public void testBothAcceptSolution() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("canceled", "NO");
+		vars.put("check", "both");
+			
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
+		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
+		assertNodeTriggered(processInstance.getId(), "02 - Accept solution - TaskManager");
+		assertNodeTriggered(processInstance.getId(), "03 - Accept solution - Teacher");
+	}
 }
