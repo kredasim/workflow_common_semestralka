@@ -72,4 +72,16 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		assertNodeTriggered(processInstance.getId(), "Check");
 		assertNodeTriggered(processInstance.getId(), "02 - Accept solution - TaskManager");
 	}
+	
+	@Test
+	public void testTeacherAcceptSolution() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("canceled", "NO");
+		vars.put("check", "task manager");
+			
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
+		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
+		assertNodeTriggered(processInstance.getId(), "03 - Accept solution - Teacher");
+	}
 }
