@@ -56,20 +56,16 @@
       <signalEventDefinition signalRef=""/>
     </endEvent>
     <endEvent id="_B506E970-5E1A-473D-BEA0-24B9BA18C18A" name="Accepted" >
-      <signalEventDefinition signalRef=""/>
+        <terminateEventDefinition/>
     </endEvent>
     <startEvent id="_BE33C42A-6ED6-41DD-BB98-1016DFEA8486" name="" />
-    <exclusiveGateway id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" name="gate1" gatewayDirection="Diverging" />
+    <parallelGateway id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" name="gate1" gatewayDirection="Diverging" />
 
     <!-- connections -->
-    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" >
-      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
-    </sequenceFlow>
+    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" />
     <sequenceFlow id="_99350BA1-3F35-4690-BACB-ACD443DFAEDD-_9981A582-9C1F-49BE-B37E-B95FDE3B798C" sourceRef="_99350BA1-3F35-4690-BACB-ACD443DFAEDD" targetRef="_9981A582-9C1F-49BE-B37E-B95FDE3B798C" />
     <sequenceFlow id="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F-_99350BA1-3F35-4690-BACB-ACD443DFAEDD" sourceRef="_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" targetRef="_99350BA1-3F35-4690-BACB-ACD443DFAEDD" />
-    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" >
-      <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
-    </sequenceFlow>
+    <sequenceFlow id="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" sourceRef="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" targetRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" />
     <sequenceFlow id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-_703B20BE-5052-4A97-B681-D733DDAD1465" sourceRef="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" targetRef="_703B20BE-5052-4A97-B681-D733DDAD1465" />
     <sequenceFlow id="_703B20BE-5052-4A97-B681-D733DDAD1465-_162ACEED-324E-43A9-B186-8C594A822659" sourceRef="_703B20BE-5052-4A97-B681-D733DDAD1465" targetRef="_162ACEED-324E-43A9-B186-8C594A822659" name="YES" >
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return "denied".equals(aproved);</conditionExpression>
@@ -111,7 +107,7 @@
         <dc:Bounds x="612" y="136" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_AF080CE7-500B-4B56-9579-8435A5E89D13" >
-        <dc:Bounds x="610" y="18" width="48" height="48" />
+        <dc:Bounds x="614" y="19" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_B506E970-5E1A-473D-BEA0-24B9BA18C18A" >
         <dc:Bounds x="814" y="136" width="48" height="48" />
@@ -120,11 +116,10 @@
         <dc:Bounds x="7" y="138" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" >
-        <dc:Bounds x="101" y="136" width="48" height="48" />
+        <dc:Bounds x="101" y="138" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_956AE069-E590-42A8-BA5A-3B92AFA8AB1F" >
-        <di:waypoint x="125" y="160" />
-        <di:waypoint x="127" y="420" />
+        <di:waypoint x="125" y="162" />
         <di:waypoint x="225" y="420" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_99350BA1-3F35-4690-BACB-ACD443DFAEDD-_9981A582-9C1F-49BE-B37E-B95FDE3B798C" >
@@ -136,7 +131,7 @@
         <di:waypoint x="435" y="420" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_9C9777E1-CFF3-4ABD-9C66-B801F3298A57-_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" >
-        <di:waypoint x="125" y="160" />
+        <di:waypoint x="125" y="162" />
         <di:waypoint x="296" y="163" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B-_703B20BE-5052-4A97-B681-D733DDAD1465" >
@@ -154,7 +149,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_1580DCD1-253B-4631-A5A7-BC1A5EB6EE1A-_AF080CE7-500B-4B56-9579-8435A5E89D13" >
         <di:waypoint x="636" y="160" />
-        <di:waypoint x="634" y="42" />
+        <di:waypoint x="638" y="43" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_1580DCD1-253B-4631-A5A7-BC1A5EB6EE1A-_B506E970-5E1A-473D-BEA0-24B9BA18C18A" >
         <di:waypoint x="636" y="160" />
@@ -162,7 +157,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_BE33C42A-6ED6-41DD-BB98-1016DFEA8486-_9C9777E1-CFF3-4ABD-9C66-B801F3298A57" >
         <di:waypoint x="31" y="162" />
-        <di:waypoint x="125" y="160" />
+        <di:waypoint x="125" y="162" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
