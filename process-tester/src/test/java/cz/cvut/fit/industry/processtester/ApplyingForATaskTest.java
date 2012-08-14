@@ -1,7 +1,6 @@
 package cz.cvut.fit.industry.processtester;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.drools.builder.KnowledgeBuilder;
@@ -11,8 +10,6 @@ import org.drools.io.ResourceFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.task.TaskService;
-import org.jbpm.task.query.TaskSummary;
-import org.jbpm.test.JbpmJUnitTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -116,23 +113,15 @@ public class ApplyingForATaskTest extends IndustryJUnitTestCase {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", OWNER);
 		vars.put("selected", "detail");
+		vars.put("applied", "yes");
 
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID,
 				vars);
 
-		assertNodeTriggered(processInstance.getId(), TASK_LOOK_FOR_A_TASK);
-		executeHumanTask(taskService, OWNER, LANG);
+		executeHumanTask(taskService, OWNER, LANG, TASK_LOOK_FOR_A_TASK);
+		executeHumanTask(taskService, OWNER, LANG, TASK_VIEW_DETAIL_AND_APPLY);
 
-		assertNodeTriggered(processInstance.getId(), "Selected");
-		assertNodeTriggered(processInstance.getId(),
-				TASK_VIEW_DETAIL_AND_APPLY);
-
-		// executing "02 - View detail and apply for the task" humanTask
-		executeHumanTask(taskService, OWNER, LANG);
-
-		assertNodeTriggered(processInstance.getId(), "Applied?");
-
-		vars.put("applied", "yes");
+		
 		assertNodeTriggered(processInstance.getId(), "gate2");
 		assertNodeTriggered(processInstance.getId(), "Add to candidates");
 	}
@@ -146,8 +135,7 @@ public class ApplyingForATaskTest extends IndustryJUnitTestCase {
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID,
 				vars);
 
-		assertNodeTriggered(processInstance.getId(), TASK_LOOK_FOR_A_TASK);
-		executeHumanTask(taskService, OWNER, LANG);
+		executeHumanTask(taskService, OWNER, LANG, TASK_LOOK_FOR_A_TASK);
 
 		assertNodeTriggered(processInstance.getId(), "Selected");
 		assertNodeTriggered(processInstance.getId(), "gate2");
