@@ -33,8 +33,8 @@
         <flowNodeRef>_9BEC0966-47A5-4447-BB01-66084DB8742B</flowNodeRef>
         <flowNodeRef>_785BCE17-FCCC-4648-9FA4-709E6BC5D615</flowNodeRef>
         <flowNodeRef>_BEAC32EB-579B-4200-91C2-C6BF010F7F8E</flowNodeRef>
-        <flowNodeRef>_19A04D50-1C88-4A22-AECA-F003DAF7709F</flowNodeRef>
         <flowNodeRef>_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65</flowNodeRef>
+        <flowNodeRef>_19A04D50-1C88-4A22-AECA-F003DAF7709F</flowNodeRef>
         <flowNodeRef>_6ED279ED-52AF-4204-8E1C-F9F87AFA229B</flowNodeRef>
       </lane>
     </laneSet>
@@ -73,6 +73,7 @@
     <scriptTask id="_BEAC32EB-579B-4200-91C2-C6BF010F7F8E" name="Start applying" scriptFormat="http://www.java.com/java" >
       <script></script>
     </scriptTask>
+    <endEvent id="_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65" name="Deadline postponed" />
     <adHocSubProcess id="_19A04D50-1C88-4A22-AECA-F003DAF7709F" name="01 - Choose solvers"  ordering="Parallel" >
     <!-- nodes -->
     <userTask id="_3E8AC320-5E4F-40E5-A825-1E0E8C312809" name="Sort and filter candidates" >
@@ -153,7 +154,6 @@
     </subProcess>
     <!-- connections -->
     </adHocSubProcess>
-    <endEvent id="_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65" name="Deadline postponed" />
     <exclusiveGateway id="_6ED279ED-52AF-4204-8E1C-F9F87AFA229B" name="" gatewayDirection="Converging" />
 
     <!-- connections -->
@@ -183,8 +183,8 @@
       <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_785BCE17-FCCC-4648-9FA4-709E6BC5D615-_BEAC32EB-579B-4200-91C2-C6BF010F7F8E" sourceRef="_785BCE17-FCCC-4648-9FA4-709E6BC5D615" targetRef="_BEAC32EB-579B-4200-91C2-C6BF010F7F8E" />
-    <sequenceFlow id="_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB-_19A04D50-1C88-4A22-AECA-F003DAF7709F" sourceRef="_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB" targetRef="_19A04D50-1C88-4A22-AECA-F003DAF7709F" />
     <sequenceFlow id="_BEAC32EB-579B-4200-91C2-C6BF010F7F8E-_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65" sourceRef="_BEAC32EB-579B-4200-91C2-C6BF010F7F8E" targetRef="_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65" />
+    <sequenceFlow id="_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB-_19A04D50-1C88-4A22-AECA-F003DAF7709F" sourceRef="_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB" targetRef="_19A04D50-1C88-4A22-AECA-F003DAF7709F" />
     <sequenceFlow id="_697B9662-2CDD-4448-B5C0-7712C1ADC4E9-_6ED279ED-52AF-4204-8E1C-F9F87AFA229B" sourceRef="_697B9662-2CDD-4448-B5C0-7712C1ADC4E9" targetRef="_6ED279ED-52AF-4204-8E1C-F9F87AFA229B" name="YES" >
       <conditionExpression xsi:type="tFormalExpression" ></conditionExpression>
     </sequenceFlow>
@@ -241,88 +241,88 @@
       <bpmndi:BPMNShape bpmnElement="_BEAC32EB-579B-4200-91C2-C6BF010F7F8E" >
         <dc:Bounds x="1800" y="502" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_19A04D50-1C88-4A22-AECA-F003DAF7709F" >
-        <dc:Bounds x="315" y="132" width="823" height="490" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_3E8AC320-5E4F-40E5-A825-1E0E8C312809" >
-        <dc:Bounds x="51" y="242" width="163" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_EC22A5F4-9C33-4AEE-A7DA-5501C188823B" >
-        <dc:Bounds x="45" y="39" width="176" height="86" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_96FC76E1-3F52-42E3-8884-D8BED44DD324" >
-        <dc:Bounds x="54" y="138" width="158" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_2F6BC9AB-0ACE-44C7-8493-8A18E5B5E742" >
-        <dc:Bounds x="47" y="360" width="113" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_2F5AC2A0-77A4-4C1D-8868-FAAAC202F621" >
-        <dc:Bounds x="269" y="69" width="551" height="424" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_174A9119-F6B2-4DD3-BD3E-843B07FA95DA" >
-        <dc:Bounds x="334" y="241" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_494CF803-AA1C-44C8-93F5-DB506EBD0DAF" >
-        <dc:Bounds x="415" y="106" width="165" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_4BA1C3FC-5A77-4696-A162-0417ABBE2576" >
-        <dc:Bounds x="448" y="322" width="134" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_23A751C7-FD38-487C-84B5-A3343C19AC46" >
-        <dc:Bounds x="623" y="110" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_7FC0BF30-B09F-4081-AC38-2D30004AD0E1" >
-        <dc:Bounds x="639" y="346" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_A6CF7261-39EF-49E0-80E5-88A3215E9378" >
-        <dc:Bounds x="236" y="221" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_E360109D-5AE1-4FBE-93B2-F2ACACB5455B" >
-        <dc:Bounds x="324" y="130" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_4647ACE5-1801-45AE-BEDF-613ACC4253C1" >
-        <dc:Bounds x="500" y="254" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_640ED3F1-F4E8-47B5-98AA-7BFAA8605D29" >
-        <dc:Bounds x="238" y="357" width="173" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65" >
         <dc:Bounds x="1945" y="517" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_19A04D50-1C88-4A22-AECA-F003DAF7709F" >
+        <dc:Bounds x="253" y="136" width="823" height="490" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3E8AC320-5E4F-40E5-A825-1E0E8C312809" >
+        <dc:Bounds x="-11" y="246" width="163" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_EC22A5F4-9C33-4AEE-A7DA-5501C188823B" >
+        <dc:Bounds x="-17" y="43" width="176" height="86" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_96FC76E1-3F52-42E3-8884-D8BED44DD324" >
+        <dc:Bounds x="-8" y="142" width="158" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2F6BC9AB-0ACE-44C7-8493-8A18E5B5E742" >
+        <dc:Bounds x="-15" y="364" width="113" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2F5AC2A0-77A4-4C1D-8868-FAAAC202F621" >
+        <dc:Bounds x="207" y="73" width="551" height="424" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_174A9119-F6B2-4DD3-BD3E-843B07FA95DA" >
+        <dc:Bounds x="-43" y="113" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_494CF803-AA1C-44C8-93F5-DB506EBD0DAF" >
+        <dc:Bounds x="38" y="-22" width="165" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4BA1C3FC-5A77-4696-A162-0417ABBE2576" >
+        <dc:Bounds x="71" y="194" width="134" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23A751C7-FD38-487C-84B5-A3343C19AC46" >
+        <dc:Bounds x="246" y="-18" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7FC0BF30-B09F-4081-AC38-2D30004AD0E1" >
+        <dc:Bounds x="262" y="218" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_A6CF7261-39EF-49E0-80E5-88A3215E9378" >
+        <dc:Bounds x="-141" y="93" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_E360109D-5AE1-4FBE-93B2-F2ACACB5455B" >
+        <dc:Bounds x="-53" y="2" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4647ACE5-1801-45AE-BEDF-613ACC4253C1" >
+        <dc:Bounds x="123" y="126" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_640ED3F1-F4E8-47B5-98AA-7BFAA8605D29" >
+        <dc:Bounds x="-139" y="229" width="173" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_6ED279ED-52AF-4204-8E1C-F9F87AFA229B" >
         <dc:Bounds x="1571" y="406" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_640ED3F1-F4E8-47B5-98AA-7BFAA8605D29-_174A9119-F6B2-4DD3-BD3E-843B07FA95DA" >
-        <di:waypoint x="55" y="306" />
-        <di:waypoint x="89" y="196" />
+        <di:waypoint x="-260" y="174" />
+        <di:waypoint x="-226" y="64" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_E360109D-5AE1-4FBE-93B2-F2ACACB5455B-_494CF803-AA1C-44C8-93F5-DB506EBD0DAF" >
-        <di:waypoint x="79" y="85" />
-        <di:waypoint x="228" y="77" />
+        <di:waypoint x="-236" y="-47" />
+        <di:waypoint x="-87" y="-55" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_4647ACE5-1801-45AE-BEDF-613ACC4253C1-_4BA1C3FC-5A77-4696-A162-0417ABBE2576" >
-        <di:waypoint x="255" y="209" />
-        <di:waypoint x="246" y="293" />
+        <di:waypoint x="-60" y="77" />
+        <di:waypoint x="-69" y="161" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_494CF803-AA1C-44C8-93F5-DB506EBD0DAF-_23A751C7-FD38-487C-84B5-A3343C19AC46" >
-        <di:waypoint x="228" y="77" />
-        <di:waypoint x="378" y="65" />
+        <di:waypoint x="-87" y="-55" />
+        <di:waypoint x="63" y="-67" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_4BA1C3FC-5A77-4696-A162-0417ABBE2576-_7FC0BF30-B09F-4081-AC38-2D30004AD0E1" >
-        <di:waypoint x="246" y="293" />
-        <di:waypoint x="394" y="301" />
+        <di:waypoint x="-69" y="161" />
+        <di:waypoint x="79" y="169" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_174A9119-F6B2-4DD3-BD3E-843B07FA95DA-_E360109D-5AE1-4FBE-93B2-F2ACACB5455B" >
-        <di:waypoint x="89" y="196" />
-        <di:waypoint x="79" y="85" />
+        <di:waypoint x="-226" y="64" />
+        <di:waypoint x="-236" y="-47" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_174A9119-F6B2-4DD3-BD3E-843B07FA95DA-_4647ACE5-1801-45AE-BEDF-613ACC4253C1" >
-        <di:waypoint x="89" y="196" />
-        <di:waypoint x="255" y="209" />
+        <di:waypoint x="-226" y="64" />
+        <di:waypoint x="-60" y="77" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_A6CF7261-39EF-49E0-80E5-88A3215E9378-_640ED3F1-F4E8-47B5-98AA-7BFAA8605D29" >
-        <di:waypoint x="-9" y="176" />
-        <di:waypoint x="55" y="306" />
+        <di:waypoint x="-324" y="44" />
+        <di:waypoint x="-260" y="174" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F09F97AF-26FC-4387-B957-6F35765FA83F-_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB" >
         <di:waypoint x="37" y="312" />
@@ -338,7 +338,7 @@
         <di:waypoint x="1535" y="218" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_19A04D50-1C88-4A22-AECA-F003DAF7709F-_80823E5F-054F-44A0-B1DF-6E6B84CD662D" >
-        <di:waypoint x="726" y="377" />
+        <di:waypoint x="664" y="381" />
         <di:waypoint x="1295" y="310" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_AA1C020E-915E-456B-94BA-E79DB2EED171-_D573F3CB-6A0D-4E45-AD0F-1D8B3D00E985" >
@@ -382,13 +382,13 @@
         <di:waypoint x="1715" y="542" />
         <di:waypoint x="1850" y="542" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB-_19A04D50-1C88-4A22-AECA-F003DAF7709F" >
-        <di:waypoint x="191" y="312" />
-        <di:waypoint x="726" y="377" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_BEAC32EB-579B-4200-91C2-C6BF010F7F8E-_B8FBC226-7ED9-4F60-BEB0-14EA714F5D65" >
         <di:waypoint x="1850" y="542" />
         <di:waypoint x="1969" y="541" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_C9FB7C82-5D97-43D7-B9A4-1FEFA43756EB-_19A04D50-1C88-4A22-AECA-F003DAF7709F" >
+        <di:waypoint x="191" y="312" />
+        <di:waypoint x="664" y="381" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_697B9662-2CDD-4448-B5C0-7712C1ADC4E9-_6ED279ED-52AF-4204-8E1C-F9F87AFA229B" >
         <di:waypoint x="1445" y="430" />
