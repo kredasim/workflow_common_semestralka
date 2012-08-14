@@ -14,36 +14,46 @@
 
   <itemDefinition id="_ownerItem" structureRef="String" />
   <itemDefinition id="_canceledItem" structureRef="String" />
+  <itemDefinition id="_checkItem" structureRef="String" />
 
   <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-ownerItem" structureRef="String" />
   <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-canceledItem" structureRef="String" />
+  <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-checkItem" structureRef="String" />
 
   <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-ownerItem" structureRef="String" />
   <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-canceledItem" structureRef="String" />
+  <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-checkItem" structureRef="String" />
 
   <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-ownerItem" structureRef="String" />
   <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-canceledItem" structureRef="String" />
+  <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-checkItem" structureRef="String" />
 
   <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-ownerItem" structureRef="String" />
   <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-canceledItem" structureRef="String" />
+  <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-checkItem" structureRef="String" />
 
   <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-ownerItem" structureRef="String" />
   <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-canceledItem" structureRef="String" />
+  <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-checkItem" structureRef="String" />
 
   <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-ownerItem" structureRef="String" />
   <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-canceledItem" structureRef="String" />
+  <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-checkItem" structureRef="String" />
 
   <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-ownerItem" structureRef="String" />
   <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-canceledItem" structureRef="String" />
+  <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-checkItem" structureRef="String" />
 
   <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-ownerItem" structureRef="String" />
   <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-canceledItem" structureRef="String" />
+  <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-checkItem" structureRef="String" />
 
   <process processType="Private" isExecutable="true" id="industry.impl.TaskSubmission" name="Task submission" tns:packageName="industry.impl" >
 
     <!-- process variables -->
     <property id="owner" itemSubjectRef="_ownerItem"/>
     <property id="canceled" itemSubjectRef="_canceledItem"/>
+    <property id="check" itemSubjectRef="_checkItem"/>
 
     <!-- nodes -->
     <userTask id="_83146E95-2A99-41D3-9B47-B8B262631F84" name="06 - Adjust and approve reward" >
@@ -54,13 +64,22 @@
         </outputSet>
       </ioSpecification>
     </userTask>
-    <userTask id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" name="03 - Accept solution" >
+    <userTask id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" name="03 - Accept solution - Teacher" >
       <ioSpecification>
+        <dataInput id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">03 - Accept solution - Teacher</from>
+          <to xsi:type="tFormalExpression">_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
     </userTask>
     <userTask id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821" name="05 - Evaluate" >
       <ioSpecification>
@@ -70,13 +89,22 @@
         </outputSet>
       </ioSpecification>
     </userTask>
-    <userTask id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" name="02 - Accpet solution" >
+    <userTask id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" name="02 - Accept solution - TaskManager" >
       <ioSpecification>
+        <dataInput id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_48DE62C4-3400-47F3-A8A2-F44577E94BA7_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_48DE62C4-3400-47F3-A8A2-F44577E94BA7_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">02 - Accept solution - TaskManager</from>
+          <to xsi:type="tFormalExpression">_48DE62C4-3400-47F3-A8A2-F44577E94BA7_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
     </userTask>
     <userTask id="_48571C2F-22B9-4130-8E50-65D0B8252A1C" name="04 - Evaluate" >
       <ioSpecification>
@@ -145,12 +173,12 @@
 
     <!-- connections -->
     <sequenceFlow id="_2EA01073-C061-4A82-B9F5-4E683B50569E-_83146E95-2A99-41D3-9B47-B8B262631F84" sourceRef="_2EA01073-C061-4A82-B9F5-4E683B50569E" targetRef="_83146E95-2A99-41D3-9B47-B8B262631F84" />
-    <sequenceFlow id="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" sourceRef="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" targetRef="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" >
-      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+    <sequenceFlow id="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" sourceRef="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" targetRef="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" name="TEACHER" >
+      <conditionExpression xsi:type="tFormalExpression" >return "teacher".equals(check)  ||  "both".equals(check);</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_C75DEAA3-238F-400D-B828-847CD62EED9C-_6B31BB5F-154B-46F5-BCB3-BC41143EB821" sourceRef="_C75DEAA3-238F-400D-B828-847CD62EED9C" targetRef="_6B31BB5F-154B-46F5-BCB3-BC41143EB821" />
-    <sequenceFlow id="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_48DE62C4-3400-47F3-A8A2-F44577E94BA7" sourceRef="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" targetRef="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" >
-      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+    <sequenceFlow id="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_48DE62C4-3400-47F3-A8A2-F44577E94BA7" sourceRef="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" targetRef="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" name="TASK MANAGER" >
+      <conditionExpression xsi:type="tFormalExpression" >return "task manager".equals(check)  ||  "both".equals(check);</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_C75DEAA3-238F-400D-B828-847CD62EED9C-_48571C2F-22B9-4130-8E50-65D0B8252A1C" sourceRef="_C75DEAA3-238F-400D-B828-847CD62EED9C" targetRef="_48571C2F-22B9-4130-8E50-65D0B8252A1C" />
     <sequenceFlow id="_77106F96-FF9F-475F-B5A0-24CF10917452-_F59C8235-FE18-4A37-84D8-04060355C3FF" sourceRef="_77106F96-FF9F-475F-B5A0-24CF10917452" targetRef="_F59C8235-FE18-4A37-84D8-04060355C3FF" name="YES" >
@@ -189,19 +217,19 @@
         <dc:Bounds x="1139" y="537" width="206" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" >
-        <dc:Bounds x="391" y="444" width="140" height="80" />
+        <dc:Bounds x="404" y="444" width="194" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_6B31BB5F-154B-46F5-BCB3-BC41143EB821" >
         <dc:Bounds x="799" y="454" width="145" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" >
-        <dc:Bounds x="384" y="48" width="155" height="80" />
+        <dc:Bounds x="384" y="48" width="230" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_48571C2F-22B9-4130-8E50-65D0B8252A1C" >
         <dc:Bounds x="817" y="53" width="105" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_F59C8235-FE18-4A37-84D8-04060355C3FF" >
-        <dc:Bounds x="701" y="16" width="48" height="48" />
+        <dc:Bounds x="718" y="17" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_5687365A-FC7A-4AB9-862D-6517B843C728" >
         <dc:Bounds x="1479" y="68" width="242" height="80" />
@@ -240,13 +268,13 @@
         <dc:Bounds x="1023" y="274" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" >
-        <dc:Bounds x="310" y="287" width="48" height="48" />
+        <dc:Bounds x="308" y="284" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_77106F96-FF9F-475F-B5A0-24CF10917452" >
         <dc:Bounds x="720" y="284" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" >
-        <dc:Bounds x="437" y="286" width="48" height="48" />
+        <dc:Bounds x="476" y="285" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_F795BA72-1F37-46DB-9273-67A417E9C480" >
         <dc:Bounds x="626" y="285" width="48" height="48" />
@@ -256,16 +284,16 @@
         <di:waypoint x="1242" y="577" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B" >
-        <di:waypoint x="461" y="310" />
-        <di:waypoint x="461" y="484" />
+        <di:waypoint x="500" y="309" />
+        <di:waypoint x="501" y="484" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_C75DEAA3-238F-400D-B828-847CD62EED9C-_6B31BB5F-154B-46F5-BCB3-BC41143EB821" >
         <di:waypoint x="872" y="308" />
         <di:waypoint x="871" y="494" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_48DE62C4-3400-47F3-A8A2-F44577E94BA7" >
-        <di:waypoint x="461" y="310" />
-        <di:waypoint x="461" y="88" />
+        <di:waypoint x="500" y="309" />
+        <di:waypoint x="499" y="88" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_C75DEAA3-238F-400D-B828-847CD62EED9C-_48571C2F-22B9-4130-8E50-65D0B8252A1C" >
         <di:waypoint x="872" y="308" />
@@ -273,7 +301,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_77106F96-FF9F-475F-B5A0-24CF10917452-_F59C8235-FE18-4A37-84D8-04060355C3FF" >
         <di:waypoint x="744" y="308" />
-        <di:waypoint x="725" y="40" />
+        <di:waypoint x="742" y="41" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_BBFB139B-014C-48C3-A5DA-1B3711F18843-_5687365A-FC7A-4AB9-862D-6517B843C728" >
         <di:waypoint x="1405" y="301" />
@@ -281,7 +309,7 @@
         <di:waypoint x="1600" y="108" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F41D0DD8-0DDC-4E8B-8746-10B773382E16" >
-        <di:waypoint x="334" y="311" />
+        <di:waypoint x="332" y="308" />
         <di:waypoint x="332" y="82" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_5A29F3DF-B457-4BF2-9445-AB543BE99569-_62B386D6-CF9C-4090-9191-AFAFED577517" >
@@ -334,7 +362,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_62B386D6-CF9C-4090-9191-AFAFED577517-_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" >
         <di:waypoint x="186" y="307" />
-        <di:waypoint x="334" y="311" />
+        <di:waypoint x="332" y="308" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F795BA72-1F37-46DB-9273-67A417E9C480-_77106F96-FF9F-475F-B5A0-24CF10917452" >
         <di:waypoint x="650" y="309" />
@@ -343,17 +371,17 @@
         <di:waypoint x="744" y="308" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F54846E5-757F-4CCD-89BF-FFE428B31EAA" >
-        <di:waypoint x="334" y="311" />
-        <di:waypoint x="461" y="310" />
+        <di:waypoint x="332" y="308" />
+        <di:waypoint x="500" y="309" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-_F795BA72-1F37-46DB-9273-67A417E9C480" >
-        <di:waypoint x="461" y="88" />
+        <di:waypoint x="499" y="88" />
         <di:waypoint x="647" y="87" />
         <di:waypoint x="650" y="309" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-_F795BA72-1F37-46DB-9273-67A417E9C480" >
-        <di:waypoint x="461" y="484" />
-        <di:waypoint x="458" y="614" />
+        <di:waypoint x="501" y="484" />
+        <di:waypoint x="500" y="612" />
         <di:waypoint x="652" y="614" />
         <di:waypoint x="650" y="309" />
       </bpmndi:BPMNEdge>
