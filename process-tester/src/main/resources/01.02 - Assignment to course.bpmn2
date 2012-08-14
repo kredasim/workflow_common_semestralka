@@ -36,11 +36,20 @@
     </scriptTask>
     <userTask id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B" name="01 - Approve task" >
       <ioSpecification>
+        <dataInput id="_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">01 - Approve task</from>
+          <to xsi:type="tFormalExpression">_E83EDD46-E1EA-4429-B1C7-2299C8EA9C7B_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
       <potentialOwner>
         <resourceAssignmentExpression>
           <formalExpression>#{owner}</formalExpression>

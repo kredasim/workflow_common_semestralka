@@ -1,6 +1,5 @@
 package cz.cvut.fit.industry.processtester;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
