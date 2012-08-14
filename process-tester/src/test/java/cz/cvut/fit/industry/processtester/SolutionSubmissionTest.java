@@ -1,7 +1,6 @@
 package cz.cvut.fit.industry.processtester;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.drools.builder.KnowledgeBuilder;
@@ -11,8 +10,6 @@ import org.drools.io.ResourceFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.task.TaskService;
-import org.jbpm.task.query.TaskSummary;
-import org.jbpm.test.JbpmJUnitTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
