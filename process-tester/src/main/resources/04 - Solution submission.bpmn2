@@ -134,7 +134,7 @@
         </outputSet>
       </ioSpecification>
     </userTask>
-    <endEvent id="_F59C8235-FE18-4A37-84D8-04060355C3FF" name="Submission denided" />
+    <endEvent id="_F59C8235-FE18-4A37-84D8-04060355C3FF" name="Submission denied" />
     <userTask id="_5687365A-FC7A-4AB9-862D-6517B843C728" name="07 - Comment collaboration with solver" >
       <ioSpecification>
         <inputSet>
