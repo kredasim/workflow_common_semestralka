@@ -78,7 +78,7 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", OWNER);
 		vars.put("canceled", "NO");
-		vars.put("check", "task manager");
+		vars.put("check", "teacher");
 			
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
