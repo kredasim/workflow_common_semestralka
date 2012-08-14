@@ -15,38 +15,47 @@
   <itemDefinition id="_ownerItem" structureRef="String" />
   <itemDefinition id="_canceledItem" structureRef="String" />
   <itemDefinition id="_checkItem" structureRef="String" />
+  <itemDefinition id="_deniedItem" structureRef="String" />
 
   <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-ownerItem" structureRef="String" />
   <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-canceledItem" structureRef="String" />
   <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-checkItem" structureRef="String" />
+  <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-deniedItem" structureRef="String" />
 
   <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-ownerItem" structureRef="String" />
   <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-canceledItem" structureRef="String" />
   <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-checkItem" structureRef="String" />
+  <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-deniedItem" structureRef="String" />
 
   <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-ownerItem" structureRef="String" />
   <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-canceledItem" structureRef="String" />
   <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-checkItem" structureRef="String" />
+  <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-deniedItem" structureRef="String" />
 
   <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-ownerItem" structureRef="String" />
   <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-canceledItem" structureRef="String" />
   <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-checkItem" structureRef="String" />
+  <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-deniedItem" structureRef="String" />
 
   <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-ownerItem" structureRef="String" />
   <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-canceledItem" structureRef="String" />
   <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-checkItem" structureRef="String" />
+  <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-deniedItem" structureRef="String" />
 
   <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-ownerItem" structureRef="String" />
   <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-canceledItem" structureRef="String" />
   <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-checkItem" structureRef="String" />
+  <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-deniedItem" structureRef="String" />
 
   <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-ownerItem" structureRef="String" />
   <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-canceledItem" structureRef="String" />
   <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-checkItem" structureRef="String" />
+  <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-deniedItem" structureRef="String" />
 
   <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-ownerItem" structureRef="String" />
   <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-canceledItem" structureRef="String" />
   <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-checkItem" structureRef="String" />
+  <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-deniedItem" structureRef="String" />
 
   <process processType="Private" isExecutable="true" id="industry.impl.TaskSubmission" name="Task submission" tns:packageName="industry.impl" >
 
@@ -54,6 +63,7 @@
     <property id="owner" itemSubjectRef="_ownerItem"/>
     <property id="canceled" itemSubjectRef="_canceledItem"/>
     <property id="check" itemSubjectRef="_checkItem"/>
+    <property id="denied" itemSubjectRef="_deniedItem"/>
 
     <!-- nodes -->
     <userTask id="_83146E95-2A99-41D3-9B47-B8B262631F84" name="06 - Adjust and approve reward" >
@@ -192,7 +202,7 @@
     </sequenceFlow>
     <sequenceFlow id="_C75DEAA3-238F-400D-B828-847CD62EED9C-_48571C2F-22B9-4130-8E50-65D0B8252A1C" sourceRef="_C75DEAA3-238F-400D-B828-847CD62EED9C" targetRef="_48571C2F-22B9-4130-8E50-65D0B8252A1C" />
     <sequenceFlow id="_77106F96-FF9F-475F-B5A0-24CF10917452-_F59C8235-FE18-4A37-84D8-04060355C3FF" sourceRef="_77106F96-FF9F-475F-B5A0-24CF10917452" targetRef="_F59C8235-FE18-4A37-84D8-04060355C3FF" name="YES" >
-      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" >return "YES".equals(denied);</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_BBFB139B-014C-48C3-A5DA-1B3711F18843-_5687365A-FC7A-4AB9-862D-6517B843C728" sourceRef="_BBFB139B-014C-48C3-A5DA-1B3711F18843" targetRef="_5687365A-FC7A-4AB9-862D-6517B843C728" />
     <sequenceFlow id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F41D0DD8-0DDC-4E8B-8746-10B773382E16" sourceRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" targetRef="_F41D0DD8-0DDC-4E8B-8746-10B773382E16" name="YES" >
@@ -206,7 +216,7 @@
     <sequenceFlow id="_54E125E5-B43D-4E25-88CC-3FEE2AFB552A-_4D52C0D3-5EDF-4B02-8CDD-99009EF18E2A" sourceRef="_54E125E5-B43D-4E25-88CC-3FEE2AFB552A" targetRef="_4D52C0D3-5EDF-4B02-8CDD-99009EF18E2A" />
     <sequenceFlow id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" sourceRef="_20C652CB-76EA-4D8C-8A9B-6DF23252D534" targetRef="_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" />
     <sequenceFlow id="_5687365A-FC7A-4AB9-862D-6517B843C728-_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" sourceRef="_5687365A-FC7A-4AB9-862D-6517B843C728" targetRef="_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" />
-    <sequenceFlow id="_77106F96-FF9F-475F-B5A0-24CF10917452-_C75DEAA3-238F-400D-B828-847CD62EED9C" sourceRef="_77106F96-FF9F-475F-B5A0-24CF10917452" targetRef="_C75DEAA3-238F-400D-B828-847CD62EED9C" name="NO" >
+    <sequenceFlow id="_77106F96-FF9F-475F-B5A0-24CF10917452-_C75DEAA3-238F-400D-B828-847CD62EED9C" sourceRef="_77106F96-FF9F-475F-B5A0-24CF10917452" targetRef="_C75DEAA3-238F-400D-B828-847CD62EED9C" name="NO" tns:priority="1" >
       <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_62B386D6-CF9C-4090-9191-AFAFED577517-_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" sourceRef="_62B386D6-CF9C-4090-9191-AFAFED577517" targetRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" />
