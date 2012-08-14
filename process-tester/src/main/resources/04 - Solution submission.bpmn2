@@ -96,13 +96,27 @@
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>
-    <userTask id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821" name="05 - Evaluate" >
+    <userTask id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821" name="05 - Evaluate - Teacher" >
       <ioSpecification>
+        <dataInput id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_6B31BB5F-154B-46F5-BCB3-BC41143EB821_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_6B31BB5F-154B-46F5-BCB3-BC41143EB821_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">05 - Evaluate - Teacher</from>
+          <to xsi:type="tFormalExpression">_6B31BB5F-154B-46F5-BCB3-BC41143EB821_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <userTask id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" name="02 - Accept solution - TaskManager" >
       <ioSpecification>
@@ -126,13 +140,27 @@
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>
-    <userTask id="_48571C2F-22B9-4130-8E50-65D0B8252A1C" name="04 - Evaluate" >
+    <userTask id="_48571C2F-22B9-4130-8E50-65D0B8252A1C" name="04 - Evaluate - Task Manager" >
       <ioSpecification>
+        <dataInput id="_48571C2F-22B9-4130-8E50-65D0B8252A1C_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_48571C2F-22B9-4130-8E50-65D0B8252A1C_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_48571C2F-22B9-4130-8E50-65D0B8252A1C_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">04 - Evaluate - Task Manager</from>
+          <to xsi:type="tFormalExpression">_48571C2F-22B9-4130-8E50-65D0B8252A1C_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <endEvent id="_F59C8235-FE18-4A37-84D8-04060355C3FF" name="Submission denied" />
     <userTask id="_5687365A-FC7A-4AB9-862D-6517B843C728" name="07 - Comment collaboration with solver" >
@@ -184,7 +212,7 @@
     </scriptTask>
     <endEvent id="_4D52C0D3-5EDF-4B02-8CDD-99009EF18E2A" name="Task finished" />
     <parallelGateway id="_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" name="" gatewayDirection="Converging" />
-    <parallelGateway id="_C75DEAA3-238F-400D-B828-847CD62EED9C" name="" gatewayDirection="Diverging" />
+    <parallelGateway id="_C75DEAA3-238F-400D-B828-847CD62EED9C" name="gate2" gatewayDirection="Diverging" />
     <exclusiveGateway id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" name="Canceled?" gatewayDirection="Diverging" />
     <parallelGateway id="_D32D05C1-2BAE-499B-8427-4F885D593414" name="" gatewayDirection="Converging" />
     <inclusiveGateway id="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" name="Check" gatewayDirection="Diverging" />
@@ -240,13 +268,13 @@
         <dc:Bounds x="404" y="444" width="194" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_6B31BB5F-154B-46F5-BCB3-BC41143EB821" >
-        <dc:Bounds x="799" y="454" width="145" height="80" />
+        <dc:Bounds x="835" y="455" width="152" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" >
         <dc:Bounds x="384" y="48" width="230" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_48571C2F-22B9-4130-8E50-65D0B8252A1C" >
-        <dc:Bounds x="817" y="53" width="105" height="80" />
+        <dc:Bounds x="810" y="52" width="194" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_F59C8235-FE18-4A37-84D8-04060355C3FF" >
         <dc:Bounds x="718" y="17" width="48" height="48" />
@@ -282,7 +310,7 @@
         <dc:Bounds x="1817" y="280" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_C75DEAA3-238F-400D-B828-847CD62EED9C" >
-        <dc:Bounds x="848" y="284" width="48" height="48" />
+        <dc:Bounds x="887" y="283" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" >
         <dc:Bounds x="308" y="284" width="48" height="48" />
@@ -308,16 +336,16 @@
         <di:waypoint x="501" y="484" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_C75DEAA3-238F-400D-B828-847CD62EED9C-_6B31BB5F-154B-46F5-BCB3-BC41143EB821" >
-        <di:waypoint x="872" y="308" />
-        <di:waypoint x="871" y="494" />
+        <di:waypoint x="911" y="307" />
+        <di:waypoint x="911" y="495" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F54846E5-757F-4CCD-89BF-FFE428B31EAA-_48DE62C4-3400-47F3-A8A2-F44577E94BA7" >
         <di:waypoint x="500" y="309" />
         <di:waypoint x="499" y="88" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_C75DEAA3-238F-400D-B828-847CD62EED9C-_48571C2F-22B9-4130-8E50-65D0B8252A1C" >
-        <di:waypoint x="872" y="308" />
-        <di:waypoint x="869" y="93" />
+        <di:waypoint x="911" y="307" />
+        <di:waypoint x="907" y="92" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_77106F96-FF9F-475F-B5A0-24CF10917452-_F59C8235-FE18-4A37-84D8-04060355C3FF" >
         <di:waypoint x="744" y="308" />
@@ -368,20 +396,20 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_77106F96-FF9F-475F-B5A0-24CF10917452-_C75DEAA3-238F-400D-B828-847CD62EED9C" >
         <di:waypoint x="744" y="308" />
-        <di:waypoint x="872" y="308" />
+        <di:waypoint x="911" y="307" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_62B386D6-CF9C-4090-9191-AFAFED577517-_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" >
         <di:waypoint x="186" y="307" />
         <di:waypoint x="332" y="308" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-_D32D05C1-2BAE-499B-8427-4F885D593414" >
-        <di:waypoint x="871" y="494" />
-        <di:waypoint x="1052" y="495" />
+        <di:waypoint x="911" y="495" />
+        <di:waypoint x="1048" y="496" />
         <di:waypoint x="1047" y="298" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_48571C2F-22B9-4130-8E50-65D0B8252A1C-_D32D05C1-2BAE-499B-8427-4F885D593414" >
-        <di:waypoint x="869" y="93" />
-        <di:waypoint x="1043" y="95" />
+        <di:waypoint x="907" y="92" />
+        <di:waypoint x="1047" y="91" />
         <di:waypoint x="1047" y="298" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F54846E5-757F-4CCD-89BF-FFE428B31EAA" >
