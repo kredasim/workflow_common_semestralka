@@ -17,6 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SolutionSubmissionTest extends IndustryJUnitTestCase{
+	private static final String PROCESS_ID = "industry.impl.TaskSubmission";
 	private static final String PROCESS_FILE_NAME = "04 - Solution submission.bpmn2";
 	private static final String TASK_SUBMIT_SOLUTION = "01 - Submit solution";
 	private static final String LANG = "en-UK";
@@ -44,18 +45,21 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 	
 	@Test
 	public void testProcessStart() {
-		ProcessInstance processInstance = ksession.startProcess("industry.impl.TaskSubmission");		
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID);		
 		
 		assertProcessInstanceActive(processInstance.getId(), ksession);
 		assertNodeTriggered(processInstance.getId(), TASK_SUBMIT_SOLUTION);
 	}
 	
 	@Test
-	public void testLookForATaskFinished() {
+	public void testSolutionCanceled() {
 		Map<String, Object> vars = new HashMap<String, Object>();
 		vars.put("owner", OWNER);
+		vars.put("canceled", "YES");
 			
-		ProcessInstance processInstance = ksession.startProcess("industry.impl.ApplyingForTask", vars);		
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
+		assertNodeTriggered(processInstance.getId(), "Canceled?");
+		assertNodeTriggered(processInstance.getId(), "Task canceled");
 	}
 }

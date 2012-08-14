@@ -12,7 +12,38 @@
              xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
              xmlns:tns="http://www.jboss.org/drools">
 
+  <itemDefinition id="_ownerItem" structureRef="String" />
+  <itemDefinition id="_canceledItem" structureRef="String" />
+
+  <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-ownerItem" structureRef="String" />
+  <itemDefinition id="_83146E95-2A99-41D3-9B47-B8B262631F84-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-ownerItem" structureRef="String" />
+  <itemDefinition id="_10CAC8B4-AB3D-4A23-978C-D1A6FF39313B-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-ownerItem" structureRef="String" />
+  <itemDefinition id="_6B31BB5F-154B-46F5-BCB3-BC41143EB821-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-ownerItem" structureRef="String" />
+  <itemDefinition id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-ownerItem" structureRef="String" />
+  <itemDefinition id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-ownerItem" structureRef="String" />
+  <itemDefinition id="_5687365A-FC7A-4AB9-862D-6517B843C728-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-ownerItem" structureRef="String" />
+  <itemDefinition id="_62B386D6-CF9C-4090-9191-AFAFED577517-canceledItem" structureRef="String" />
+
+  <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-ownerItem" structureRef="String" />
+  <itemDefinition id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534-canceledItem" structureRef="String" />
+
   <process processType="Private" isExecutable="true" id="industry.impl.TaskSubmission" name="Task submission" tns:packageName="industry.impl" >
+
+    <!-- process variables -->
+    <property id="owner" itemSubjectRef="_ownerItem"/>
+    <property id="canceled" itemSubjectRef="_canceledItem"/>
 
     <!-- nodes -->
     <userTask id="_83146E95-2A99-41D3-9B47-B8B262631F84" name="06 - Adjust and approve reward" >
@@ -82,6 +113,11 @@
           <to xsi:type="tFormalExpression">_62B386D6-CF9C-4090-9191-AFAFED577517_TaskNameInput</to>
         </assignment>
       </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <scriptTask id="_2EA01073-C061-4A82-B9F5-4E683B50569E" name="Calculate reward" scriptFormat="http://www.java.com/java" >
       <script></script>
@@ -121,8 +157,8 @@
       <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_BBFB139B-014C-48C3-A5DA-1B3711F18843-_5687365A-FC7A-4AB9-862D-6517B843C728" sourceRef="_BBFB139B-014C-48C3-A5DA-1B3711F18843" targetRef="_5687365A-FC7A-4AB9-862D-6517B843C728" />
-    <sequenceFlow id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F41D0DD8-0DDC-4E8B-8746-10B773382E16" sourceRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" targetRef="_F41D0DD8-0DDC-4E8B-8746-10B773382E16" >
-      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+    <sequenceFlow id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F41D0DD8-0DDC-4E8B-8746-10B773382E16" sourceRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" targetRef="_F41D0DD8-0DDC-4E8B-8746-10B773382E16" name="YES" >
+      <conditionExpression xsi:type="tFormalExpression" >return "YES".equals(canceled);</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_5A29F3DF-B457-4BF2-9445-AB543BE99569-_62B386D6-CF9C-4090-9191-AFAFED577517" sourceRef="_5A29F3DF-B457-4BF2-9445-AB543BE99569" targetRef="_62B386D6-CF9C-4090-9191-AFAFED577517" />
     <sequenceFlow id="_D32D05C1-2BAE-499B-8427-4F885D593414-_2EA01073-C061-4A82-B9F5-4E683B50569E" sourceRef="_D32D05C1-2BAE-499B-8427-4F885D593414" targetRef="_2EA01073-C061-4A82-B9F5-4E683B50569E" />
@@ -139,7 +175,7 @@
     <sequenceFlow id="_48571C2F-22B9-4130-8E50-65D0B8252A1C-_D32D05C1-2BAE-499B-8427-4F885D593414" sourceRef="_48571C2F-22B9-4130-8E50-65D0B8252A1C" targetRef="_D32D05C1-2BAE-499B-8427-4F885D593414" />
     <sequenceFlow id="_62B386D6-CF9C-4090-9191-AFAFED577517-_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" sourceRef="_62B386D6-CF9C-4090-9191-AFAFED577517" targetRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" />
     <sequenceFlow id="_F795BA72-1F37-46DB-9273-67A417E9C480-_77106F96-FF9F-475F-B5A0-24CF10917452" sourceRef="_F795BA72-1F37-46DB-9273-67A417E9C480" targetRef="_77106F96-FF9F-475F-B5A0-24CF10917452" />
-    <sequenceFlow id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F54846E5-757F-4CCD-89BF-FFE428B31EAA" sourceRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" targetRef="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" >
+    <sequenceFlow id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F54846E5-757F-4CCD-89BF-FFE428B31EAA" sourceRef="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" targetRef="_F54846E5-757F-4CCD-89BF-FFE428B31EAA" name="NO" tns:priority="1" >
       <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-_F795BA72-1F37-46DB-9273-67A417E9C480" sourceRef="_48DE62C4-3400-47F3-A8A2-F44577E94BA7" targetRef="_F795BA72-1F37-46DB-9273-67A417E9C480" />
@@ -204,7 +240,7 @@
         <dc:Bounds x="1023" y="274" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" >
-        <dc:Bounds x="309" y="287" width="48" height="48" />
+        <dc:Bounds x="310" y="287" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_77106F96-FF9F-475F-B5A0-24CF10917452" >
         <dc:Bounds x="720" y="284" width="48" height="48" />
@@ -245,7 +281,7 @@
         <di:waypoint x="1600" y="108" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F41D0DD8-0DDC-4E8B-8746-10B773382E16" >
-        <di:waypoint x="333" y="311" />
+        <di:waypoint x="334" y="311" />
         <di:waypoint x="332" y="82" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_5A29F3DF-B457-4BF2-9445-AB543BE99569-_62B386D6-CF9C-4090-9191-AFAFED577517" >
@@ -298,7 +334,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_62B386D6-CF9C-4090-9191-AFAFED577517-_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" >
         <di:waypoint x="186" y="307" />
-        <di:waypoint x="333" y="311" />
+        <di:waypoint x="334" y="311" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_F795BA72-1F37-46DB-9273-67A417E9C480-_77106F96-FF9F-475F-B5A0-24CF10917452" >
         <di:waypoint x="650" y="309" />
@@ -307,7 +343,7 @@
         <di:waypoint x="744" y="308" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C-_F54846E5-757F-4CCD-89BF-FFE428B31EAA" >
-        <di:waypoint x="333" y="311" />
+        <di:waypoint x="334" y="311" />
         <di:waypoint x="461" y="310" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_48DE62C4-3400-47F3-A8A2-F44577E94BA7-_F795BA72-1F37-46DB-9273-67A417E9C480" >
