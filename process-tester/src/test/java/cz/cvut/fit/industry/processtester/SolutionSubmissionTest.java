@@ -171,8 +171,32 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
 		executeHumanTask(taskService, OWNER, LANG, "05 - Evaluate - Teacher");
 		executeHumanTask(taskService, OWNER, LANG, "04 - Evaluate - Task Manager");
+		executeHumanTask(taskService, OWNER, LANG, "06 - Adjust and approve reward");
 		
-		assertNodeTriggered(processInstance.getId(), "gate3");
-		assertNodeTriggered(processInstance.getId(), "Calculate reward");
+		assertNodeTriggered(processInstance.getId(), "gate4");
+		assertNodeTriggered(processInstance.getId(), "07 - Comment collaboration with solver");
+		assertNodeTriggered(processInstance.getId(), "08 - Comment collaboration with task manager");
+	}
+	
+	@Test
+	public void testEndOfProcess() {
+		Map<String, Object> vars = new HashMap<String, Object>();
+		vars.put("owner", OWNER);
+		vars.put("canceled", "NO");
+		vars.put("check", "teacher");
+		vars.put("denied", "NO");
+			
+		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
+		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
+		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
+		executeHumanTask(taskService, OWNER, LANG, "05 - Evaluate - Teacher");
+		executeHumanTask(taskService, OWNER, LANG, "04 - Evaluate - Task Manager");
+		executeHumanTask(taskService, OWNER, LANG, "06 - Adjust and approve reward");
+		executeHumanTask(taskService, OWNER, LANG, "07 - Comment collaboration with solver");
+		executeHumanTask(taskService, OWNER, LANG, "08 - Comment collaboration with task manager");
+		
+		assertNodeTriggered(processInstance.getId(), "gate5");
+		assertNodeTriggered(processInstance.getId(), "Public comments");
+		assertNodeTriggered(processInstance.getId(), "Task finished");
 	}
 }

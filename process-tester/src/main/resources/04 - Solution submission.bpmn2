@@ -179,11 +179,25 @@
     <endEvent id="_F59C8235-FE18-4A37-84D8-04060355C3FF" name="Submission denied" />
     <userTask id="_5687365A-FC7A-4AB9-862D-6517B843C728" name="07 - Comment collaboration with solver" >
       <ioSpecification>
+        <dataInput id="_5687365A-FC7A-4AB9-862D-6517B843C728_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_5687365A-FC7A-4AB9-862D-6517B843C728_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_5687365A-FC7A-4AB9-862D-6517B843C728_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">07 - Comment collaboration with solver</from>
+          <to xsi:type="tFormalExpression">_5687365A-FC7A-4AB9-862D-6517B843C728_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <endEvent id="_F41D0DD8-0DDC-4E8B-8746-10B773382E16" name="Task canceled" />
     <startEvent id="_5A29F3DF-B457-4BF2-9445-AB543BE99569" name="" />
@@ -212,21 +226,35 @@
     <scriptTask id="_2EA01073-C061-4A82-B9F5-4E683B50569E" name="Calculate reward" scriptFormat="http://www.java.com/java" >
       <script></script>
     </scriptTask>
-    <parallelGateway id="_BBFB139B-014C-48C3-A5DA-1B3711F18843" name="" gatewayDirection="Diverging" />
+    <parallelGateway id="_BBFB139B-014C-48C3-A5DA-1B3711F18843" name="gate4" gatewayDirection="Diverging" />
     <userTask id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534" name="08 - Comment collaboration with task manager" >
       <ioSpecification>
+        <dataInput id="_20C652CB-76EA-4D8C-8A9B-6DF23252D534_TaskNameInput" name="TaskName" />
         <inputSet>
+          <dataInputRefs>_20C652CB-76EA-4D8C-8A9B-6DF23252D534_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
         </outputSet>
       </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_20C652CB-76EA-4D8C-8A9B-6DF23252D534_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">08 - Comment collaboration with task manager</from>
+          <to xsi:type="tFormalExpression">_20C652CB-76EA-4D8C-8A9B-6DF23252D534_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{owner}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
     </userTask>
     <scriptTask id="_54E125E5-B43D-4E25-88CC-3FEE2AFB552A" name="Public comments" scriptFormat="http://www.java.com/java" >
       <script></script>
     </scriptTask>
     <endEvent id="_4D52C0D3-5EDF-4B02-8CDD-99009EF18E2A" name="Task finished" />
     <parallelGateway id="_C75DEAA3-238F-400D-B828-847CD62EED9C" name="gate2" gatewayDirection="Diverging" />
-    <parallelGateway id="_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" name="" gatewayDirection="Converging" />
+    <parallelGateway id="_C7FEF20A-D283-4DDA-A0F8-2A80444509EC" name="gate5" gatewayDirection="Converging" />
     <parallelGateway id="_D32D05C1-2BAE-499B-8427-4F885D593414" name="gate3" gatewayDirection="Converging" />
     <exclusiveGateway id="_3E6EBED6-0124-4E39-8B79-8C1BF2369E2C" name="Canceled?" gatewayDirection="Diverging" />
     <exclusiveGateway id="_77106F96-FF9F-475F-B5A0-24CF10917452" name="Denied?" gatewayDirection="Diverging" />
