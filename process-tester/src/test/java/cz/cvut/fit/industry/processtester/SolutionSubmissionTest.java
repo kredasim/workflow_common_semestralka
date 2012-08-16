@@ -14,6 +14,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SolutionSubmissionTest extends IndustryJUnitTestCase{
+	private static final String TASK_COMMENT_COLLABORATION_WITH_TASK_MANAGER = "08 - Comment collaboration with task manager";
+	private static final String TASK_COMMENT_COLLABORATION_WITH_SOLVER = "07 - Comment collaboration with solver";
+	private static final String TASK_ADJUST_AND_APPROVE_REWARD = "06 - Adjust and approve reward";
+	private static final String TASK_EVALUATE_TASK_MANAGER = "04 - Evaluate - Task Manager";
+	private static final String TASK_EVALUATE_TEACHER = "05 - Evaluate - Teacher";
 	private static final String TASK_ACCEPT_SOLUTION_TEACHER = "03 - Accept solution - Teacher";
 	private static final String TASK_ACCEPT_SOLUTION_TASK_MANAGER = "02 - Accept solution - TaskManager";
 	private static final String PROCESS_ID = "industry.impl.TaskSubmission";
@@ -150,12 +155,12 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
 		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
-		executeHumanTask(taskService, OWNER, LANG, "05 - Evaluate - Teacher");
-		executeHumanTask(taskService, OWNER, LANG, "04 - Evaluate - Task Manager");
+		executeHumanTask(taskService, OWNER, LANG, TASK_EVALUATE_TEACHER);
+		executeHumanTask(taskService, OWNER, LANG, TASK_EVALUATE_TASK_MANAGER);
 		
 		assertNodeTriggered(processInstance.getId(), "gate3");
 		assertNodeTriggered(processInstance.getId(), "Calculate reward");
-		assertNodeTriggered(processInstance.getId(), "06 - Adjust and approve reward");
+		assertNodeTriggered(processInstance.getId(), TASK_ADJUST_AND_APPROVE_REWARD);
 	}
 	
 	@Test
@@ -169,13 +174,13 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
 		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
-		executeHumanTask(taskService, OWNER, LANG, "05 - Evaluate - Teacher");
-		executeHumanTask(taskService, OWNER, LANG, "04 - Evaluate - Task Manager");
-		executeHumanTask(taskService, OWNER, LANG, "06 - Adjust and approve reward");
+		executeHumanTask(taskService, OWNER, LANG, TASK_EVALUATE_TEACHER);
+		executeHumanTask(taskService, OWNER, LANG, TASK_EVALUATE_TASK_MANAGER);
+		executeHumanTask(taskService, OWNER, LANG, TASK_ADJUST_AND_APPROVE_REWARD);
 		
 		assertNodeTriggered(processInstance.getId(), "gate4");
-		assertNodeTriggered(processInstance.getId(), "07 - Comment collaboration with solver");
-		assertNodeTriggered(processInstance.getId(), "08 - Comment collaboration with task manager");
+		assertNodeTriggered(processInstance.getId(), TASK_COMMENT_COLLABORATION_WITH_SOLVER);
+		assertNodeTriggered(processInstance.getId(), TASK_COMMENT_COLLABORATION_WITH_TASK_MANAGER);
 	}
 	
 	@Test
@@ -189,11 +194,11 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, vars);		
 		executeHumanTask(taskService, OWNER, LANG, TASK_SUBMIT_SOLUTION);
 		executeHumanTask(taskService, OWNER, LANG, TASK_ACCEPT_SOLUTION_TEACHER);
-		executeHumanTask(taskService, OWNER, LANG, "05 - Evaluate - Teacher");
-		executeHumanTask(taskService, OWNER, LANG, "04 - Evaluate - Task Manager");
-		executeHumanTask(taskService, OWNER, LANG, "06 - Adjust and approve reward");
-		executeHumanTask(taskService, OWNER, LANG, "07 - Comment collaboration with solver");
-		executeHumanTask(taskService, OWNER, LANG, "08 - Comment collaboration with task manager");
+		executeHumanTask(taskService, OWNER, LANG, TASK_EVALUATE_TEACHER);
+		executeHumanTask(taskService, OWNER, LANG, TASK_EVALUATE_TASK_MANAGER);
+		executeHumanTask(taskService, OWNER, LANG, TASK_ADJUST_AND_APPROVE_REWARD);
+		executeHumanTask(taskService, OWNER, LANG, TASK_COMMENT_COLLABORATION_WITH_SOLVER);
+		executeHumanTask(taskService, OWNER, LANG, TASK_COMMENT_COLLABORATION_WITH_TASK_MANAGER);
 		
 		assertNodeTriggered(processInstance.getId(), "gate5");
 		assertNodeTriggered(processInstance.getId(), "Public comments");
