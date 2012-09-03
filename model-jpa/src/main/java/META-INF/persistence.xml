@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="model-jpa" transaction-type="RESOURCE_LOCAL">
+		<class>model.Acceptanceresult</class>
+		<class>model.Address</class>
+		<class>model.Appuser</class>
+		<class>model.AppuserContact</class>
+		<class>model.AppuserTaskrole</class>
+		<class>model.Contact</class>
+		<class>model.Contacttype</class>
+		<class>model.Country</class>
+		<class>model.Fieldofactivity</class>
+		<class>model.Institution</class>
+		<class>model.InstitutionAddress</class>
+		<class>model.InstitutionContact</class>
+		<class>model.InstitutionFieldofactivity</class>
+		<class>model.InstitutionStudyprogram</class>
+		<class>model.InstitutionSubject</class>
+		<class>model.Institutiontype</class>
+		<class>model.Project</class>
+		<class>model.Role</class>
+		<class>model.StudentSubject</class>
+		<class>model.Studyprogram</class>
+		<class>model.Subject</class>
+		<class>model.SubjectStudyprogram</class>
+		<class>model.SubjectTask</class>
+		<class>model.Subjecttaskassignmentstate</class>
+		<class>model.Task</class>
+		<class>model.TaskSolution</class>
+		<class>model.TaskTaskrole</class>
+		<class>model.TaskTaskstate</class>
+		<class>model.Taskphase</class>
+		<class>model.Taskrole</class>
+		<class>model.Taskroleassignmentstate</class>
+		<class>model.Tasksolutionacceptance</class>
+		<class>model.Taskstate</class>
+		<class>model.TeacherSubject</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://jbpm.is.fit.cvut.cz:5432"/>
+			<property name="javax.persistence.jdbc.user" value="jbpm_pssp"/>
+			<property name="javax.persistence.jdbc.password" value="pru1mys2l"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
