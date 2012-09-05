@@ -23,7 +23,7 @@ public class Role implements Serializable {
 
 	//bi-directional many-to-many association to Appuser
 	@ManyToMany(mappedBy="roles")
-	private List<Appuser> appusers;
+	private List<AppUser> appUsers;
 
 	public Role() {
 	}
@@ -52,12 +52,12 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	public List<Appuser> getAppusers() {
-		return this.appusers;
+	public List<AppUser> getAppusers() {
+		return this.appUsers;
 	}
 
-	public void setAppusers(List<Appuser> appusers) {
-		this.appusers = appusers;
+	public void setAppusers(List<AppUser> appUsers) {
+		this.appUsers = appUsers;
 	}
 
 }

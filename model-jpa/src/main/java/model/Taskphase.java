@@ -10,7 +10,7 @@ import java.sql.Timestamp;
  * 
  */
 @Entity
-public class Taskphase implements Serializable {
+public class TaskPhase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,7 +32,7 @@ public class Taskphase implements Serializable {
 	@JoinColumn(name="taskid")
 	private Task task;
 
-	public Taskphase() {
+	public TaskPhase() {
 	}
 
 	public Integer getTaskphaseid() {

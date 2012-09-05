@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-public class Tasksolutionacceptance implements Serializable {
+public class TaskSolutionAcceptance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,14 +21,14 @@ public class Tasksolutionacceptance implements Serializable {
 	//bi-directional many-to-one association to Acceptanceresult
 	@ManyToOne
 	@JoinColumn(name="acceptanceresultid")
-	private Acceptanceresult acceptanceresult;
+	private AcceptanceResult acceptanceResult;
 
 	//bi-directional many-to-one association to Tasksolution
 	@ManyToOne
 	@JoinColumn(name="tasksolutionid")
 	private TaskSolution tasksolution;
 
-	public Tasksolutionacceptance() {
+	public TaskSolutionAcceptance() {
 	}
 
 	public Integer getTasksolutionacceptanceid() {
@@ -47,12 +47,12 @@ public class Tasksolutionacceptance implements Serializable {
 		this.comment = comment;
 	}
 
-	public Acceptanceresult getAcceptanceresult() {
-		return this.acceptanceresult;
+	public AcceptanceResult getAcceptanceresult() {
+		return this.acceptanceResult;
 	}
 
-	public void setAcceptanceresult(Acceptanceresult acceptanceresult) {
-		this.acceptanceresult = acceptanceresult;
+	public void setAcceptanceresult(AcceptanceResult acceptanceResult) {
+		this.acceptanceResult = acceptanceResult;
 	}
 
 	public TaskSolution getTasksolution() {

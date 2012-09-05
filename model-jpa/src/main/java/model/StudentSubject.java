@@ -27,7 +27,7 @@ public class StudentSubject implements Serializable {
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
 	@JoinColumn(name="appuserid")
-	private Appuser appuser;
+	private AppUser appUser;
 
 	//bi-directional many-to-one association to Subject
 	@ManyToOne
@@ -69,12 +69,12 @@ public class StudentSubject implements Serializable {
 		this.semester = semester;
 	}
 
-	public Appuser getAppuser() {
-		return this.appuser;
+	public AppUser getAppuser() {
+		return this.appUser;
 	}
 
-	public void setAppuser(Appuser appuser) {
-		this.appuser = appuser;
+	public void setAppuser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
 	public Subject getSubject() {

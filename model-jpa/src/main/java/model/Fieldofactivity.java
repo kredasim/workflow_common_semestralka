@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-public class Fieldofactivity implements Serializable {
+public class FieldOfActivity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,11 +21,11 @@ public class Fieldofactivity implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to InstitutionFieldofactivity
-	@OneToMany(mappedBy="fieldofactivity")
-	private List<InstitutionFieldofactivity> institutionFieldofactivities;
+	//bi-directional many-to-one association to InstitutionFieldOfActivity
+	@OneToMany(mappedBy="fieldOfActivity")
+	private List<InstitutionFieldOfActivity> institutionFieldOfActivities;
 
-	public Fieldofactivity() {
+	public FieldOfActivity() {
 	}
 
 	public Integer getFieldofactivityid() {
@@ -52,12 +52,12 @@ public class Fieldofactivity implements Serializable {
 		this.name = name;
 	}
 
-	public List<InstitutionFieldofactivity> getInstitutionFieldofactivities() {
-		return this.institutionFieldofactivities;
+	public List<InstitutionFieldOfActivity> getInstitutionFieldofactivities() {
+		return this.institutionFieldOfActivities;
 	}
 
-	public void setInstitutionFieldofactivities(List<InstitutionFieldofactivity> institutionFieldofactivities) {
-		this.institutionFieldofactivities = institutionFieldofactivities;
+	public void setInstitutionFieldofactivities(List<InstitutionFieldOfActivity> institutionFieldOfActivities) {
+		this.institutionFieldOfActivities = institutionFieldOfActivities;
 	}
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-public class Acceptanceresult implements Serializable {
+public class AcceptanceResult implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -19,11 +19,11 @@ public class Acceptanceresult implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to Tasksolutionacceptance
-	@OneToMany(mappedBy="acceptanceresult")
-	private List<Tasksolutionacceptance> tasksolutionacceptances;
+	//bi-directional many-to-one association to TaskSolutionAcceptance
+	@OneToMany(mappedBy="acceptanceResult")
+	private List<TaskSolutionAcceptance> taskSolutionAcceptances;
 
-	public Acceptanceresult() {
+	public AcceptanceResult() {
 	}
 
 	public Integer getAcceptanceresultid() {
@@ -42,12 +42,12 @@ public class Acceptanceresult implements Serializable {
 		this.name = name;
 	}
 
-	public List<Tasksolutionacceptance> getTasksolutionacceptances() {
-		return this.tasksolutionacceptances;
+	public List<TaskSolutionAcceptance> getTasksolutionacceptances() {
+		return this.taskSolutionAcceptances;
 	}
 
-	public void setTasksolutionacceptances(List<Tasksolutionacceptance> tasksolutionacceptances) {
-		this.tasksolutionacceptances = tasksolutionacceptances;
+	public void setTasksolutionacceptances(List<TaskSolutionAcceptance> taskSolutionAcceptances) {
+		this.taskSolutionAcceptances = taskSolutionAcceptances;
 	}
 
 }

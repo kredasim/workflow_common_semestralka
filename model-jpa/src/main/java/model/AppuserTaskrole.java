@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name="appuser_taskrole")
-public class AppuserTaskrole implements Serializable {
+public class AppUserTaskrole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,19 +26,19 @@ public class AppuserTaskrole implements Serializable {
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
 	@JoinColumn(name="appuserid")
-	private Appuser appuser;
+	private AppUser appUser;
 
-	//bi-directional many-to-one association to Taskrole
+	//bi-directional many-to-one association to TaskRole
 	@ManyToOne
 	@JoinColumn(name="taskroleid")
-	private Taskrole taskrole;
+	private TaskRole taskRole;
 
-	//bi-directional many-to-one association to Taskroleassignmentstate
+	//bi-directional many-to-one association to TaskRoleAssignmentState
 	@ManyToOne
 	@JoinColumn(name="taskroleassignmentstateid")
-	private Taskroleassignmentstate taskroleassignmentstate;
+	private TaskRoleAssignmentState taskRoleAssignmentState;
 
-	public AppuserTaskrole() {
+	public AppUserTaskrole() {
 	}
 
 	public Integer getUserTaskroleid() {
@@ -65,28 +65,28 @@ public class AppuserTaskrole implements Serializable {
 		this.inserttimestamp = inserttimestamp;
 	}
 
-	public Appuser getAppuser() {
-		return this.appuser;
+	public AppUser getAppuser() {
+		return this.appUser;
 	}
 
-	public void setAppuser(Appuser appuser) {
-		this.appuser = appuser;
+	public void setAppuser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
-	public Taskrole getTaskrole() {
-		return this.taskrole;
+	public TaskRole getTaskrole() {
+		return this.taskRole;
 	}
 
-	public void setTaskrole(Taskrole taskrole) {
-		this.taskrole = taskrole;
+	public void setTaskrole(TaskRole taskRole) {
+		this.taskRole = taskRole;
 	}
 
-	public Taskroleassignmentstate getTaskroleassignmentstate() {
-		return this.taskroleassignmentstate;
+	public TaskRoleAssignmentState getTaskroleassignmentstate() {
+		return this.taskRoleAssignmentState;
 	}
 
-	public void setTaskroleassignmentstate(Taskroleassignmentstate taskroleassignmentstate) {
-		this.taskroleassignmentstate = taskroleassignmentstate;
+	public void setTaskroleassignmentstate(TaskRoleAssignmentState taskRoleAssignmentState) {
+		this.taskRoleAssignmentState = taskRoleAssignmentState;
 	}
 
 }

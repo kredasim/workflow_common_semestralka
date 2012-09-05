@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the taskstate database table.
+ * The persistent class for the taskState database table.
  * 
  */
 @Entity
-public class Taskstate implements Serializable {
+public class TaskState implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -19,11 +19,11 @@ public class Taskstate implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to TaskTaskstate
-	@OneToMany(mappedBy="taskstate")
-	private List<TaskTaskstate> taskTaskstates;
+	//bi-directional many-to-one association to TaskTaskState
+	@OneToMany(mappedBy="taskState")
+	private List<TaskTaskState> taskTaskStates;
 
-	public Taskstate() {
+	public TaskState() {
 	}
 
 	public Integer getTaskstateid() {
@@ -42,12 +42,12 @@ public class Taskstate implements Serializable {
 		this.name = name;
 	}
 
-	public List<TaskTaskstate> getTaskTaskstates() {
-		return this.taskTaskstates;
+	public List<TaskTaskState> getTaskTaskStates() {
+		return this.taskTaskStates;
 	}
 
-	public void setTaskTaskstates(List<TaskTaskstate> taskTaskstates) {
-		this.taskTaskstates = taskTaskstates;
+	public void setTaskTaskStates(List<TaskTaskState> taskTaskStates) {
+		this.taskTaskStates = taskTaskStates;
 	}
 
 }

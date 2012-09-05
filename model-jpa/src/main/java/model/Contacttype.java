@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the contacttype database table.
+ * The persistent class for the contactType database table.
  * 
  */
 @Entity
-public class Contacttype implements Serializable {
+public class ContactType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -20,10 +20,10 @@ public class Contacttype implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to Contact
-	@OneToMany(mappedBy="contacttype")
+	@OneToMany(mappedBy="contactType")
 	private List<Contact> contacts;
 
-	public Contacttype() {
+	public ContactType() {
 	}
 
 	public Integer getContacttypeid() {

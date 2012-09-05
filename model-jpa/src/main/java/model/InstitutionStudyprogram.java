@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="institution_studyprogram")
-public class InstitutionStudyprogram implements Serializable {
+public class InstitutionStudyProgram implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,12 +23,12 @@ public class InstitutionStudyprogram implements Serializable {
 	@JoinColumn(name="institutionid")
 	private Institution institution;
 
-	//bi-directional many-to-one association to Studyprogram
+	//bi-directional many-to-one association to StudyProgram
 	@ManyToOne
 	@JoinColumn(name="studyprogramid")
-	private Studyprogram studyprogram;
+	private StudyProgram studyProgram;
 
-	public InstitutionStudyprogram() {
+	public InstitutionStudyProgram() {
 	}
 
 	public Integer getInstitutionStudyprogramid() {
@@ -47,12 +47,12 @@ public class InstitutionStudyprogram implements Serializable {
 		this.institution = institution;
 	}
 
-	public Studyprogram getStudyprogram() {
-		return this.studyprogram;
+	public StudyProgram getStudyprogram() {
+		return this.studyProgram;
 	}
 
-	public void setStudyprogram(Studyprogram studyprogram) {
-		this.studyprogram = studyprogram;
+	public void setStudyprogram(StudyProgram studyProgram) {
+		this.studyProgram = studyProgram;
 	}
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-public class Institutiontype implements Serializable {
+public class InstitutionType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -22,10 +22,10 @@ public class Institutiontype implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to Institution
-	@OneToMany(mappedBy="institutiontype")
+	@OneToMany(mappedBy="institutionType")
 	private List<Institution> institutions;
 
-	public Institutiontype() {
+	public InstitutionType() {
 	}
 
 	public Integer getInstitutiontypeid() {

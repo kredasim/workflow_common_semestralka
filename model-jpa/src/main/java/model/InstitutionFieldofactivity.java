@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="institution_fieldofactivity")
-public class InstitutionFieldofactivity implements Serializable {
+public class InstitutionFieldOfActivity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -18,17 +18,17 @@ public class InstitutionFieldofactivity implements Serializable {
 	@Column(name="institution_fieldofactivityid")
 	private Integer institutionFieldofactivityid;
 
-	//bi-directional many-to-one association to Fieldofactivity
+	//bi-directional many-to-one association to FieldOfActivity
 	@ManyToOne
 	@JoinColumn(name="fieldofactivityid")
-	private Fieldofactivity fieldofactivity;
+	private FieldOfActivity fieldOfActivity;
 
 	//bi-directional many-to-one association to Institution
 	@ManyToOne
 	@JoinColumn(name="institutionid")
 	private Institution institution;
 
-	public InstitutionFieldofactivity() {
+	public InstitutionFieldOfActivity() {
 	}
 
 	public Integer getInstitutionFieldofactivityid() {
@@ -39,12 +39,12 @@ public class InstitutionFieldofactivity implements Serializable {
 		this.institutionFieldofactivityid = institutionFieldofactivityid;
 	}
 
-	public Fieldofactivity getFieldofactivity() {
-		return this.fieldofactivity;
+	public FieldOfActivity getFieldofactivity() {
+		return this.fieldOfActivity;
 	}
 
-	public void setFieldofactivity(Fieldofactivity fieldofactivity) {
-		this.fieldofactivity = fieldofactivity;
+	public void setFieldofactivity(FieldOfActivity fieldOfActivity) {
+		this.fieldOfActivity = fieldOfActivity;
 	}
 
 	public Institution getInstitution() {

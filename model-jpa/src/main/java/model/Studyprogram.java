@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the studyprogram database table.
+ * The persistent class for the studyProgram database table.
  * 
  */
 @Entity
-public class Studyprogram implements Serializable {
+public class StudyProgram implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,20 +21,20 @@ public class Studyprogram implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to InstitutionStudyprogram
-	@OneToMany(mappedBy="studyprogram")
-	private List<InstitutionStudyprogram> institutionStudyprograms;
+	//bi-directional many-to-one association to InstitutionStudyProgram
+	@OneToMany(mappedBy="studyProgram")
+	private List<InstitutionStudyProgram> institutionStudyPrograms;
 
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
 	@JoinColumn(name="userid")
-	private Appuser appuser;
+	private AppUser appUser;
 
-	//bi-directional many-to-one association to SubjectStudyprogram
-	@OneToMany(mappedBy="studyprogram")
-	private List<SubjectStudyprogram> subjectStudyprograms;
+	//bi-directional many-to-one association to SubjectStudyProgram
+	@OneToMany(mappedBy="studyProgram")
+	private List<SubjectStudyProgram> subjectStudyPrograms;
 
-	public Studyprogram() {
+	public StudyProgram() {
 	}
 
 	public Integer getStudyprogramid() {
@@ -61,28 +61,28 @@ public class Studyprogram implements Serializable {
 		this.name = name;
 	}
 
-	public List<InstitutionStudyprogram> getInstitutionStudyprograms() {
-		return this.institutionStudyprograms;
+	public List<InstitutionStudyProgram> getInstitutionStudyprograms() {
+		return this.institutionStudyPrograms;
 	}
 
-	public void setInstitutionStudyprograms(List<InstitutionStudyprogram> institutionStudyprograms) {
-		this.institutionStudyprograms = institutionStudyprograms;
+	public void setInstitutionStudyprograms(List<InstitutionStudyProgram> institutionStudyPrograms) {
+		this.institutionStudyPrograms = institutionStudyPrograms;
 	}
 
-	public Appuser getAppuser() {
-		return this.appuser;
+	public AppUser getAppuser() {
+		return this.appUser;
 	}
 
-	public void setAppuser(Appuser appuser) {
-		this.appuser = appuser;
+	public void setAppuser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
-	public List<SubjectStudyprogram> getSubjectStudyprograms() {
-		return this.subjectStudyprograms;
+	public List<SubjectStudyProgram> getSubjectStudyprograms() {
+		return this.subjectStudyPrograms;
 	}
 
-	public void setSubjectStudyprograms(List<SubjectStudyprogram> subjectStudyprograms) {
-		this.subjectStudyprograms = subjectStudyprograms;
+	public void setSubjectStudyprograms(List<SubjectStudyProgram> subjectStudyPrograms) {
+		this.subjectStudyPrograms = subjectStudyPrograms;
 	}
 
 }

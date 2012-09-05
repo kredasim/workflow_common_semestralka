@@ -46,9 +46,9 @@ public class Subject implements Serializable {
 	@OneToMany(mappedBy="subject")
 	private List<StudentSubject> studentSubjects;
 
-	//bi-directional many-to-one association to SubjectStudyprogram
+	//bi-directional many-to-one association to SubjectStudyProgram
 	@OneToMany(mappedBy="subject")
-	private List<SubjectStudyprogram> subjectStudyprograms;
+	private List<SubjectStudyProgram> subjectStudyPrograms;
 
 	//bi-directional many-to-one association to SubjectTask
 	@OneToMany(mappedBy="subject")
@@ -165,12 +165,12 @@ public class Subject implements Serializable {
 		this.studentSubjects = studentSubjects;
 	}
 
-	public List<SubjectStudyprogram> getSubjectStudyprograms() {
-		return this.subjectStudyprograms;
+	public List<SubjectStudyProgram> getSubjectStudyprograms() {
+		return this.subjectStudyPrograms;
 	}
 
-	public void setSubjectStudyprograms(List<SubjectStudyprogram> subjectStudyprograms) {
-		this.subjectStudyprograms = subjectStudyprograms;
+	public void setSubjectStudyprograms(List<SubjectStudyProgram> subjectStudyPrograms) {
+		this.subjectStudyPrograms = subjectStudyPrograms;
 	}
 
 	public List<SubjectTask> getSubjectTasks() {

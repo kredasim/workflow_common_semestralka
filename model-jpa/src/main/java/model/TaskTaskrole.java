@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="task_taskrole")
-public class TaskTaskrole implements Serializable {
+public class TaskTaskRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,12 +27,12 @@ public class TaskTaskrole implements Serializable {
 	@JoinColumn(name="taskid")
 	private Task task;
 
-	//bi-directional many-to-one association to Taskrole
+	//bi-directional many-to-one association to TaskRole
 	@ManyToOne
 	@JoinColumn(name="taskroleid")
-	private Taskrole taskrole;
+	private TaskRole taskRole;
 
-	public TaskTaskrole() {
+	public TaskTaskRole() {
 	}
 
 	public Integer getTaskTaskroleid() {
@@ -67,12 +67,12 @@ public class TaskTaskrole implements Serializable {
 		this.task = task;
 	}
 
-	public Taskrole getTaskrole() {
-		return this.taskrole;
+	public TaskRole getTaskrole() {
+		return this.taskRole;
 	}
 
-	public void setTaskrole(Taskrole taskrole) {
-		this.taskrole = taskrole;
+	public void setTaskrole(TaskRole taskRole) {
+		this.taskRole = taskRole;
 	}
 
 }

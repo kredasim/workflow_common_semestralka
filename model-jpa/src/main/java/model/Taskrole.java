@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the taskrole database table.
+ * The persistent class for the taskRole database table.
  * 
  */
 @Entity
-public class Taskrole implements Serializable {
+public class TaskRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -19,15 +19,15 @@ public class Taskrole implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to AppuserTaskrole
-	@OneToMany(mappedBy="taskrole")
-	private List<AppuserTaskrole> appuserTaskroles;
+	//bi-directional many-to-one association to AppUserTaskrole
+	@OneToMany(mappedBy="taskRole")
+	private List<AppUserTaskrole> appUserTaskroles;
 
-	//bi-directional many-to-one association to TaskTaskrole
-	@OneToMany(mappedBy="taskrole")
-	private List<TaskTaskrole> taskTaskroles;
+	//bi-directional many-to-one association to TaskTaskRole
+	@OneToMany(mappedBy="taskRole")
+	private List<TaskTaskRole> taskTaskRoles;
 
-	public Taskrole() {
+	public TaskRole() {
 	}
 
 	public Integer getTaskroleid() {
@@ -46,20 +46,20 @@ public class Taskrole implements Serializable {
 		this.name = name;
 	}
 
-	public List<AppuserTaskrole> getAppuserTaskroles() {
-		return this.appuserTaskroles;
+	public List<AppUserTaskrole> getAppuserTaskroles() {
+		return this.appUserTaskroles;
 	}
 
-	public void setAppuserTaskroles(List<AppuserTaskrole> appuserTaskroles) {
-		this.appuserTaskroles = appuserTaskroles;
+	public void setAppuserTaskroles(List<AppUserTaskrole> appUserTaskroles) {
+		this.appUserTaskroles = appUserTaskroles;
 	}
 
-	public List<TaskTaskrole> getTaskTaskroles() {
-		return this.taskTaskroles;
+	public List<TaskTaskRole> getTaskTaskroles() {
+		return this.taskTaskRoles;
 	}
 
-	public void setTaskTaskroles(List<TaskTaskrole> taskTaskroles) {
-		this.taskTaskroles = taskTaskroles;
+	public void setTaskTaskroles(List<TaskTaskRole> taskTaskRoles) {
+		this.taskTaskRoles = taskTaskRoles;
 	}
 
 }

@@ -28,12 +28,12 @@ public class Institution implements Serializable {
 
 	//bi-directional many-to-one association to Appuser
 	@OneToMany(mappedBy="institution")
-	private List<Appuser> appusers;
+	private List<AppUser> appUsers;
 
-	//bi-directional many-to-one association to Institutiontype
+	//bi-directional many-to-one association to InstitutionType
 	@ManyToOne
 	@JoinColumn(name="institutiontypeid")
-	private Institutiontype institutiontype;
+	private InstitutionType institutionType;
 
 	//bi-directional many-to-one association to InstitutionAddress
 	@OneToMany(mappedBy="institution")
@@ -43,13 +43,13 @@ public class Institution implements Serializable {
 	@OneToMany(mappedBy="institution")
 	private List<InstitutionContact> institutionContacts;
 
-	//bi-directional many-to-one association to InstitutionFieldofactivity
+	//bi-directional many-to-one association to InstitutionFieldOfActivity
 	@OneToMany(mappedBy="institution")
-	private List<InstitutionFieldofactivity> institutionFieldofactivities;
+	private List<InstitutionFieldOfActivity> institutionFieldOfActivities;
 
-	//bi-directional many-to-one association to InstitutionStudyprogram
+	//bi-directional many-to-one association to InstitutionStudyProgram
 	@OneToMany(mappedBy="institution")
-	private List<InstitutionStudyprogram> institutionStudyprograms;
+	private List<InstitutionStudyProgram> institutionStudyPrograms;
 
 	//bi-directional many-to-one association to InstitutionSubject
 	@OneToMany(mappedBy="institution")
@@ -102,20 +102,20 @@ public class Institution implements Serializable {
 		this.updatetimestamp = updatetimestamp;
 	}
 
-	public List<Appuser> getAppusers() {
-		return this.appusers;
+	public List<AppUser> getAppusers() {
+		return this.appUsers;
 	}
 
-	public void setAppusers(List<Appuser> appusers) {
-		this.appusers = appusers;
+	public void setAppusers(List<AppUser> appUsers) {
+		this.appUsers = appUsers;
 	}
 
-	public Institutiontype getInstitutiontype() {
-		return this.institutiontype;
+	public InstitutionType getInstitutiontype() {
+		return this.institutionType;
 	}
 
-	public void setInstitutiontype(Institutiontype institutiontype) {
-		this.institutiontype = institutiontype;
+	public void setInstitutiontype(InstitutionType institutionType) {
+		this.institutionType = institutionType;
 	}
 
 	public List<InstitutionAddress> getInstitutionAddresses() {
@@ -134,20 +134,20 @@ public class Institution implements Serializable {
 		this.institutionContacts = institutionContacts;
 	}
 
-	public List<InstitutionFieldofactivity> getInstitutionFieldofactivities() {
-		return this.institutionFieldofactivities;
+	public List<InstitutionFieldOfActivity> getInstitutionFieldofactivities() {
+		return this.institutionFieldOfActivities;
 	}
 
-	public void setInstitutionFieldofactivities(List<InstitutionFieldofactivity> institutionFieldofactivities) {
-		this.institutionFieldofactivities = institutionFieldofactivities;
+	public void setInstitutionFieldofactivities(List<InstitutionFieldOfActivity> institutionFieldOfActivities) {
+		this.institutionFieldOfActivities = institutionFieldOfActivities;
 	}
 
-	public List<InstitutionStudyprogram> getInstitutionStudyprograms() {
-		return this.institutionStudyprograms;
+	public List<InstitutionStudyProgram> getInstitutionStudyprograms() {
+		return this.institutionStudyPrograms;
 	}
 
-	public void setInstitutionStudyprograms(List<InstitutionStudyprogram> institutionStudyprograms) {
-		this.institutionStudyprograms = institutionStudyprograms;
+	public void setInstitutionStudyprograms(List<InstitutionStudyProgram> institutionStudyPrograms) {
+		this.institutionStudyPrograms = institutionStudyPrograms;
 	}
 
 	public List<InstitutionSubject> getInstitutionSubjects() {

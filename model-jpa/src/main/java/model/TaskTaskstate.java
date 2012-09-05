@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name="task_taskstate")
-public class TaskTaskstate implements Serializable {
+public class TaskTaskState implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -28,12 +28,12 @@ public class TaskTaskstate implements Serializable {
 	@JoinColumn(name="taskid")
 	private Task task;
 
-	//bi-directional many-to-one association to Taskstate
+	//bi-directional many-to-one association to TaskState
 	@ManyToOne
 	@JoinColumn(name="taskstateid")
-	private Taskstate taskstate;
+	private TaskState taskState;
 
-	public TaskTaskstate() {
+	public TaskTaskState() {
 	}
 
 	public Integer getTaskTaskstateid() {
@@ -68,12 +68,12 @@ public class TaskTaskstate implements Serializable {
 		this.task = task;
 	}
 
-	public Taskstate getTaskstate() {
-		return this.taskstate;
+	public TaskState getTaskstate() {
+		return this.taskState;
 	}
 
-	public void setTaskstate(Taskstate taskstate) {
-		this.taskstate = taskstate;
+	public void setTaskstate(TaskState taskState) {
+		this.taskState = taskState;
 	}
 
 }

@@ -43,7 +43,7 @@ public class Task implements Serializable {
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
 	@JoinColumn(name="appuserid")
-	private Appuser appuser;
+	private AppUser appUser;
 
 	//bi-directional many-to-one association to Project
 	@ManyToOne
@@ -54,17 +54,17 @@ public class Task implements Serializable {
 	@OneToMany(mappedBy="task")
 	private List<TaskSolution> taskSolutions;
 
-	//bi-directional many-to-one association to TaskTaskrole
+	//bi-directional many-to-one association to TaskTaskRole
 	@OneToMany(mappedBy="task")
-	private List<TaskTaskrole> taskTaskroles;
+	private List<TaskTaskRole> taskTaskRoles;
 
-	//bi-directional many-to-one association to TaskTaskstate
+	//bi-directional many-to-one association to TaskTaskState
 	@OneToMany(mappedBy="task")
-	private List<TaskTaskstate> taskTaskstates;
+	private List<TaskTaskState> taskTaskStates;
 
-	//bi-directional many-to-one association to Taskphase
+	//bi-directional many-to-one association to TaskPhase
 	@OneToMany(mappedBy="task")
-	private List<Taskphase> taskphases;
+	private List<TaskPhase> taskPhases;
 
 	public Task() {
 	}
@@ -157,12 +157,12 @@ public class Task implements Serializable {
 		this.subjectTasks = subjectTasks;
 	}
 
-	public Appuser getAppuser() {
-		return this.appuser;
+	public AppUser getAppuser() {
+		return this.appUser;
 	}
 
-	public void setAppuser(Appuser appuser) {
-		this.appuser = appuser;
+	public void setAppuser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
 	public Project getProject() {
@@ -181,28 +181,28 @@ public class Task implements Serializable {
 		this.taskSolutions = taskSolutions;
 	}
 
-	public List<TaskTaskrole> getTaskTaskroles() {
-		return this.taskTaskroles;
+	public List<TaskTaskRole> getTaskTaskroles() {
+		return this.taskTaskRoles;
 	}
 
-	public void setTaskTaskroles(List<TaskTaskrole> taskTaskroles) {
-		this.taskTaskroles = taskTaskroles;
+	public void setTaskTaskroles(List<TaskTaskRole> taskTaskRoles) {
+		this.taskTaskRoles = taskTaskRoles;
 	}
 
-	public List<TaskTaskstate> getTaskTaskstates() {
-		return this.taskTaskstates;
+	public List<TaskTaskState> getTaskTaskStates() {
+		return this.taskTaskStates;
 	}
 
-	public void setTaskTaskstates(List<TaskTaskstate> taskTaskstates) {
-		this.taskTaskstates = taskTaskstates;
+	public void setTaskTaskStates(List<TaskTaskState> taskTaskStates) {
+		this.taskTaskStates = taskTaskStates;
 	}
 
-	public List<Taskphase> getTaskphases() {
-		return this.taskphases;
+	public List<TaskPhase> getTaskphases() {
+		return this.taskPhases;
 	}
 
-	public void setTaskphases(List<Taskphase> taskphases) {
-		this.taskphases = taskphases;
+	public void setTaskphases(List<TaskPhase> taskPhases) {
+		this.taskPhases = taskPhases;
 	}
 
 }

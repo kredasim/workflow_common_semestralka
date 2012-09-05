@@ -1,7 +1,0 @@
-.bpmn2
-*.log
-*.tlog
-target
-.classpath
-.project
-.settings

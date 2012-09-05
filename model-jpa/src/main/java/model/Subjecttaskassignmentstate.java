@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the subjecttaskassignmentstate database table.
+ * The persistent class for the subjectTaskAssignmentState database table.
  * 
  */
 @Entity
-public class Subjecttaskassignmentstate implements Serializable {
+public class SubjectTaskAssignmentState implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -20,10 +20,10 @@ public class Subjecttaskassignmentstate implements Serializable {
 	private Integer name;
 
 	//bi-directional many-to-one association to SubjectTask
-	@OneToMany(mappedBy="subjecttaskassignmentstate")
+	@OneToMany(mappedBy="subjectTaskAssignmentState")
 	private List<SubjectTask> subjectTasks;
 
-	public Subjecttaskassignmentstate() {
+	public SubjectTaskAssignmentState() {
 	}
 
 	public Integer getSubjecttaskassignmentstateid() {

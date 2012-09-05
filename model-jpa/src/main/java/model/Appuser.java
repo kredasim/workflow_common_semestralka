@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the appuser database table.
+ * The persistent class for the appUser database table.
  * 
  */
 @Entity
-public class Appuser implements Serializable {
+public class AppUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -28,9 +28,9 @@ public class Appuser implements Serializable {
 	@JoinColumn(name="institutionid")
 	private Institution institution;
 
-	//bi-directional many-to-one association to AppuserContact
-	@OneToMany(mappedBy="appuser")
-	private List<AppuserContact> appuserContacts;
+	//bi-directional many-to-one association to AppUserContact
+	@OneToMany(mappedBy="appUser")
+	private List<AppUserContact> appUserContacts;
 
 	//bi-directional many-to-many association to Role
 	@ManyToMany
@@ -45,27 +45,27 @@ public class Appuser implements Serializable {
 		)
 	private List<Role> roles;
 
-	//bi-directional many-to-one association to AppuserTaskrole
-	@OneToMany(mappedBy="appuser")
-	private List<AppuserTaskrole> appuserTaskroles;
+	//bi-directional many-to-one association to AppUserTaskrole
+	@OneToMany(mappedBy="appUser")
+	private List<AppUserTaskrole> appUserTaskroles;
 
 	//bi-directional many-to-one association to StudentSubject
-	@OneToMany(mappedBy="appuser")
+	@OneToMany(mappedBy="appUser")
 	private List<StudentSubject> studentSubjects;
 
-	//bi-directional many-to-one association to Studyprogram
-	@OneToMany(mappedBy="appuser")
-	private List<Studyprogram> studyprograms;
+	//bi-directional many-to-one association to StudyProgram
+	@OneToMany(mappedBy="appUser")
+	private List<StudyProgram> studyPrograms;
 
 	//bi-directional many-to-one association to Task
-	@OneToMany(mappedBy="appuser")
+	@OneToMany(mappedBy="appUser")
 	private List<Task> tasks;
 
 	//bi-directional many-to-one association to TeacherSubject
-	@OneToMany(mappedBy="appuser")
+	@OneToMany(mappedBy="appUser")
 	private List<TeacherSubject> teacherSubjects;
 
-	public Appuser() {
+	public AppUser() {
 	}
 
 	public Integer getAppuserid() {
@@ -108,12 +108,12 @@ public class Appuser implements Serializable {
 		this.institution = institution;
 	}
 
-	public List<AppuserContact> getAppuserContacts() {
-		return this.appuserContacts;
+	public List<AppUserContact> getAppuserContacts() {
+		return this.appUserContacts;
 	}
 
-	public void setAppuserContacts(List<AppuserContact> appuserContacts) {
-		this.appuserContacts = appuserContacts;
+	public void setAppuserContacts(List<AppUserContact> appUserContacts) {
+		this.appUserContacts = appUserContacts;
 	}
 
 	public List<Role> getRoles() {
@@ -124,12 +124,12 @@ public class Appuser implements Serializable {
 		this.roles = roles;
 	}
 
-	public List<AppuserTaskrole> getAppuserTaskroles() {
-		return this.appuserTaskroles;
+	public List<AppUserTaskrole> getAppuserTaskroles() {
+		return this.appUserTaskroles;
 	}
 
-	public void setAppuserTaskroles(List<AppuserTaskrole> appuserTaskroles) {
-		this.appuserTaskroles = appuserTaskroles;
+	public void setAppuserTaskroles(List<AppUserTaskrole> appUserTaskroles) {
+		this.appUserTaskroles = appUserTaskroles;
 	}
 
 	public List<StudentSubject> getStudentSubjects() {
@@ -140,12 +140,12 @@ public class Appuser implements Serializable {
 		this.studentSubjects = studentSubjects;
 	}
 
-	public List<Studyprogram> getStudyprograms() {
-		return this.studyprograms;
+	public List<StudyProgram> getStudyprograms() {
+		return this.studyPrograms;
 	}
 
-	public void setStudyprograms(List<Studyprogram> studyprograms) {
-		this.studyprograms = studyprograms;
+	public void setStudyprograms(List<StudyProgram> studyPrograms) {
+		this.studyPrograms = studyPrograms;
 	}
 
 	public List<Task> getTasks() {

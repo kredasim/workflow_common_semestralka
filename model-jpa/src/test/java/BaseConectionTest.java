@@ -10,7 +10,7 @@ import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.metamodel.Metamodel;
 
-import model.Appuser;
+import model.AppUser;
 
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ public class BaseConectionTest {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("model-jpa");
 		EntityManager em= emf.createEntityManager();
 		em.getTransaction().begin();
-		Appuser appUser= new Appuser();
+		AppUser appUser= new AppUser();
 		appUser.setFirstname("Honza");
 		appUser.setSurname("vom·Ëka");
 		em.persist(appUser);

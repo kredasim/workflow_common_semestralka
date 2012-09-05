@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="appuser_contact")
-public class AppuserContact implements Serializable {
+public class AppUserContact implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,14 +21,14 @@ public class AppuserContact implements Serializable {
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
 	@JoinColumn(name="appuserid")
-	private Appuser appuser;
+	private AppUser appUser;
 
 	//bi-directional many-to-one association to Contact
 	@ManyToOne
 	@JoinColumn(name="contactid")
 	private Contact contact;
 
-	public AppuserContact() {
+	public AppUserContact() {
 	}
 
 	public Integer getUserContactid() {
@@ -39,12 +39,12 @@ public class AppuserContact implements Serializable {
 		this.userContactid = userContactid;
 	}
 
-	public Appuser getAppuser() {
-		return this.appuser;
+	public AppUser getAppuser() {
+		return this.appUser;
 	}
 
-	public void setAppuser(Appuser appuser) {
-		this.appuser = appuser;
+	public void setAppuser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
 	public Contact getContact() {

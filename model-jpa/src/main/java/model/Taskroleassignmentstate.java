@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * The persistent class for the taskroleassignmentstate database table.
+ * The persistent class for the taskRoleAssignmentState database table.
  * 
  */
 @Entity
-public class Taskroleassignmentstate implements Serializable {
+public class TaskRoleAssignmentState implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -19,11 +19,11 @@ public class Taskroleassignmentstate implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to AppuserTaskrole
-	@OneToMany(mappedBy="taskroleassignmentstate")
-	private List<AppuserTaskrole> appuserTaskroles;
+	//bi-directional many-to-one association to AppUserTaskrole
+	@OneToMany(mappedBy="taskRoleAssignmentState")
+	private List<AppUserTaskrole> appUserTaskroles;
 
-	public Taskroleassignmentstate() {
+	public TaskRoleAssignmentState() {
 	}
 
 	public Integer getTaskroleassignmentstateid() {
@@ -42,12 +42,12 @@ public class Taskroleassignmentstate implements Serializable {
 		this.name = name;
 	}
 
-	public List<AppuserTaskrole> getAppuserTaskroles() {
-		return this.appuserTaskroles;
+	public List<AppUserTaskrole> getAppuserTaskroles() {
+		return this.appUserTaskroles;
 	}
 
-	public void setAppuserTaskroles(List<AppuserTaskrole> appuserTaskroles) {
-		this.appuserTaskroles = appuserTaskroles;
+	public void setAppuserTaskroles(List<AppUserTaskrole> appUserTaskroles) {
+		this.appUserTaskroles = appUserTaskroles;
 	}
 
 }

@@ -28,14 +28,14 @@ public class Contact implements Serializable {
 
 	private String value;
 
-	//bi-directional many-to-one association to AppuserContact
+	//bi-directional many-to-one association to AppUserContact
 	@OneToMany(mappedBy="contact")
-	private List<AppuserContact> appuserContacts;
+	private List<AppUserContact> appUserContacts;
 
-	//bi-directional many-to-one association to Contacttype
+	//bi-directional many-to-one association to ContactType
 	@ManyToOne
 	@JoinColumn(name="contacttypeid")
-	private Contacttype contacttype;
+	private ContactType contactType;
 
 	//bi-directional many-to-one association to InstitutionContact
 	@OneToMany(mappedBy="contact")
@@ -92,20 +92,20 @@ public class Contact implements Serializable {
 		this.value = value;
 	}
 
-	public List<AppuserContact> getAppuserContacts() {
-		return this.appuserContacts;
+	public List<AppUserContact> getAppuserContacts() {
+		return this.appUserContacts;
 	}
 
-	public void setAppuserContacts(List<AppuserContact> appuserContacts) {
-		this.appuserContacts = appuserContacts;
+	public void setAppuserContacts(List<AppUserContact> appUserContacts) {
+		this.appUserContacts = appUserContacts;
 	}
 
-	public Contacttype getContacttype() {
-		return this.contacttype;
+	public ContactType getContacttype() {
+		return this.contactType;
 	}
 
-	public void setContacttype(Contacttype contacttype) {
-		this.contacttype = contacttype;
+	public void setContacttype(ContactType contactType) {
+		this.contactType = contactType;
 	}
 
 	public List<InstitutionContact> getInstitutionContacts() {

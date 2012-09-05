@@ -28,10 +28,10 @@ public class SubjectTask implements Serializable {
 	@JoinColumn(name="subjectid")
 	private Subject subject;
 
-	//bi-directional many-to-one association to Subjecttaskassignmentstate
+	//bi-directional many-to-one association to SubjectTaskAssignmentState
 	@ManyToOne
 	@JoinColumn(name="subjecttaskassignmentstateid")
-	private Subjecttaskassignmentstate subjecttaskassignmentstate;
+	private SubjectTaskAssignmentState subjectTaskAssignmentState;
 
 	//bi-directional many-to-one association to Task
 	@ManyToOne
@@ -73,12 +73,12 @@ public class SubjectTask implements Serializable {
 		this.subject = subject;
 	}
 
-	public Subjecttaskassignmentstate getSubjecttaskassignmentstate() {
-		return this.subjecttaskassignmentstate;
+	public SubjectTaskAssignmentState getSubjecttaskassignmentstate() {
+		return this.subjectTaskAssignmentState;
 	}
 
-	public void setSubjecttaskassignmentstate(Subjecttaskassignmentstate subjecttaskassignmentstate) {
-		this.subjecttaskassignmentstate = subjecttaskassignmentstate;
+	public void setSubjecttaskassignmentstate(SubjectTaskAssignmentState subjectTaskAssignmentState) {
+		this.subjectTaskAssignmentState = subjectTaskAssignmentState;
 	}
 
 	public Task getTask() {
