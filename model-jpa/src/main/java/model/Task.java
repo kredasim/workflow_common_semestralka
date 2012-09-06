@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class Task implements Serializable {
 	private Project project;
 
 	//bi-directional many-to-one association to TaskSolution
-	@OneToMany(mappedBy="task")
+	@ManyToMany
 	@JoinTable(
 			name = "Task_Solution",
 			joinColumns = @JoinColumn(name = "taskID"),
@@ -64,7 +65,7 @@ public class Task implements Serializable {
 	private List<TaskTaskRole> taskTaskRoles;
 
 	//bi-directional many-to-one association to TaskTaskState
-	@OneToMany(mappedBy="task")
+	@OneToMany(mappedBy = "task")
 	private List<TaskTaskState> taskTaskStates;
 
 	//bi-directional many-to-one association to TaskPhase

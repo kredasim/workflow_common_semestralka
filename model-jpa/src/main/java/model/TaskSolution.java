@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -23,19 +23,14 @@ public class TaskSolution implements Serializable {
     private Timestamp timeStamp;
 	
 	//bi-directional many-to-one association to Task
-	@ManyToOne()
-	@JoinTable(
-			name = "Task_Solution",
-			joinColumns = @JoinColumn(name = "TaskSolutionID"),
-			inverseJoinColumns = @JoinColumn(name = "TaskID")
-			)
-	private Task task;
+	@ManyToMany(mappedBy = "taskSolutions")
+	private List<Task> tasks;
 
 
-	//bi-directional many-to-one association to TaskSolution
+	//bi-directional many-to-one association to TaskSolutionAcceptance
 	@OneToMany
 	@JoinColumn(name="taskSolutionID")
-	private Set<TaskSolutionAcceptance> taskSolutionAcceptances;
+	private List<TaskSolutionAcceptance> taskSolutionAcceptances;
 
 	public TaskSolution() {
 	}
@@ -48,19 +43,19 @@ public class TaskSolution implements Serializable {
 		this.taskSolutionID = taskSolutionid;
 	}
 
-	public Task getTask() {
-		return this.task;
+	public List<Task> getTasks() {
+		return this.tasks;
 	}
 
-	public void setTask(Task task) {
-		this.task = task;
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
 	}
 
-	public Set<TaskSolutionAcceptance> getTasksolutionAcceptances() {
+	public List<TaskSolutionAcceptance> getTasksolutionAcceptances() {
 		return this.taskSolutionAcceptances;
 	}
 
-	public void setTaskSolutionAcceptances(Set<TaskSolutionAcceptance> taskSolutionAcceptances) {
+	public void setTaskSolutionAcceptances(List<TaskSolutionAcceptance> taskSolutionAcceptances) {
 		this.taskSolutionAcceptances = taskSolutionAcceptances;
 	}
 

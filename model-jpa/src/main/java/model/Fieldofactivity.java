@@ -22,8 +22,8 @@ public class FieldOfActivity implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to InstitutionFieldOfActivity
-	@OneToMany(mappedBy="fieldOfActivity")
-	private List<InstitutionFieldOfActivity> institutionFieldOfActivities;
+	@ManyToMany(mappedBy="fieldOfActivities")
+	private List<Institution> institutions;
 
 	public FieldOfActivity() {
 	}
@@ -52,12 +52,12 @@ public class FieldOfActivity implements Serializable {
 		this.name = name;
 	}
 
-	public List<InstitutionFieldOfActivity> getInstitutionFieldofactivities() {
-		return this.institutionFieldOfActivities;
+	public List<Institution> getInstitution() {
+		return this.institutions;
 	}
 
-	public void setInstitutionFieldofactivities(List<InstitutionFieldOfActivity> institutionFieldOfActivities) {
-		this.institutionFieldOfActivities = institutionFieldOfActivities;
+	public void setInstitutions(List<Institution> institutions) {
+		this.institutions = institutions;
 	}
 
 }

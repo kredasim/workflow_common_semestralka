@@ -22,17 +22,22 @@ public class StudyProgram implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to InstitutionStudyProgram
-	@OneToMany(mappedBy="studyProgram")
-	private List<InstitutionStudyProgram> institutionStudyPrograms;
+	@ManyToMany(mappedBy="studyPrograms")
+	private List<Institution> institutions;
 
-	//bi-directional many-to-one association to Appuser
+	//bi-directional many-to-one association to AppUser
 	@ManyToOne
 	@JoinColumn(name="userid")
 	private AppUser appUser;
 
 	//bi-directional many-to-one association to SubjectStudyProgram
-	@OneToMany(mappedBy="studyProgram")
-	private List<SubjectStudyProgram> subjectStudyPrograms;
+	@ManyToMany
+	@JoinTable(
+			name = "Subject_StudyProgram",
+			joinColumns = @JoinColumn(name = "studyProgramId"),
+			inverseJoinColumns = @JoinColumn(name = "subjectID")
+			)
+	private List<Subject> subjects;
 
 	public StudyProgram() {
 	}
@@ -61,12 +66,12 @@ public class StudyProgram implements Serializable {
 		this.name = name;
 	}
 
-	public List<InstitutionStudyProgram> getInstitutionStudyprograms() {
-		return this.institutionStudyPrograms;
+	public List<Institution> getInstitutions() {
+		return this.institutions;
 	}
 
-	public void setInstitutionStudyprograms(List<InstitutionStudyProgram> institutionStudyPrograms) {
-		this.institutionStudyPrograms = institutionStudyPrograms;
+	public void setInstitutions(List<Institution> institutions) {
+		this.institutions = institutions;
 	}
 
 	public AppUser getAppuser() {
@@ -77,12 +82,12 @@ public class StudyProgram implements Serializable {
 		this.appUser = appUser;
 	}
 
-	public List<SubjectStudyProgram> getSubjectStudyprograms() {
-		return this.subjectStudyPrograms;
+	public List<Subject> getSubjects() {
+		return this.subjects;
 	}
 
-	public void setSubjectStudyprograms(List<SubjectStudyProgram> subjectStudyPrograms) {
-		this.subjectStudyPrograms = subjectStudyPrograms;
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 
 }

@@ -29,19 +29,20 @@ public class AppUser implements Serializable {
 	private Institution institution;
 
 	//bi-directional many-to-one association to AppUserContact
-	@OneToMany(mappedBy="appUser")
-	private List<AppUserContact> appUserContacts;
+	@ManyToMany
+	@JoinTable(
+			name = "appUser_Contacts",
+			joinColumns = @JoinColumn(name = "appUserID"),
+			inverseJoinColumns = @JoinColumn(name = "contactID")
+			)
+	private List<Contact> contacts;
 
 	//bi-directional many-to-many association to Role
 	@ManyToMany
 	@JoinTable(
-		name="appuser_role"
-		, joinColumns={
-			@JoinColumn(name="appuserid")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="roleid")
-			}
+		name="appuser_role", 
+		joinColumns= @JoinColumn(name="appuserid"), 
+		inverseJoinColumns=@JoinColumn(name="roleid")
 		)
 	private List<Role> roles;
 
@@ -108,12 +109,12 @@ public class AppUser implements Serializable {
 		this.institution = institution;
 	}
 
-	public List<AppUserContact> getAppuserContacts() {
-		return this.appUserContacts;
+	public List<Contact> getContacts() {
+		return this.contacts;
 	}
 
-	public void setAppuserContacts(List<AppUserContact> appUserContacts) {
-		this.appUserContacts = appUserContacts;
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
 	}
 
 	public List<Role> getRoles() {

@@ -39,16 +39,16 @@ public class Subject implements Serializable {
 	private Timestamp updatetimestamp;
 
 	//bi-directional many-to-one association to InstitutionSubject
-	@OneToMany(mappedBy="subject")
-	private List<InstitutionSubject> institutionSubjects;
+	@ManyToMany(mappedBy="subjects")
+	private List<Institution> institutions;
 
 	//bi-directional many-to-one association to StudentSubject
 	@OneToMany(mappedBy="subject")
 	private List<StudentSubject> studentSubjects;
 
 	//bi-directional many-to-one association to SubjectStudyProgram
-	@OneToMany(mappedBy="subject")
-	private List<SubjectStudyProgram> subjectStudyPrograms;
+	@ManyToMany(mappedBy="subjects")
+	private List<StudyProgram> studyPrograms;
 
 	//bi-directional many-to-one association to SubjectTask
 	@OneToMany(mappedBy="subject")
@@ -149,12 +149,12 @@ public class Subject implements Serializable {
 		this.updatetimestamp = updatetimestamp;
 	}
 
-	public List<InstitutionSubject> getInstitutionSubjects() {
-		return this.institutionSubjects;
+	public List<Institution> getInstitutions() {
+		return this.institutions;
 	}
 
-	public void setInstitutionSubjects(List<InstitutionSubject> institutionSubjects) {
-		this.institutionSubjects = institutionSubjects;
+	public void setInstitutions(List<Institution> institutions) {
+		this.institutions = institutions;
 	}
 
 	public List<StudentSubject> getStudentSubjects() {
@@ -165,12 +165,12 @@ public class Subject implements Serializable {
 		this.studentSubjects = studentSubjects;
 	}
 
-	public List<SubjectStudyProgram> getSubjectStudyprograms() {
-		return this.subjectStudyPrograms;
+	public List<StudyProgram> getStudyprograms() {
+		return this.studyPrograms;
 	}
 
-	public void setSubjectStudyprograms(List<SubjectStudyProgram> subjectStudyPrograms) {
-		this.subjectStudyPrograms = subjectStudyPrograms;
+	public void setStudyprograms(List<StudyProgram> studyPrograms) {
+		this.studyPrograms = studyPrograms;
 	}
 
 	public List<SubjectTask> getSubjectTasks() {
