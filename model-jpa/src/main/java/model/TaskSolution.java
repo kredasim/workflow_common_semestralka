@@ -1,11 +1,14 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Set;
+
 import javax.persistence.*;
 
 
 /**
- * The persistent class for the task_solution database table.
+ * The persistent class for the taskSolution database table.
  * 
  */
 @Entity
@@ -15,28 +18,34 @@ public class TaskSolution implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="task_solutionid")
-	private Integer taskSolutionid;
-
+	private Integer taskSolutionID;
+    private String description;
+    private Timestamp timeStamp;
+	
 	//bi-directional many-to-one association to Task
-	@ManyToOne
-	@JoinColumn(name="taskid")
+	@ManyToOne()
+	@JoinTable(
+			name = "Task_Solution",
+			joinColumns = @JoinColumn(name = "TaskSolutionID"),
+			inverseJoinColumns = @JoinColumn(name = "TaskID")
+			)
 	private Task task;
 
-	//bi-directional many-to-one association to Tasksolution
-	@ManyToOne
-	@JoinColumn(name="tasksolutionid")
-	private TaskSolution tasksolution;
+
+	//bi-directional many-to-one association to TaskSolution
+	@OneToMany
+	@JoinColumn(name="taskSolutionID")
+	private Set<TaskSolutionAcceptance> taskSolutionAcceptances;
 
 	public TaskSolution() {
 	}
 
 	public Integer getTaskSolutionid() {
-		return this.taskSolutionid;
+		return this.taskSolutionID;
 	}
 
 	public void setTaskSolutionid(Integer taskSolutionid) {
-		this.taskSolutionid = taskSolutionid;
+		this.taskSolutionID = taskSolutionid;
 	}
 
 	public Task getTask() {
@@ -47,12 +56,28 @@ public class TaskSolution implements Serializable {
 		this.task = task;
 	}
 
-	public TaskSolution getTasksolution() {
-		return this.tasksolution;
+	public Set<TaskSolutionAcceptance> getTasksolutionAcceptances() {
+		return this.taskSolutionAcceptances;
 	}
 
-	public void setTaskSolution(TaskSolution tasksolution) {
-		this.tasksolution = tasksolution;
+	public void setTaskSolutionAcceptances(Set<TaskSolutionAcceptance> taskSolutionAcceptances) {
+		this.taskSolutionAcceptances = taskSolutionAcceptances;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Timestamp getTimeStamp() {
+		return timeStamp;
+	}
+
+	public void setTimeStamp(Timestamp timeStamp) {
+		this.timeStamp = timeStamp;
 	}
 
 }

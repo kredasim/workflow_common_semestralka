@@ -1,14 +1,8 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
-import java.util.Map;
-
-import javax.persistence.Cache;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnitUtil;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.metamodel.Metamodel;
 
 import model.AppUser;
 

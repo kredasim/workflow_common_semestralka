@@ -52,6 +52,11 @@ public class Task implements Serializable {
 
 	//bi-directional many-to-one association to TaskSolution
 	@OneToMany(mappedBy="task")
+	@JoinTable(
+			name = "Task_Solution",
+			joinColumns = @JoinColumn(name = "taskID"),
+			inverseJoinColumns = @JoinColumn(name = "taskSolutionID")
+			)
 	private List<TaskSolution> taskSolutions;
 
 	//bi-directional many-to-one association to TaskTaskRole

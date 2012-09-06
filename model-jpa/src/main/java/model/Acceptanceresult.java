@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * The persistent class for the acceptanceresult database table.
+ * The persistent class for the acceptanceResult database table.
  * 
  */
 @Entity
