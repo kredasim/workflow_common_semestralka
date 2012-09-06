@@ -90,11 +90,11 @@
       <script></script>
     </scriptTask>
   </process>
-  <process id="process1" name="process1">
+  <process id="createTaskParent" name="Create Task parent process">
     <sequenceFlow id="flow28" name="" sourceRef="boundarytimer1" targetRef="scripttask4"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
-    <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_createTaskParent">
+    <bpmndi:BPMNPlane bpmnElement="createTaskParent" id="BPMNPlane_createTaskParent">
       <bpmndi:BPMNShape bpmnElement="IndustryPartnerPool" id="BPMNShape_IndustryPartnerPool" isHorizontal="true">
         <omgdc:Bounds height="291" width="1451" x="10" y="10"></omgdc:Bounds>
       </bpmndi:BPMNShape>
