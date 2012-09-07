@@ -4,7 +4,7 @@
 		<class>model.AcceptanceResult</class>
 		<class>model.Address</class>
 		<class>model.AppUser</class>
-		<class>model.AppUserTaskrole</class>
+		<class>model.AppUserTaskRole</class>
 		<class>model.Contact</class>
 		<class>model.ContactType</class>
 		<class>model.Country</class>

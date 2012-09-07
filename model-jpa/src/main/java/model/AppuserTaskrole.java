@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name="appuser_taskrole")
-public class AppUserTaskrole implements Serializable {
+public class AppUserTaskRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -38,7 +38,7 @@ public class AppUserTaskrole implements Serializable {
 	@JoinColumn(name="taskroleassignmentstateid")
 	private TaskRoleAssignmentState taskRoleAssignmentState;
 
-	public AppUserTaskrole() {
+	public AppUserTaskRole() {
 	}
 
 	public Integer getUserTaskroleid() {

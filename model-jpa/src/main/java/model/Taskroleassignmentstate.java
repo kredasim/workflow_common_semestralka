@@ -21,7 +21,7 @@ public class TaskRoleAssignmentState implements Serializable {
 
 	//bi-directional many-to-one association to AppUserTaskrole
 	@OneToMany(mappedBy="taskRoleAssignmentState")
-	private List<AppUserTaskrole> appUserTaskroles;
+	private List<AppUserTaskRole> appUserTaskRoles;
 
 	public TaskRoleAssignmentState() {
 	}
@@ -42,12 +42,12 @@ public class TaskRoleAssignmentState implements Serializable {
 		this.name = name;
 	}
 
-	public List<AppUserTaskrole> getAppuserTaskroles() {
-		return this.appUserTaskroles;
+	public List<AppUserTaskRole> getAppuserTaskRoles() {
+		return this.appUserTaskRoles;
 	}
 
-	public void setAppuserTaskroles(List<AppUserTaskrole> appUserTaskroles) {
-		this.appUserTaskroles = appUserTaskroles;
+	public void setAppuserTaskRoles(List<AppUserTaskRole> appUserTaskRoles) {
+		this.appUserTaskRoles = appUserTaskRoles;
 	}
 
 }

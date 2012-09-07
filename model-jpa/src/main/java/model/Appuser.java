@@ -48,7 +48,7 @@ public class AppUser implements Serializable {
 
 	//bi-directional many-to-one association to AppUserTaskrole
 	@OneToMany(mappedBy="appUser")
-	private List<AppUserTaskrole> appUserTaskroles;
+	private List<AppUserTaskRole> appUserTaskRoles;
 
 	//bi-directional many-to-one association to StudentSubject
 	@OneToMany(mappedBy="appUser")
@@ -125,12 +125,12 @@ public class AppUser implements Serializable {
 		this.roles = roles;
 	}
 
-	public List<AppUserTaskrole> getAppuserTaskroles() {
-		return this.appUserTaskroles;
+	public List<AppUserTaskRole> getAppUserTaskRoles() {
+		return this.appUserTaskRoles;
 	}
 
-	public void setAppuserTaskroles(List<AppUserTaskrole> appUserTaskroles) {
-		this.appUserTaskroles = appUserTaskroles;
+	public void setAppUserTaskRoles(List<AppUserTaskRole> appUserTaskRoles) {
+		this.appUserTaskRoles = appUserTaskRoles;
 	}
 
 	public List<StudentSubject> getStudentSubjects() {
