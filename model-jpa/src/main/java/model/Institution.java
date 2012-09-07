@@ -26,7 +26,7 @@ public class Institution implements Serializable {
 
 	private Timestamp updatetimestamp;
 
-	//bi-directional many-to-one association to Appuser
+	//bi-directional many-to-one association to AppUser
 	@OneToMany(mappedBy="institution")
 	private List<AppUser> appUsers;
 
@@ -36,24 +36,49 @@ public class Institution implements Serializable {
 	private InstitutionType institutionType;
 
 	//bi-directional many-to-one association to InstitutionAddress
-	@OneToMany(mappedBy="institution")
-	private List<InstitutionAddress> institutionAddresses;
+	@ManyToMany
+	@JoinTable(
+			name = "institution_StudyProgram",
+			joinColumns = @JoinColumn(name = "institutionID"),
+			inverseJoinColumns = @JoinColumn(name = "addressID")
+	)
+	private List<Address> addresses;
 
-	//bi-directional many-to-one association to InstitutionContact
-	@OneToMany(mappedBy="institution")
-	private List<InstitutionContact> institutionContacts;
+	//bi-directional many-to-one association to Contact
+	@ManyToMany
+	@JoinTable(
+			name = "institution_StudyProgram",
+			joinColumns = @JoinColumn(name = "institutionID"),
+			inverseJoinColumns = @JoinColumn(name = "contactID")
+	)
+	private List<Contact> contacts;
 
 	//bi-directional many-to-one association to InstitutionFieldOfActivity
-	@OneToMany(mappedBy="institution")
-	private List<InstitutionFieldOfActivity> institutionFieldOfActivities;
+	@ManyToMany
+	@JoinTable(
+			name = "institution_StudyProgram",
+			joinColumns = @JoinColumn(name = "institutionID"),
+			inverseJoinColumns = @JoinColumn(name = "fieldOfActivityID")
+	)
+	private List<FieldOfActivity> fieldOfActivities;
 
 	//bi-directional many-to-one association to InstitutionStudyProgram
-	@OneToMany(mappedBy="institution")
-	private List<InstitutionStudyProgram> institutionStudyPrograms;
+	@ManyToMany
+	@JoinTable(
+			name = "institution_StudyProgram",
+			joinColumns = @JoinColumn(name = "institutionID"),
+			inverseJoinColumns = @JoinColumn(name = "studyProgramID")
+	)
+	private List<StudyProgram> studyPrograms;
 
 	//bi-directional many-to-one association to InstitutionSubject
-	@OneToMany(mappedBy="institution")
-	private List<InstitutionSubject> institutionSubjects;
+	@ManyToMany
+	@JoinTable(
+			name = "institution_Subject",
+			joinColumns = @JoinColumn(name = "institutionID"),
+			inverseJoinColumns = @JoinColumn(name = "subjectID")
+			)
+	private List<Subject> subjects;
 
 	//bi-directional many-to-one association to Project
 	@OneToMany(mappedBy="institution")
@@ -102,60 +127,60 @@ public class Institution implements Serializable {
 		this.updatetimestamp = updatetimestamp;
 	}
 
-	public List<AppUser> getAppusers() {
+	public List<AppUser> getAppUsers() {
 		return this.appUsers;
 	}
 
-	public void setAppusers(List<AppUser> appUsers) {
+	public void setAppUsers(List<AppUser> appUsers) {
 		this.appUsers = appUsers;
 	}
 
-	public InstitutionType getInstitutiontype() {
+	public InstitutionType getInstitutionType() {
 		return this.institutionType;
 	}
 
-	public void setInstitutiontype(InstitutionType institutionType) {
+	public void setInstitutionType(InstitutionType institutionType) {
 		this.institutionType = institutionType;
 	}
 
-	public List<InstitutionAddress> getInstitutionAddresses() {
-		return this.institutionAddresses;
+	public List<Address> getAddresses() {
+		return this.addresses;
 	}
 
-	public void setInstitutionAddresses(List<InstitutionAddress> institutionAddresses) {
-		this.institutionAddresses = institutionAddresses;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
-	public List<InstitutionContact> getInstitutionContacts() {
-		return this.institutionContacts;
+	public List<Contact> getContacts() {
+		return this.contacts;
 	}
 
-	public void setInstitutionContacts(List<InstitutionContact> institutionContacts) {
-		this.institutionContacts = institutionContacts;
+	public void setContacts(List<Contact> Contacts) {
+		this.contacts = Contacts;
 	}
 
-	public List<InstitutionFieldOfActivity> getInstitutionFieldofactivities() {
-		return this.institutionFieldOfActivities;
+	public List<FieldOfActivity> getFieldofActivities() {
+		return this.fieldOfActivities;
 	}
 
-	public void setInstitutionFieldofactivities(List<InstitutionFieldOfActivity> institutionFieldOfActivities) {
-		this.institutionFieldOfActivities = institutionFieldOfActivities;
+	public void setFieldofActivities(List<FieldOfActivity> fieldOfActivities) {
+		this.fieldOfActivities = fieldOfActivities;
 	}
 
-	public List<InstitutionStudyProgram> getInstitutionStudyprograms() {
-		return this.institutionStudyPrograms;
+	public List<StudyProgram> getStudyPrograms() {
+		return this.studyPrograms;
 	}
 
-	public void setInstitutionStudyprograms(List<InstitutionStudyProgram> institutionStudyPrograms) {
-		this.institutionStudyPrograms = institutionStudyPrograms;
+	public void setStudyPrograms(List<StudyProgram> studyPrograms) {
+		this.studyPrograms = studyPrograms;
 	}
 
-	public List<InstitutionSubject> getInstitutionSubjects() {
-		return this.institutionSubjects;
+	public List<Subject> getSubjects() {
+		return this.subjects;
 	}
 
-	public void setInstitutionSubjects(List<InstitutionSubject> institutionSubjects) {
-		this.institutionSubjects = institutionSubjects;
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 
 	public List<Project> getProjects() {

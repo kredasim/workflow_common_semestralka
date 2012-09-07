@@ -4,17 +4,12 @@
 		<class>model.AcceptanceResult</class>
 		<class>model.Address</class>
 		<class>model.AppUser</class>
-		<class>model.AppUserContact</class>
 		<class>model.AppUserTaskrole</class>
 		<class>model.Contact</class>
 		<class>model.ContactType</class>
 		<class>model.Country</class>
 		<class>model.FieldOfActivity</class>
 		<class>model.Institution</class>
-		<class>model.InstitutionAddress</class>
-		<class>model.InstitutionContact</class>
-		<class>model.InstitutionFieldOfActivity</class>
-		<class>model.InstitutionStudyProgram</class>
 		<class>model.InstitutionSubject</class>
 		<class>model.InstitutionType</class>
 		<class>model.Project</class>
@@ -22,7 +17,6 @@
 		<class>model.StudentSubject</class>
 		<class>model.StudyProgram</class>
 		<class>model.Subject</class>
-		<class>model.SubjectStudyProgram</class>
 		<class>model.SubjectTask</class>
 		<class>model.SubjectTaskAssignmentState</class>
 		<class>model.Task</class>

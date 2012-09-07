@@ -28,18 +28,18 @@ public class Contact implements Serializable {
 
 	private String value;
 
-	//bi-directional many-to-one association to AppUserContact
-	@OneToMany(mappedBy="contact")
-	private List<AppUserContact> appUserContacts;
+	//bi-directional many-to-one association to AppUser
+	@ManyToMany(mappedBy="contacts")
+	private List<AppUser> appUsers;
 
 	//bi-directional many-to-one association to ContactType
 	@ManyToOne
 	@JoinColumn(name="contacttypeid")
 	private ContactType contactType;
 
-	//bi-directional many-to-one association to InstitutionContact
-	@OneToMany(mappedBy="contact")
-	private List<InstitutionContact> institutionContacts;
+	//bi-directional many-to-one association to Institution
+	@ManyToMany(mappedBy="contacts")
+	private List<Institution> institutions;
 
 	public Contact() {
 	}
@@ -92,12 +92,12 @@ public class Contact implements Serializable {
 		this.value = value;
 	}
 
-	public List<AppUserContact> getAppuserContacts() {
-		return this.appUserContacts;
+	public List<AppUser> getAppuser() {
+		return this.appUsers;
 	}
 
-	public void setAppuserContacts(List<AppUserContact> appUserContacts) {
-		this.appUserContacts = appUserContacts;
+	public void setAppuser(List<AppUser> appUser) {
+		this.appUsers = appUser;
 	}
 
 	public ContactType getContacttype() {
@@ -108,12 +108,12 @@ public class Contact implements Serializable {
 		this.contactType = contactType;
 	}
 
-	public List<InstitutionContact> getInstitutionContacts() {
-		return this.institutionContacts;
+	public List<Institution> getInstitutionContacts() {
+		return this.institutions;
 	}
 
-	public void setInstitutionContacts(List<InstitutionContact> institutionContacts) {
-		this.institutionContacts = institutionContacts;
+	public void setInstitutionContacts(List<Institution> institutions) {
+		this.institutions = institutions;
 	}
 
 }

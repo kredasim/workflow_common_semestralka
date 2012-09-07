@@ -38,8 +38,8 @@ public class Address implements Serializable {
 	private Country country;
 
 	//bi-directional many-to-one association to InstitutionAddress
-	@OneToMany(mappedBy="address")
-	private List<InstitutionAddress> institutionAddresses;
+	@ManyToMany(mappedBy="addresses")
+	private List<Institution> institutions;
 
 	public Address() {
 	}
@@ -116,12 +116,12 @@ public class Address implements Serializable {
 		this.country = country;
 	}
 
-	public List<InstitutionAddress> getInstitutionAddresses() {
-		return this.institutionAddresses;
+	public List<Institution> getInstitutions() {
+		return this.institutions;
 	}
 
-	public void setInstitutionAddresses(List<InstitutionAddress> institutionAddresses) {
-		this.institutionAddresses = institutionAddresses;
+	public void setInstitutions(List<Institution> institutions) {
+		this.institutions = institutions;
 	}
 
 }

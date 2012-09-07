@@ -18,12 +18,12 @@ public class TaskSolutionAcceptance implements Serializable {
 
 	private String comment;
 
-	//bi-directional many-to-one association to Acceptanceresult
+	//bi-directional many-to-one association to AcceptanceResult
 	@ManyToOne
 	@JoinColumn(name="acceptanceresultid")
 	private AcceptanceResult acceptanceResult;
 
-	//bi-directional many-to-one association to Tasksolution
+	//bi-directional many-to-one association to TaskSolution
 	@ManyToOne
 	@JoinColumn(name="tasksolutionid")
 	private TaskSolution tasksolution;

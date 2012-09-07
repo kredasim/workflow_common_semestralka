@@ -1,11 +1,14 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.List;
+
 import javax.persistence.*;
 
 
 /**
- * The persistent class for the task_solution database table.
+ * The persistent class for the taskSolution database table.
  * 
  */
 @Entity
@@ -15,44 +18,61 @@ public class TaskSolution implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="task_solutionid")
-	private Integer taskSolutionid;
-
+	private Integer taskSolutionID;
+    private String description;
+    private Timestamp timeStamp;
+	
 	//bi-directional many-to-one association to Task
-	@ManyToOne
-	@JoinColumn(name="taskid")
-	private Task task;
+	@ManyToMany(mappedBy = "taskSolutions")
+	private List<Task> tasks;
 
-	//bi-directional many-to-one association to Tasksolution
-	@ManyToOne
-	@JoinColumn(name="tasksolutionid")
-	private TaskSolution tasksolution;
+
+	//bi-directional many-to-one association to TaskSolutionAcceptance
+	@OneToMany
+	@JoinColumn(name="taskSolutionID")
+	private List<TaskSolutionAcceptance> taskSolutionAcceptances;
 
 	public TaskSolution() {
 	}
 
 	public Integer getTaskSolutionid() {
-		return this.taskSolutionid;
+		return this.taskSolutionID;
 	}
 
 	public void setTaskSolutionid(Integer taskSolutionid) {
-		this.taskSolutionid = taskSolutionid;
+		this.taskSolutionID = taskSolutionid;
 	}
 
-	public Task getTask() {
-		return this.task;
+	public List<Task> getTasks() {
+		return this.tasks;
 	}
 
-	public void setTask(Task task) {
-		this.task = task;
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
 	}
 
-	public TaskSolution getTasksolution() {
-		return this.tasksolution;
+	public List<TaskSolutionAcceptance> getTasksolutionAcceptances() {
+		return this.taskSolutionAcceptances;
 	}
 
-	public void setTaskSolution(TaskSolution tasksolution) {
-		this.tasksolution = tasksolution;
+	public void setTaskSolutionAcceptances(List<TaskSolutionAcceptance> taskSolutionAcceptances) {
+		this.taskSolutionAcceptances = taskSolutionAcceptances;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Timestamp getTimeStamp() {
+		return timeStamp;
+	}
+
+	public void setTimeStamp(Timestamp timeStamp) {
+		this.timeStamp = timeStamp;
 	}
 
 }
