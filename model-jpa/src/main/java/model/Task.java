@@ -17,25 +17,25 @@ public class Task implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer taskid;
+	private Integer taskId;
 
 	private String description;
 
 	private String goals;
 
-	private float hoursestimated;
+	private float hoursEstimated;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
 	private String name;
 
-	private String requiredoutput;
+	private String requiredOutput;
 
-	private Timestamp updatetimestamp;
+	private Timestamp updateTimestamp;
 
-	private Timestamp validfrom;
+	private Timestamp validFrom;
 
-	private Timestamp validto;
+	private Timestamp validTo;
 
 	//bi-directional many-to-one association to SubjectTask
 	@OneToMany(mappedBy="task")
@@ -75,12 +75,12 @@ public class Task implements Serializable {
 	public Task() {
 	}
 
-	public Integer getTaskid() {
-		return this.taskid;
+	public Integer getTaskId() {
+		return this.taskId;
 	}
 
-	public void setTaskid(Integer taskid) {
-		this.taskid = taskid;
+	public void setTaskId(Integer taskId) {
+		this.taskId = taskId;
 	}
 
 	public String getDescription() {
@@ -99,20 +99,20 @@ public class Task implements Serializable {
 		this.goals = goals;
 	}
 
-	public float getHoursestimated() {
-		return this.hoursestimated;
+	public float getHoursEstimated() {
+		return this.hoursEstimated;
 	}
 
-	public void setHoursestimated(float hoursestimated) {
-		this.hoursestimated = hoursestimated;
+	public void setHoursEstimated(float hoursEstimated) {
+		this.hoursEstimated = hoursEstimated;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
 	public String getName() {
@@ -123,36 +123,36 @@ public class Task implements Serializable {
 		this.name = name;
 	}
 
-	public String getRequiredoutput() {
-		return this.requiredoutput;
+	public String getRequiredOutput() {
+		return this.requiredOutput;
 	}
 
-	public void setRequiredoutput(String requiredoutput) {
-		this.requiredoutput = requiredoutput;
+	public void setRequiredOutput(String requiredOutput) {
+		this.requiredOutput = requiredOutput;
 	}
 
-	public Timestamp getUpdatetimestamp() {
-		return this.updatetimestamp;
+	public Timestamp getUpdateTimestamp() {
+		return this.updateTimestamp;
 	}
 
-	public void setUpdatetimestamp(Timestamp updatetimestamp) {
-		this.updatetimestamp = updatetimestamp;
+	public void setUpdateTimestamp(Timestamp updateTimestamp) {
+		this.updateTimestamp = updateTimestamp;
 	}
 
-	public Timestamp getValidfrom() {
-		return this.validfrom;
+	public Timestamp getValidFrom() {
+		return this.validFrom;
 	}
 
-	public void setValidfrom(Timestamp validfrom) {
-		this.validfrom = validfrom;
+	public void setValidFrom(Timestamp validFrom) {
+		this.validFrom = validFrom;
 	}
 
-	public Timestamp getValidto() {
-		return this.validto;
+	public Timestamp getValidTo() {
+		return this.validTo;
 	}
 
-	public void setValidto(Timestamp validto) {
-		this.validto = validto;
+	public void setValidto(Timestamp validTo) {
+		this.validTo = validTo;
 	}
 
 	public List<SubjectTask> getSubjectTasks() {
