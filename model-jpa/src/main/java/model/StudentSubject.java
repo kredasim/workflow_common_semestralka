@@ -16,7 +16,7 @@ public class StudentSubject implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="student_subjectid")
-	private Integer studentSubjectid;
+	private Integer studentSubjectID;
 
 	private Boolean completed;
 
@@ -26,23 +26,23 @@ public class StudentSubject implements Serializable {
 
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
-	@JoinColumn(name="appuserid")
+	@JoinColumn(name="appUserID")
 	private AppUser appUser;
 
 	//bi-directional many-to-one association to Subject
 	@ManyToOne
-	@JoinColumn(name="subjectid")
+	@JoinColumn(name="subjectID")
 	private Subject subject;
 
 	public StudentSubject() {
 	}
 
-	public Integer getStudentSubjectid() {
-		return this.studentSubjectid;
+	public Integer getStudentSubjectID() {
+		return this.studentSubjectID;
 	}
 
-	public void setStudentSubjectid(Integer studentSubjectid) {
-		this.studentSubjectid = studentSubjectid;
+	public void setStudentSubjectID(Integer studentSubjectID) {
+		this.studentSubjectID = studentSubjectID;
 	}
 
 	public Boolean getCompleted() {
@@ -69,11 +69,11 @@ public class StudentSubject implements Serializable {
 		this.semester = semester;
 	}
 
-	public AppUser getAppuser() {
+	public AppUser getAppUser() {
 		return this.appUser;
 	}
 
-	public void setAppuser(AppUser appUser) {
+	public void setAppUser(AppUser appUser) {
 		this.appUser = appUser;
 	}
 

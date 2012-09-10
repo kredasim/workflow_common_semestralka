@@ -17,36 +17,36 @@ public class AppUserTaskRole implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_taskroleid")
-	private Integer userTaskroleid;
+	private Integer userTaskRoleID;
 
 	private String comment;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
-	//bi-directional many-to-one association to Appuser
+	//bi-directional many-to-one association to AppUser
 	@ManyToOne
-	@JoinColumn(name="appuserid")
+	@JoinColumn(name="appUserID")
 	private AppUser appUser;
 
 	//bi-directional many-to-one association to TaskRole
 	@ManyToOne
-	@JoinColumn(name="taskroleid")
+	@JoinColumn(name="taskRoleID")
 	private TaskRole taskRole;
 
 	//bi-directional many-to-one association to TaskRoleAssignmentState
 	@ManyToOne
-	@JoinColumn(name="taskroleassignmentstateid")
+	@JoinColumn(name="taskRoleAssignmentStateID")
 	private TaskRoleAssignmentState taskRoleAssignmentState;
 
 	public AppUserTaskRole() {
 	}
 
-	public Integer getUserTaskroleid() {
-		return this.userTaskroleid;
+	public Integer getUserTaskroleID() {
+		return this.userTaskRoleID;
 	}
 
-	public void setUserTaskroleid(Integer userTaskroleid) {
-		this.userTaskroleid = userTaskroleid;
+	public void setUserTaskRoleID(Integer userTaskroleid) {
+		this.userTaskRoleID = userTaskroleid;
 	}
 
 	public String getComment() {
@@ -57,35 +57,35 @@ public class AppUserTaskRole implements Serializable {
 		this.comment = comment;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
-	public AppUser getAppuser() {
+	public AppUser getAppUser() {
 		return this.appUser;
 	}
 
-	public void setAppuser(AppUser appUser) {
+	public void setAppUser(AppUser appUser) {
 		this.appUser = appUser;
 	}
 
-	public TaskRole getTaskrole() {
+	public TaskRole getTaskRole() {
 		return this.taskRole;
 	}
 
-	public void setTaskrole(TaskRole taskRole) {
+	public void setTaskRole(TaskRole taskRole) {
 		this.taskRole = taskRole;
 	}
 
-	public TaskRoleAssignmentState getTaskroleassignmentstate() {
+	public TaskRoleAssignmentState getTaskRoleAssignmentState() {
 		return this.taskRoleAssignmentState;
 	}
 
-	public void setTaskroleassignmentstate(TaskRoleAssignmentState taskRoleAssignmentState) {
+	public void setTaskRoleAssignmentState(TaskRoleAssignmentState taskRoleAssignmentState) {
 		this.taskRoleAssignmentState = taskRoleAssignmentState;
 	}
 

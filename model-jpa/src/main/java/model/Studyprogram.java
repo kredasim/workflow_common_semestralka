@@ -15,13 +15,13 @@ public class StudyProgram implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer studyprogramid;
+	private Integer studyProgramID;
 
 	private String description;
 
 	private String name;
 
-	//bi-directional many-to-one association to InstitutionStudyProgram
+	//bi-directional many-to-many association to Institution
 	@ManyToMany(mappedBy="studyPrograms")
 	private List<Institution> institutions;
 
@@ -30,11 +30,11 @@ public class StudyProgram implements Serializable {
 	@JoinColumn(name="userid")
 	private AppUser appUser;
 
-	//bi-directional many-to-one association to SubjectStudyProgram
+	//bi-directional many-to-one association to Subject
 	@ManyToMany
 	@JoinTable(
 			name = "Subject_StudyProgram",
-			joinColumns = @JoinColumn(name = "studyProgramId"),
+			joinColumns = @JoinColumn(name = "studyProgramID"),
 			inverseJoinColumns = @JoinColumn(name = "subjectID")
 			)
 	private List<Subject> subjects;
@@ -42,12 +42,12 @@ public class StudyProgram implements Serializable {
 	public StudyProgram() {
 	}
 
-	public Integer getStudyprogramid() {
-		return this.studyprogramid;
+	public Integer getStudyProgramID() {
+		return this.studyProgramID;
 	}
 
-	public void setStudyprogramid(Integer studyprogramid) {
-		this.studyprogramid = studyprogramid;
+	public void setStudyProgramID(Integer studyProgramID) {
+		this.studyProgramID = studyProgramID;
 	}
 
 	public String getDescription() {
@@ -74,11 +74,11 @@ public class StudyProgram implements Serializable {
 		this.institutions = institutions;
 	}
 
-	public AppUser getAppuser() {
+	public AppUser getAppUser() {
 		return this.appUser;
 	}
 
-	public void setAppuser(AppUser appUser) {
+	public void setAppUser(AppUser appUser) {
 		this.appUser = appUser;
 	}
 

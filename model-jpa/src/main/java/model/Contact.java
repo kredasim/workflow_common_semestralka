@@ -16,15 +16,15 @@ public class Contact implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer contactid;
+	private Integer contactID;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
-	private Boolean isprimary;
+	private Boolean isPrimary;
 
 	private String name;
 
-	private Timestamp updatetimestamp;
+	private Timestamp updateTimestamp;
 
 	private String value;
 
@@ -45,27 +45,27 @@ public class Contact implements Serializable {
 	}
 
 	public Integer getContactid() {
-		return this.contactid;
+		return this.contactID;
 	}
 
-	public void setContactid(Integer contactid) {
-		this.contactid = contactid;
+	public void setContactID(Integer contactID) {
+		this.contactID = contactID;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
-	public Boolean getIsprimary() {
-		return this.isprimary;
+	public Boolean getIsPrimary() {
+		return this.isPrimary;
 	}
 
-	public void setIsprimary(Boolean isprimary) {
-		this.isprimary = isprimary;
+	public void setIsPrimary(Boolean isPrimary) {
+		this.isPrimary = isPrimary;
 	}
 
 	public String getName() {
@@ -76,12 +76,12 @@ public class Contact implements Serializable {
 		this.name = name;
 	}
 
-	public Timestamp getUpdatetimestamp() {
-		return this.updatetimestamp;
+	public Timestamp getUpdateTimestamp() {
+		return this.updateTimestamp;
 	}
 
-	public void setUpdatetimestamp(Timestamp updatetimestamp) {
-		this.updatetimestamp = updatetimestamp;
+	public void setUpdateTimestamp(Timestamp updateTimestamp) {
+		this.updateTimestamp = updateTimestamp;
 	}
 
 	public String getValue() {
@@ -92,19 +92,19 @@ public class Contact implements Serializable {
 		this.value = value;
 	}
 
-	public List<AppUser> getAppuser() {
+	public List<AppUser> getAppUser() {
 		return this.appUsers;
 	}
 
-	public void setAppuser(List<AppUser> appUser) {
+	public void setAppUser(List<AppUser> appUser) {
 		this.appUsers = appUser;
 	}
 
-	public ContactType getContacttype() {
+	public ContactType getContactType() {
 		return this.contactType;
 	}
 
-	public void setContacttype(ContactType contactType) {
+	public void setContactType(ContactType contactType) {
 		this.contactType = contactType;
 	}
 

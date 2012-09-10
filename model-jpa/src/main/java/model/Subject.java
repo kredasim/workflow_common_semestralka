@@ -16,29 +16,29 @@ public class Subject implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer subjectid;
+	private Integer subjectID;
 
 	private String anotation;
 
 	private String completion;
 
-	private String courseoutline;
+	private String courseOutline;
 
 	private Integer credits;
 
-	private String exercisesoutline;
+	private String exercisesOutline;
 
-	private String extentofteaching;
+	private String extentOfTeaching;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
 	private String name;
 
-	private Boolean tasknominationallowed;
+	private Boolean taskNominationAllowed;
 
-	private Timestamp updatetimestamp;
+	private Timestamp updateTimestamp;
 
-	//bi-directional many-to-one association to InstitutionSubject
+	//bi-directional many-to-one association to Institution
 	@ManyToMany(mappedBy="subjects")
 	private List<Institution> institutions;
 
@@ -46,7 +46,7 @@ public class Subject implements Serializable {
 	@OneToMany(mappedBy="subject")
 	private List<StudentSubject> studentSubjects;
 
-	//bi-directional many-to-one association to SubjectStudyProgram
+	//bi-directional many-to-one association to tStudyProgram
 	@ManyToMany(mappedBy="subjects")
 	private List<StudyProgram> studyPrograms;
 
@@ -61,12 +61,12 @@ public class Subject implements Serializable {
 	public Subject() {
 	}
 
-	public Integer getSubjectid() {
-		return this.subjectid;
+	public Integer getSubjectID() {
+		return this.subjectID;
 	}
 
-	public void setSubjectid(Integer subjectid) {
-		this.subjectid = subjectid;
+	public void setSubjectID(Integer subjectID) {
+		this.subjectID = subjectID;
 	}
 
 	public String getAnotation() {
@@ -85,12 +85,12 @@ public class Subject implements Serializable {
 		this.completion = completion;
 	}
 
-	public String getCourseoutline() {
-		return this.courseoutline;
+	public String getCourseOutline() {
+		return this.courseOutline;
 	}
 
-	public void setCourseoutline(String courseoutline) {
-		this.courseoutline = courseoutline;
+	public void setCourseOutline(String courseOutline) {
+		this.courseOutline = courseOutline;
 	}
 
 	public Integer getCredits() {
@@ -101,28 +101,28 @@ public class Subject implements Serializable {
 		this.credits = credits;
 	}
 
-	public String getExercisesoutline() {
-		return this.exercisesoutline;
+	public String getExercisesOutline() {
+		return this.exercisesOutline;
 	}
 
-	public void setExercisesoutline(String exercisesoutline) {
-		this.exercisesoutline = exercisesoutline;
+	public void setExercisesOutline(String exercisesOutline) {
+		this.exercisesOutline = exercisesOutline;
 	}
 
-	public String getExtentofteaching() {
-		return this.extentofteaching;
+	public String getExtentOfTeaching() {
+		return this.extentOfTeaching;
 	}
 
-	public void setExtentofteaching(String extentofteaching) {
-		this.extentofteaching = extentofteaching;
+	public void setExtentOfTeaching(String extentOfTeaching) {
+		this.extentOfTeaching = extentOfTeaching;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
 	public String getName() {
@@ -133,20 +133,20 @@ public class Subject implements Serializable {
 		this.name = name;
 	}
 
-	public Boolean getTasknominationallowed() {
-		return this.tasknominationallowed;
+	public Boolean getTaskNominationAllowed() {
+		return this.taskNominationAllowed;
 	}
 
-	public void setTasknominationallowed(Boolean tasknominationallowed) {
-		this.tasknominationallowed = tasknominationallowed;
+	public void setTaskNominationAllowed(Boolean taskNominationAllowed) {
+		this.taskNominationAllowed = taskNominationAllowed;
 	}
 
-	public Timestamp getUpdatetimestamp() {
-		return this.updatetimestamp;
+	public Timestamp getUpdateTimestamp() {
+		return this.updateTimestamp;
 	}
 
-	public void setUpdatetimestamp(Timestamp updatetimestamp) {
-		this.updatetimestamp = updatetimestamp;
+	public void setUpdateTimestamp(Timestamp updateTimestamp) {
+		this.updateTimestamp = updateTimestamp;
 	}
 
 	public List<Institution> getInstitutions() {
@@ -165,11 +165,11 @@ public class Subject implements Serializable {
 		this.studentSubjects = studentSubjects;
 	}
 
-	public List<StudyProgram> getStudyprograms() {
+	public List<StudyProgram> getStudyPrograms() {
 		return this.studyPrograms;
 	}
 
-	public void setStudyprograms(List<StudyProgram> studyPrograms) {
+	public void setStudyPrograms(List<StudyProgram> studyPrograms) {
 		this.studyPrograms = studyPrograms;
 	}
 

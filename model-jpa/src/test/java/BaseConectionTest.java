@@ -17,11 +17,11 @@ public class BaseConectionTest {
 		EntityManager em= emf.createEntityManager();
 		em.getTransaction().begin();
 		AppUser appUser= new AppUser();
-		appUser.setFirstname("Honza");
-		appUser.setSurname("vom·Ëka");
+		appUser.setFirstName("Honza");
+		appUser.setSurName("vom·Ëka");
 		em.persist(appUser);
 		em.getTransaction().commit();
-		assertNotNull(appUser.getAppuserid());
+		assertNotNull(appUser.getAppUserID());
 	}
 
 }

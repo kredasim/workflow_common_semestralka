@@ -16,24 +16,24 @@ public class Project implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer projectid;
+	private Integer projectID;
 
 	private String description;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimeStamp;
 
 	private String name;
 
-	private Timestamp updatetimestamp;
+	private Timestamp updateTimestamp;
 
 	//bi-directional many-to-one association to Institution
 	@ManyToOne
-	@JoinColumn(name="institutionid")
+	@JoinColumn(name="institutionID")
 	private Institution institution;
 
 	//bi-directional many-to-one association to Project
 	@ManyToOne
-	@JoinColumn(name="parentprojectid")
+	@JoinColumn(name="parentProjectID")
 	private Project project;
 
 	//bi-directional many-to-one association to Project
@@ -47,12 +47,12 @@ public class Project implements Serializable {
 	public Project() {
 	}
 
-	public Integer getProjectid() {
-		return this.projectid;
+	public Integer getProjectID() {
+		return this.projectID;
 	}
 
-	public void setProjectid(Integer projectid) {
-		this.projectid = projectid;
+	public void setProjectID(Integer projectID) {
+		this.projectID = projectID;
 	}
 
 	public String getDescription() {
@@ -63,12 +63,12 @@ public class Project implements Serializable {
 		this.description = description;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimeStamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimeStamp = insertTimestamp;
 	}
 
 	public String getName() {
@@ -79,12 +79,12 @@ public class Project implements Serializable {
 		this.name = name;
 	}
 
-	public Timestamp getUpdatetimestamp() {
-		return this.updatetimestamp;
+	public Timestamp getUpdateTimestamp() {
+		return this.updateTimestamp;
 	}
 
-	public void setUpdatetimestamp(Timestamp updatetimestamp) {
-		this.updatetimestamp = updatetimestamp;
+	public void setUpdateTimestamp(Timestamp updateTimestamp) {
+		this.updateTimestamp = updateTimestamp;
 	}
 
 	public Institution getInstitution() {

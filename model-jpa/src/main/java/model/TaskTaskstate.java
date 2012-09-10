@@ -16,32 +16,32 @@ public class TaskTaskState implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="task_taskstateid")
-	private Integer taskTaskstateid;
+	@Column(name="task_TaskStateID")
+	private Integer taskTaskStateID;
 
 	private String comment;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
 	//bi-directional many-to-one association to Task
 	@ManyToOne
-	@JoinColumn(name="taskid")
+	@JoinColumn(name="taskID")
 	private Task task;
 
 	//bi-directional many-to-one association to TaskState
 	@ManyToOne
-	@JoinColumn(name="taskstateid")
+	@JoinColumn(name="taskStateID")
 	private TaskState taskState;
 
 	public TaskTaskState() {
 	}
 
-	public Integer getTaskTaskstateid() {
-		return this.taskTaskstateid;
+	public Integer getTaskTaskStateID() {
+		return this.taskTaskStateID;
 	}
 
-	public void setTaskTaskstateid(Integer taskTaskstateid) {
-		this.taskTaskstateid = taskTaskstateid;
+	public void setTaskTaskStateID(Integer taskTaskStateID) {
+		this.taskTaskStateID = taskTaskStateID;
 	}
 
 	public String getComment() {
@@ -52,12 +52,12 @@ public class TaskTaskState implements Serializable {
 		this.comment = comment;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
 	public Task getTask() {
@@ -68,11 +68,11 @@ public class TaskTaskState implements Serializable {
 		this.task = task;
 	}
 
-	public TaskState getTaskstate() {
+	public TaskState getTaskState() {
 		return this.taskState;
 	}
 
-	public void setTaskstate(TaskState taskState) {
+	public void setTaskState(TaskState taskState) {
 		this.taskState = taskState;
 	}
 

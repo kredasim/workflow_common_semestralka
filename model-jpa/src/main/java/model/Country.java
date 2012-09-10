@@ -15,7 +15,7 @@ public class Country implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer countryid;
+	private Integer countryID;
 
 	private String ident;
 
@@ -28,12 +28,12 @@ public class Country implements Serializable {
 	public Country() {
 	}
 
-	public Integer getCountryid() {
-		return this.countryid;
+	public Integer getCountryID() {
+		return this.countryID;
 	}
 
-	public void setCountryid(Integer countryid) {
-		this.countryid = countryid;
+	public void setCountryID(Integer countryID) {
+		this.countryID = countryID;
 	}
 
 	public String getIdent() {

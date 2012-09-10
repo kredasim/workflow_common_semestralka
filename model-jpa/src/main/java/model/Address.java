@@ -20,7 +20,7 @@ public class Address implements Serializable {
 
 	private String city;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
 	private String name;
 
@@ -28,7 +28,7 @@ public class Address implements Serializable {
 
 	private String street;
 
-	private Timestamp updatetimestamp;
+	private Timestamp updateTimestamp;
 
 	private String zip;
 
@@ -60,12 +60,12 @@ public class Address implements Serializable {
 		this.city = city;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
 	public String getName() {
@@ -93,11 +93,11 @@ public class Address implements Serializable {
 	}
 
 	public Timestamp getUpdatetimestamp() {
-		return this.updatetimestamp;
+		return this.updateTimestamp;
 	}
 
-	public void setUpdatetimestamp(Timestamp updatetimestamp) {
-		this.updatetimestamp = updatetimestamp;
+	public void setUpdateTimestamp(Timestamp updateTimestamp) {
+		this.updateTimestamp = updateTimestamp;
 	}
 
 	public String getZip() {

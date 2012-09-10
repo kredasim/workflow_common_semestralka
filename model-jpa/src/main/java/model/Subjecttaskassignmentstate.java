@@ -15,7 +15,7 @@ public class SubjectTaskAssignmentState implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer subjecttaskassignmentstateid;
+	private Integer subjectTaskAssignmentStateID;
 
 	private Integer name;
 
@@ -26,12 +26,12 @@ public class SubjectTaskAssignmentState implements Serializable {
 	public SubjectTaskAssignmentState() {
 	}
 
-	public Integer getSubjecttaskassignmentstateid() {
-		return this.subjecttaskassignmentstateid;
+	public Integer getSubjectTaskAssignmentStateID() {
+		return this.subjectTaskAssignmentStateID;
 	}
 
-	public void setSubjecttaskassignmentstateid(Integer subjecttaskassignmentstateid) {
-		this.subjecttaskassignmentstateid = subjecttaskassignmentstateid;
+	public void setSubjectTaskAssignmentStateID(Integer subjectTaskAssignmentStateID) {
+		this.subjectTaskAssignmentStateID = subjectTaskAssignmentStateID;
 	}
 
 	public Integer getName() {

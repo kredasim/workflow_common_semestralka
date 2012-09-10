@@ -5,42 +5,42 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the task_taskrole database table.
+ * The persistent class for the task_TaskRole database table.
  * 
  */
 @Entity
-@Table(name="task_taskrole")
+@Table(name="task_TaskRole")
 public class TaskTaskRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="task_taskroleid")
-	private Integer taskTaskroleid;
+	@Column(name="task_TaskRoleID")
+	private Integer taskTaskRoleID;
 
 	private String comment;
 
-	private float hoursestimated;
+	private float hoursEstimated;
 
 	//bi-directional many-to-one association to Task
 	@ManyToOne
-	@JoinColumn(name="taskid")
+	@JoinColumn(name="taskID")
 	private Task task;
 
 	//bi-directional many-to-one association to TaskRole
 	@ManyToOne
-	@JoinColumn(name="taskroleid")
+	@JoinColumn(name="taskRoleID")
 	private TaskRole taskRole;
 
 	public TaskTaskRole() {
 	}
 
-	public Integer getTaskTaskroleid() {
-		return this.taskTaskroleid;
+	public Integer getTaskTaskRoleID() {
+		return this.taskTaskRoleID;
 	}
 
-	public void setTaskTaskroleid(Integer taskTaskroleid) {
-		this.taskTaskroleid = taskTaskroleid;
+	public void setTaskTaskRoleID(Integer taskTaskRoleID) {
+		this.taskTaskRoleID = taskTaskRoleID;
 	}
 
 	public String getComment() {
@@ -51,12 +51,12 @@ public class TaskTaskRole implements Serializable {
 		this.comment = comment;
 	}
 
-	public float getHoursestimated() {
-		return this.hoursestimated;
+	public float getHoursEstimated() {
+		return this.hoursEstimated;
 	}
 
-	public void setHoursestimated(float hoursestimated) {
-		this.hoursestimated = hoursestimated;
+	public void setHoursEstimated(float hoursEstimated) {
+		this.hoursEstimated = hoursEstimated;
 	}
 
 	public Task getTask() {
@@ -67,11 +67,11 @@ public class TaskTaskRole implements Serializable {
 		this.task = task;
 	}
 
-	public TaskRole getTaskrole() {
+	public TaskRole getTaskRole() {
 		return this.taskRole;
 	}
 
-	public void setTaskrole(TaskRole taskRole) {
+	public void setTaskRole(TaskRole taskRole) {
 		this.taskRole = taskRole;
 	}
 

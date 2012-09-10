@@ -15,30 +15,30 @@ public class TeacherSubject implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="teacher_subjectid")
-	private Integer teacherSubjectid;
+	@Column(name="Teacher_SubjectID")
+	private Integer teacherSubjectID;
 
 	private String semester;
 
 	//bi-directional many-to-one association to Appuser
 	@ManyToOne
-	@JoinColumn(name="appuserid")
+	@JoinColumn(name="appUserID")
 	private AppUser appUser;
 
 	//bi-directional many-to-one association to Subject
 	@ManyToOne
-	@JoinColumn(name="subjectid")
+	@JoinColumn(name="subjectID")
 	private Subject subject;
 
 	public TeacherSubject() {
 	}
 
-	public Integer getTeacherSubjectid() {
-		return this.teacherSubjectid;
+	public Integer getTeacherSubjectID() {
+		return this.teacherSubjectID;
 	}
 
-	public void setTeacherSubjectid(Integer teacherSubjectid) {
-		this.teacherSubjectid = teacherSubjectid;
+	public void setTeacherSubjectID(Integer teacherSubjectID) {
+		this.teacherSubjectID = teacherSubjectID;
 	}
 
 	public String getSemester() {
@@ -49,11 +49,11 @@ public class TeacherSubject implements Serializable {
 		this.semester = semester;
 	}
 
-	public AppUser getAppuser() {
+	public AppUser getAppUser() {
 		return this.appUser;
 	}
 
-	public void setAppuser(AppUser appUser) {
+	public void setAppUser(AppUser appUser) {
 		this.appUser = appUser;
 	}
 

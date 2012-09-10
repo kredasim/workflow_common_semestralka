@@ -15,7 +15,7 @@ public class Role implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer roleid;
+	private Integer roleID;
 
 	private String description;
 
@@ -28,12 +28,12 @@ public class Role implements Serializable {
 	public Role() {
 	}
 
-	public Integer getRoleid() {
-		return this.roleid;
+	public Integer getRoleID() {
+		return this.roleID;
 	}
 
-	public void setRoleid(Integer roleid) {
-		this.roleid = roleid;
+	public void setRoleID(Integer roleID) {
+		this.roleID = roleID;
 	}
 
 	public String getDescription() {
@@ -52,11 +52,11 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	public List<AppUser> getAppusers() {
+	public List<AppUser> getAppUsers() {
 		return this.appUsers;
 	}
 
-	public void setAppusers(List<AppUser> appUsers) {
+	public void setAppUsers(List<AppUser> appUsers) {
 		this.appUsers = appUsers;
 	}
 

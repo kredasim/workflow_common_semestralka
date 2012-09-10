@@ -15,13 +15,13 @@ public class AppUser implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer appuserid;
+	private Integer appUserID;
 
-	private String firstname;
+	private String firstName;
 
-	private String middlename;
+	private String middleName;
 
-	private String surname;
+	private String surName;
 
 	//bi-directional many-to-one association to Institution
 	@ManyToOne
@@ -69,36 +69,36 @@ public class AppUser implements Serializable {
 	public AppUser() {
 	}
 
-	public Integer getAppuserid() {
-		return this.appuserid;
+	public Integer getAppUserID() {
+		return this.appUserID;
 	}
 
-	public void setAppuserid(Integer appuserid) {
-		this.appuserid = appuserid;
+	public void setAppuserID(Integer appUserID) {
+		this.appUserID = appUserID;
 	}
 
-	public String getFirstname() {
-		return this.firstname;
+	public String getFirstName() {
+		return this.firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getMiddlename() {
-		return this.middlename;
+	public String getMiddleName() {
+		return this.middleName;
 	}
 
-	public void setMiddlename(String middlename) {
-		this.middlename = middlename;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 
-	public String getSurname() {
-		return this.surname;
+	public String getSurName() {
+		return this.surName;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setSurName(String surName) {
+		this.surName = surName;
 	}
 
 	public Institution getInstitution() {
@@ -141,11 +141,11 @@ public class AppUser implements Serializable {
 		this.studentSubjects = studentSubjects;
 	}
 
-	public List<StudyProgram> getStudyprograms() {
+	public List<StudyProgram> getStudyPrograms() {
 		return this.studyPrograms;
 	}
 
-	public void setStudyprograms(List<StudyProgram> studyPrograms) {
+	public void setStudyPrograms(List<StudyProgram> studyPrograms) {
 		this.studyPrograms = studyPrograms;
 	}
 

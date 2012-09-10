@@ -15,7 +15,7 @@ public class ContactType implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer contacttypeid;
+	private Integer contactTypeID;
 
 	private String name;
 
@@ -26,12 +26,12 @@ public class ContactType implements Serializable {
 	public ContactType() {
 	}
 
-	public Integer getContacttypeid() {
-		return this.contacttypeid;
+	public Integer getContactTypeID() {
+		return this.contactTypeID;
 	}
 
-	public void setContacttypeid(Integer contacttypeid) {
-		this.contacttypeid = contacttypeid;
+	public void setContactTypeID(Integer contactTypeID) {
+		this.contactTypeID = contactTypeID;
 	}
 
 	public String getName() {

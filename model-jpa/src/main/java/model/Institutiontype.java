@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * The persistent class for the institutiontype database table.
+ * The persistent class for the institutionType database table.
  * 
  */
 @Entity
@@ -15,7 +15,7 @@ public class InstitutionType implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer institutiontypeid;
+	private Integer institutionTypeID;
 
 	private String description;
 
@@ -28,12 +28,12 @@ public class InstitutionType implements Serializable {
 	public InstitutionType() {
 	}
 
-	public Integer getInstitutiontypeid() {
-		return this.institutiontypeid;
+	public Integer getInstitutionTypeID() {
+		return this.institutionTypeID;
 	}
 
-	public void setInstitutiontypeid(Integer institutiontypeid) {
-		this.institutiontypeid = institutiontypeid;
+	public void setInstitutionTypeID(Integer institutionTypeID) {
+		this.institutionTypeID = institutionTypeID;
 	}
 
 	public String getDescription() {

@@ -15,11 +15,11 @@ public class TaskState implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer taskstateid;
+	private Integer taskStateID;
 
 	private String name;
 
-	//bi-directional many-to-one association to TaskTaskState
+	//bi-directional many-to-one association to Task
 	@ManyToMany
 	@JoinTable(
 			name = "Task_TaskState",
@@ -31,12 +31,12 @@ public class TaskState implements Serializable {
 	public TaskState() {
 	}
 
-	public Integer getTaskstateid() {
-		return this.taskstateid;
+	public Integer getTaskStateID() {
+		return this.taskStateID;
 	}
 
-	public void setTaskstateid(Integer taskstateid) {
-		this.taskstateid = taskstateid;
+	public void setTaskStateID(Integer taskStateID) {
+		this.taskStateID = taskStateID;
 	}
 
 	public String getName() {

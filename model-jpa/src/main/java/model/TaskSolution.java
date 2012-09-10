@@ -12,7 +12,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="task_solution")
+@Table(name="Task_Solution")
 public class TaskSolution implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -35,12 +35,12 @@ public class TaskSolution implements Serializable {
 	public TaskSolution() {
 	}
 
-	public Integer getTaskSolutionid() {
+	public Integer getTaskSolutionID() {
 		return this.taskSolutionID;
 	}
 
-	public void setTaskSolutionid(Integer taskSolutionid) {
-		this.taskSolutionID = taskSolutionid;
+	public void setTaskSolutionID(Integer taskSolutionID) {
+		this.taskSolutionID = taskSolutionID;
 	}
 
 	public List<Task> getTasks() {

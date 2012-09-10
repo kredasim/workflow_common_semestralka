@@ -15,7 +15,7 @@ public class TaskRole implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer taskroleid;
+	private Integer taskRoleID;
 
 	private String name;
 
@@ -30,12 +30,12 @@ public class TaskRole implements Serializable {
 	public TaskRole() {
 	}
 
-	public Integer getTaskroleid() {
-		return this.taskroleid;
+	public Integer getTaskroleID() {
+		return this.taskRoleID;
 	}
 
-	public void setTaskroleid(Integer taskroleid) {
-		this.taskroleid = taskroleid;
+	public void setTaskroleID(Integer taskRoleID) {
+		this.taskRoleID = taskRoleID;
 	}
 
 	public String getName() {

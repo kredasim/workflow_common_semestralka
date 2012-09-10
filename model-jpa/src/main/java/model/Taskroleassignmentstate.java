@@ -15,23 +15,23 @@ public class TaskRoleAssignmentState implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer taskroleassignmentstateid;
+	private Integer taskRoleAssignmentStateID;
 
 	private String name;
 
-	//bi-directional many-to-one association to AppUserTaskrole
+	//bi-directional many-to-one association to AppUserTaskRole
 	@OneToMany(mappedBy="taskRoleAssignmentState")
 	private List<AppUserTaskRole> appUserTaskRoles;
 
 	public TaskRoleAssignmentState() {
 	}
 
-	public Integer getTaskroleassignmentstateid() {
-		return this.taskroleassignmentstateid;
+	public Integer getTaskroleAssignmentStateID() {
+		return this.taskRoleAssignmentStateID;
 	}
 
-	public void setTaskroleassignmentstateid(Integer taskroleassignmentstateid) {
-		this.taskroleassignmentstateid = taskroleassignmentstateid;
+	public void setTaskRoleAssignmentStateID(Integer taskRoleAssignmentStateID) {
+		this.taskRoleAssignmentStateID = taskRoleAssignmentStateID;
 	}
 
 	public String getName() {
@@ -42,11 +42,11 @@ public class TaskRoleAssignmentState implements Serializable {
 		this.name = name;
 	}
 
-	public List<AppUserTaskRole> getAppuserTaskRoles() {
+	public List<AppUserTaskRole> getAppUserTaskRoles() {
 		return this.appUserTaskRoles;
 	}
 
-	public void setAppuserTaskRoles(List<AppUserTaskRole> appUserTaskRoles) {
+	public void setAppUserTaskRoles(List<AppUserTaskRole> appUserTaskRoles) {
 		this.appUserTaskRoles = appUserTaskRoles;
 	}
 

@@ -17,36 +17,36 @@ public class SubjectTask implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="subject_taskid")
-	private Integer subjectTaskid;
+	private Integer subjectTaskID;
 
 	private String comment;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
 	//bi-directional many-to-one association to Subject
 	@ManyToOne
-	@JoinColumn(name="subjectid")
+	@JoinColumn(name="subjectID")
 	private Subject subject;
 
 	//bi-directional many-to-one association to SubjectTaskAssignmentState
 	@ManyToOne
-	@JoinColumn(name="subjecttaskassignmentstateid")
+	@JoinColumn(name="subjectTaskAssignmentStateID")
 	private SubjectTaskAssignmentState subjectTaskAssignmentState;
 
 	//bi-directional many-to-one association to Task
 	@ManyToOne
-	@JoinColumn(name="taskid")
+	@JoinColumn(name="taskID")
 	private Task task;
 
 	public SubjectTask() {
 	}
 
-	public Integer getSubjectTaskid() {
-		return this.subjectTaskid;
+	public Integer getSubjectTaskID() {
+		return this.subjectTaskID;
 	}
 
-	public void setSubjectTaskid(Integer subjectTaskid) {
-		this.subjectTaskid = subjectTaskid;
+	public void setSubjectTaskID(Integer subjectTaskID) {
+		this.subjectTaskID = subjectTaskID;
 	}
 
 	public String getComment() {
@@ -57,12 +57,12 @@ public class SubjectTask implements Serializable {
 		this.comment = comment;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
 	public Subject getSubject() {
@@ -73,11 +73,11 @@ public class SubjectTask implements Serializable {
 		this.subject = subject;
 	}
 
-	public SubjectTaskAssignmentState getSubjecttaskassignmentstate() {
+	public SubjectTaskAssignmentState getSubjectTaskAssignmentState() {
 		return this.subjectTaskAssignmentState;
 	}
 
-	public void setSubjecttaskassignmentstate(SubjectTaskAssignmentState subjectTaskAssignmentState) {
+	public void setSubjectTaskAssignmentState(SubjectTaskAssignmentState subjectTaskAssignmentState) {
 		this.subjectTaskAssignmentState = subjectTaskAssignmentState;
 	}
 

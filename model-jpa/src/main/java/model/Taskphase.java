@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the taskphase database table.
+ * The persistent class for the taskPhase database table.
  * 
  */
 @Entity
@@ -15,7 +15,7 @@ public class TaskPhase implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer taskphaseid;
+	private Integer taskPhaseID;
 
 	private Boolean accomplished;
 
@@ -29,18 +29,18 @@ public class TaskPhase implements Serializable {
 
 	//bi-directional many-to-one association to Task
 	@ManyToOne
-	@JoinColumn(name="taskid")
+	@JoinColumn(name="taskID")
 	private Task task;
 
 	public TaskPhase() {
 	}
 
-	public Integer getTaskphaseid() {
-		return this.taskphaseid;
+	public Integer getTaskPhaseID() {
+		return this.taskPhaseID;
 	}
 
-	public void setTaskphaseid(Integer taskphaseid) {
-		this.taskphaseid = taskphaseid;
+	public void setTaskPhaseID(Integer taskPhaseID) {
+		this.taskPhaseID = taskPhaseID;
 	}
 
 	public Boolean getAccomplished() {

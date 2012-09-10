@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * The persistent class for the fieldofactivity database table.
+ * The persistent class for the fieldOfActivity database table.
  * 
  */
 @Entity
@@ -15,7 +15,7 @@ public class FieldOfActivity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer fieldofactivityid;
+	private Integer fieldOfActivityID;
 
 	private String ident;
 
@@ -28,12 +28,12 @@ public class FieldOfActivity implements Serializable {
 	public FieldOfActivity() {
 	}
 
-	public Integer getFieldofactivityid() {
-		return this.fieldofactivityid;
+	public Integer getFieldOfActivityID() {
+		return this.fieldOfActivityID;
 	}
 
-	public void setFieldofactivityid(Integer fieldofactivityid) {
-		this.fieldofactivityid = fieldofactivityid;
+	public void setFieldOfActivityID(Integer fieldOfActivityId) {
+		this.fieldOfActivityID = fieldOfActivityId;
 	}
 
 	public String getIdent() {

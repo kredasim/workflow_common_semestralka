@@ -16,15 +16,15 @@ public class Institution implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer institutionid;
+	private Integer institutionID;
 
 	private String description;
 
-	private Timestamp inserttimestamp;
+	private Timestamp insertTimestamp;
 
 	private String name;
 
-	private Timestamp updatetimestamp;
+	private Timestamp updateTimestamp;
 
 	//bi-directional many-to-one association to AppUser
 	@OneToMany(mappedBy="institution")
@@ -32,7 +32,7 @@ public class Institution implements Serializable {
 
 	//bi-directional many-to-one association to InstitutionType
 	@ManyToOne
-	@JoinColumn(name="institutiontypeid")
+	@JoinColumn(name="institutionTypeID")
 	private InstitutionType institutionType;
 
 	//bi-directional many-to-one association to InstitutionAddress
@@ -53,7 +53,7 @@ public class Institution implements Serializable {
 	)
 	private List<Contact> contacts;
 
-	//bi-directional many-to-one association to InstitutionFieldOfActivity
+	//bi-directional many-to-many association to FieldOfActivity
 	@ManyToMany
 	@JoinTable(
 			name = "institution_StudyProgram",
@@ -62,7 +62,7 @@ public class Institution implements Serializable {
 	)
 	private List<FieldOfActivity> fieldOfActivities;
 
-	//bi-directional many-to-one association to InstitutionStudyProgram
+	//bi-directional many-to-many association to StudyProgram
 	@ManyToMany
 	@JoinTable(
 			name = "institution_StudyProgram",
@@ -71,7 +71,7 @@ public class Institution implements Serializable {
 	)
 	private List<StudyProgram> studyPrograms;
 
-	//bi-directional many-to-one association to InstitutionSubject
+	//bi-directional many-to-many association to Subject
 	@ManyToMany
 	@JoinTable(
 			name = "institution_Subject",
@@ -87,12 +87,12 @@ public class Institution implements Serializable {
 	public Institution() {
 	}
 
-	public Integer getInstitutionid() {
-		return this.institutionid;
+	public Integer getInstitutionID() {
+		return this.institutionID;
 	}
 
-	public void setInstitutionid(Integer institutionid) {
-		this.institutionid = institutionid;
+	public void setInstitutionID(Integer institutionID) {
+		this.institutionID = institutionID;
 	}
 
 	public String getDescription() {
@@ -103,12 +103,12 @@ public class Institution implements Serializable {
 		this.description = description;
 	}
 
-	public Timestamp getInserttimestamp() {
-		return this.inserttimestamp;
+	public Timestamp getInsertTimestamp() {
+		return this.insertTimestamp;
 	}
 
-	public void setInserttimestamp(Timestamp inserttimestamp) {
-		this.inserttimestamp = inserttimestamp;
+	public void setInsertTimestamp(Timestamp insertTimestamp) {
+		this.insertTimestamp = insertTimestamp;
 	}
 
 	public String getName() {
@@ -119,12 +119,12 @@ public class Institution implements Serializable {
 		this.name = name;
 	}
 
-	public Timestamp getUpdatetimestamp() {
-		return this.updatetimestamp;
+	public Timestamp getUpdateTimestamp() {
+		return this.updateTimestamp;
 	}
 
-	public void setUpdatetimestamp(Timestamp updatetimestamp) {
-		this.updatetimestamp = updatetimestamp;
+	public void setUpdateTimestamp(Timestamp updateTimestamp) {
+		this.updateTimestamp = updateTimestamp;
 	}
 
 	public List<AppUser> getAppUsers() {

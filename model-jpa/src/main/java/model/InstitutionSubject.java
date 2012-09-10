@@ -15,28 +15,28 @@ public class InstitutionSubject implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="institution_subjectid")
-	private Integer institutionSubjectid;
+	@Column(name="institution_SubjectID")
+	private Integer institutionSubjectID;
 
 	//bi-directional many-to-one association to Institution
 	@ManyToOne
-	@JoinColumn(name="institutionid")
+	@JoinColumn(name="institutionID")
 	private Institution institution;
 
 	//bi-directional many-to-one association to Subject
 	@ManyToOne
-	@JoinColumn(name="subjectid")
+	@JoinColumn(name="subjectID")
 	private Subject subject;
 
 	public InstitutionSubject() {
 	}
 
-	public Integer getInstitutionSubjectid() {
-		return this.institutionSubjectid;
+	public Integer getInstitutionSubjectID() {
+		return this.institutionSubjectID;
 	}
 
-	public void setInstitutionSubjectid(Integer institutionSubjectid) {
-		this.institutionSubjectid = institutionSubjectid;
+	public void setInstitutionSubjectID(Integer institutionSubjectID) {
+		this.institutionSubjectID = institutionSubjectID;
 	}
 
 	public Institution getInstitution() {
