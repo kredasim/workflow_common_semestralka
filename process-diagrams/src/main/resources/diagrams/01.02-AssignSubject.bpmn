@@ -73,7 +73,7 @@
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow3" name="" sourceRef="usertask2" targetRef="endevent1"></sequenceFlow>
     <sequenceFlow id="flow5" name="Returned" sourceRef="exclusivegateway3" targetRef="usertask3">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${validationOutcome=="returned"}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${validationOutcome == "returned"}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow6" name="" sourceRef="usertask3" targetRef="exclusivegateway2"></sequenceFlow>
     <sequenceFlow id="flow7" name="Resubmited" sourceRef="exclusivegateway2" targetRef="usertask1">
@@ -83,7 +83,7 @@
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${modifyAction == "cancel"}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow9" name="Rejected" sourceRef="exclusivegateway3" targetRef="endevent3">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${validationOutcome==rejected}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${validationOutcome == "rejected"}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow10" name="Approved" sourceRef="exclusivegateway3" targetRef="scripttask1">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${validationOutcome=="approved"}]]></conditionExpression>
