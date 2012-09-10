@@ -11,23 +11,21 @@
         <flowNodeRef>subprocess1</flowNodeRef>
         <flowNodeRef>scripttask2</flowNodeRef>
         <flowNodeRef>exclusivegateway3</flowNodeRef>
-        <flowNodeRef>mailtask1</flowNodeRef>
         <flowNodeRef>exclusivegateway4</flowNodeRef>
         <flowNodeRef>scripttask3</flowNodeRef>
         <flowNodeRef>endevent3</flowNodeRef>
-        <flowNodeRef>receivetask1</flowNodeRef>
         <flowNodeRef>scripttask5</flowNodeRef>
       </lane>
     </laneSet>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="usertask1" name="01 - Enter task information">
+    <userTask id="usertask1" name="01 - Enter task information" activiti:assignee="kermit">
       <extensionElements>
         <activiti:formProperty id="taskName" name="Název" type="string" required="true"></activiti:formProperty>
         <activiti:formProperty id="taskDescription" name="Popis" type="string"></activiti:formProperty>
         <activiti:formProperty id="taskGoals" name="Cíle" type="string"></activiti:formProperty>
-        <activiti:formProperty id="taskHoursAverage" name="Odhad pracnosti" type="long"></activiti:formProperty>
+        <activiti:formProperty id="taskHoursEstimated" name="Odhad pracnosti" type="long"></activiti:formProperty>
         <activiti:formProperty id="taskReward" name="Odměna" type="long" required="true"></activiti:formProperty>
-        <activiti:formProperty id="taskRequiredOutputs" name="Požadované výstupy" type="string"></activiti:formProperty>
+        <activiti:formProperty id="taskRequiredOutput" name="Požadované výstupy" type="string"></activiti:formProperty>
         <activiti:formProperty id="taskValidFrom" name="Platnost od" type="date"></activiti:formProperty>
         <activiti:formProperty id="taskValidTo" name="Platnost do" type="date"></activiti:formProperty>
         <activiti:formProperty id="taskSignupDeadline" name="Konec přihlašování" type="date"></activiti:formProperty>
@@ -41,31 +39,41 @@
       <scriptTask id="scripttask1" name="Assign to course">
         <script></script>
       </scriptTask>
-      <userTask id="usertask2" name="02 - Modify task information"></userTask>
+      <userTask id="usertask2" name="02 - Modify task information" activiti:assignee="kermit"></userTask>
       <endEvent id="endevent1" name="Assigned"></endEvent>
       <endEvent id="endevent2" name="Canceled"></endEvent>
-      <exclusiveGateway id="exclusivegateway2" name="Canceled?"></exclusiveGateway>
+      <exclusiveGateway id="exclusivegateway2" name="Canceled?" default="flow14"></exclusiveGateway>
+      <userTask id="usertask3" name="Validate assignment" activiti:assignee="kermit">
+        <extensionElements>
+          <activiti:formProperty id="taskName" name="Název" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="taskDescription" name="Popis" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="approvalResult" name="Akce" type="enum" default="approve" required="true">
+            <activiti:value id="deny" name="Odmítnout"></activiti:value>
+            <activiti:value id="approve" name="Povolit"></activiti:value>
+            <activiti:value id="reject" name="Vrátit k přepracování"></activiti:value>
+          </activiti:formProperty>
+        </extensionElements>
+      </userTask>
+      <boundaryEvent id="boundarytimer2" name="" cancelActivity="false" attachedToRef="usertask3">
+        <timerEventDefinition>
+          <timeDuration>PT1M</timeDuration>
+        </timerEventDefinition>
+      </boundaryEvent>
+      <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway" default="flow26"></exclusiveGateway>
+      <endEvent id="endevent4" name="End"></endEvent>
+      <scriptTask id="scripttask4" name="Notify referent about long validating" scriptFormat="javascript">
+        <script></script>
+      </scriptTask>
       <sequenceFlow id="flow3" name="" sourceRef="startevent2" targetRef="exclusivegateway1"></sequenceFlow>
       <sequenceFlow id="flow11" name="" sourceRef="scripttask1" targetRef="endevent1"></sequenceFlow>
       <sequenceFlow id="flow13" name="" sourceRef="usertask2" targetRef="exclusivegateway2"></sequenceFlow>
       <sequenceFlow id="flow14" name="Cancelled" sourceRef="exclusivegateway2" targetRef="endevent2"></sequenceFlow>
       <sequenceFlow id="flow15" name="Modified" sourceRef="exclusivegateway2" targetRef="exclusivegateway1"></sequenceFlow>
-      <userTask id="usertask3" name="Validate assignment"></userTask>
-      <boundaryEvent id="boundarytimer1" name="" cancelActivity="false" attachedToRef="usertask3">
-        <timerEventDefinition>
-          <timeDuration>PT1M</timeDuration>
-        </timerEventDefinition>
-      </boundaryEvent>
       <sequenceFlow id="flow23" name="" sourceRef="exclusivegateway1" targetRef="usertask3"></sequenceFlow>
-      <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway"></exclusiveGateway>
       <sequenceFlow id="flow24" name="" sourceRef="usertask3" targetRef="exclusivegateway5"></sequenceFlow>
       <sequenceFlow id="flow25" name="Returned" sourceRef="exclusivegateway5" targetRef="usertask2"></sequenceFlow>
       <sequenceFlow id="flow26" name="Rejected" sourceRef="exclusivegateway5" targetRef="endevent2"></sequenceFlow>
       <sequenceFlow id="flow27" name="Approved" sourceRef="exclusivegateway5" targetRef="scripttask1"></sequenceFlow>
-      <endEvent id="endevent4" name="End"></endEvent>
-      <scriptTask id="scripttask4" name="Notify referent about long validating">
-        <script></script>
-      </scriptTask>
       <sequenceFlow id="flow29" name="" sourceRef="scripttask4" targetRef="endevent4"></sequenceFlow>
     </subProcess>
     <scriptTask id="scripttask2" name="Ceck amount of credit">
@@ -77,6 +85,9 @@
       <script></script>
     </scriptTask>
     <endEvent id="endevent3" name="Task published"></endEvent>
+    <scriptTask id="scripttask5" name="Inform task manager about low account balance">
+      <script></script>
+    </scriptTask>
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow2" name="" sourceRef="usertask1" targetRef="subprocess1"></sequenceFlow>
     <sequenceFlow id="flow16" name="" sourceRef="subprocess1" targetRef="scripttask2"></sequenceFlow>
@@ -86,15 +97,10 @@
     <sequenceFlow id="flow20" name="Balance OK" sourceRef="exclusivegateway3" targetRef="exclusivegateway4"></sequenceFlow>
     <sequenceFlow id="flow21" name="" sourceRef="exclusivegateway4" targetRef="scripttask3"></sequenceFlow>
     <sequenceFlow id="flow22" name="" sourceRef="scripttask3" targetRef="endevent3"></sequenceFlow>
-    <scriptTask id="scripttask5" name="Inform task manager about low account balance">
-      <script></script>
-    </scriptTask>
+    <sequenceFlow id="flow30" name="" sourceRef="boundarytimer2" targetRef="scripttask4"></sequenceFlow>
   </process>
-  <process id="createTaskParent" name="Create Task parent process">
-    <sequenceFlow id="flow28" name="" sourceRef="boundarytimer1" targetRef="scripttask4"></sequenceFlow>
-  </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_createTaskParent">
-    <bpmndi:BPMNPlane bpmnElement="createTaskParent" id="BPMNPlane_createTaskParent">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
+    <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
       <bpmndi:BPMNShape bpmnElement="IndustryPartnerPool" id="BPMNShape_IndustryPartnerPool" isHorizontal="true">
         <omgdc:Bounds height="291" width="1451" x="10" y="10"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -134,8 +140,8 @@
       <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
         <omgdc:Bounds height="55" width="105" x="430" y="127"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="boundarytimer1" id="BPMNShape_boundarytimer1">
-        <omgdc:Bounds height="30" width="30" x="490" y="110"></omgdc:Bounds>
+      <bpmndi:BPMNShape bpmnElement="boundarytimer2" id="BPMNShape_boundarytimer2">
+        <omgdc:Bounds height="30" width="30" x="480" y="110"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="exclusivegateway5" id="BPMNShape_exclusivegateway5">
         <omgdc:Bounds height="40" width="40" x="567" y="134"></omgdc:Bounds>
@@ -271,8 +277,8 @@
         <omgdi:waypoint x="1370" y="157"></omgdi:waypoint>
         <omgdi:waypoint x="1400" y="157"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow28" id="BPMNEdge_flow28">
-        <omgdi:waypoint x="505" y="140"></omgdi:waypoint>
+      <bpmndi:BPMNEdge bpmnElement="flow30" id="BPMNEdge_flow30">
+        <omgdi:waypoint x="495" y="140"></omgdi:waypoint>
         <omgdi:waypoint x="390" y="110"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

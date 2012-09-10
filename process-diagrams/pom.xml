@@ -34,6 +34,11 @@
       <artifactId>junit</artifactId>
       <version>4.8.1</version>
     </dependency>
+    <dependency>
+    	<groupId>cz.cvut.fit.industry</groupId>
+    	<artifactId>model-jpa</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 	 <repositories>
     <repository>
