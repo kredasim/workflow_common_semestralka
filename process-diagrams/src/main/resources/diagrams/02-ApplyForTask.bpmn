@@ -26,18 +26,18 @@
     <subProcess id="subprocess1" name="Applying for a task">
       <startEvent id="startevent2" name="Start"></startEvent>
       <userTask id="usertask1" name="View details and apply for the task"></userTask>
-      <sequenceFlow id="flow2" name="" sourceRef="startevent2" targetRef="usertask1"></sequenceFlow>
       <scriptTask id="scripttask1" name="Add to candidates">
         <script></script>
       </scriptTask>
+      <sequenceFlow id="flow2" name="" sourceRef="startevent2" targetRef="usertask1"></sequenceFlow>
       <sequenceFlow id="flow3" name="" sourceRef="usertask1" targetRef="scripttask1"></sequenceFlow>
       <sequenceFlow id="flow4" name="" sourceRef="scripttask1" targetRef="usertask1"></sequenceFlow>
     </subProcess>
-    <boundaryEvent id="boundarytimer1" cancelActivity="false" attachedToRef="subprocess1">
+    <boundaryEvent id="boundarytimer1" name="" cancelActivity="true" attachedToRef="subprocess1">
       <timerEventDefinition></timerEventDefinition>
     </boundaryEvent>
-    <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="subprocess1"></sequenceFlow>
     <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="subprocess1"></sequenceFlow>
   </process>
   <process id="process1" name="process1">
     <sequenceFlow id="flow5" name="Applying finished" sourceRef="boundarytimer1" targetRef="endevent1"></sequenceFlow>
@@ -93,7 +93,7 @@
         <omgdi:waypoint x="762" y="274"></omgdi:waypoint>
         <omgdi:waypoint x="860" y="257"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="14" width="100" x="-48" y="-22"></omgdc:Bounds>
+          <omgdc:Bounds height="12" width="100" x="-48" y="-22"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
