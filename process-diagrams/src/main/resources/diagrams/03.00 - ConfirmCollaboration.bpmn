@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <collaboration id="Collaboration">
+    <participant id="universityPool" name="University" processRef="confirmCollaboration"></participant>
+  </collaboration>
+  <process id="confirmCollaboration" name="Confirm Collaboration">
+    <laneSet id="laneSet_confirmCollaboration">
+      <lane id="studentLane" name="Student">
+        <flowNodeRef>startevent1</flowNodeRef>
+        <flowNodeRef>usertask1</flowNodeRef>
+        <flowNodeRef>exclusivegateway1</flowNodeRef>
+        <flowNodeRef>scripttask1</flowNodeRef>
+        <flowNodeRef>scripttask2</flowNodeRef>
+        <flowNodeRef>endevent1</flowNodeRef>
+        <flowNodeRef>endevent2</flowNodeRef>
+        <flowNodeRef>endeventConfirmed</flowNodeRef>
+        <flowNodeRef>endeventCanceled</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="usertask1" name="01 - Confirm collaboration"></userTask>
+    <boundaryEvent id="boundarysignal2" name="Task has been initiated" cancelActivity="false" attachedToRef="usertask1">
+      <signalEventDefinition></signalEventDefinition>
+    </boundaryEvent>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <scriptTask id="scripttask1" name="Remove from candidates">
+      <script></script>
+    </scriptTask>
+    <scriptTask id="scripttask2" name="Initiate cooperation">
+      <script></script>
+    </scriptTask>
+    <endEvent id="endeventCanceled" name="Canceled"></endEvent>
+    <endEvent id="endeventConfirmed" name="Confirmed"></endEvent>
+    <endEvent id="endeventConfirmed" name="Confirmed"></endEvent>
+    <endEvent id="endeventCanceled" name="Canceled"></endEvent>
+    <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow2" name="" sourceRef="usertask1" targetRef="exclusivegateway1"></sequenceFlow>
+    <sequenceFlow id="flow3" name="Rejected" sourceRef="exclusivegateway1" targetRef="scripttask1"></sequenceFlow>
+    <sequenceFlow id="flow4" name="Confirmed" sourceRef="exclusivegateway1" targetRef="scripttask2"></sequenceFlow>
+    <sequenceFlow id="flow5" name="" sourceRef="scripttask1" targetRef="endeventCanceled"></sequenceFlow>
+    <sequenceFlow id="flow6" name="" sourceRef="scripttask2" targetRef="endeventConfirmed"></sequenceFlow>
+  </process>
+  <process id="process1" name="process1">
+    <sequenceFlow id="flow7" name="Task initiated" sourceRef="boundarysignal2" targetRef="endeventCanceled"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
+    <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
+      <bpmndi:BPMNShape bpmnElement="universityPool" id="BPMNShape_universityPool" isHorizontal="true">
+        <omgdc:Bounds height="261" width="561" x="40" y="60"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="studentLane" id="BPMNShape_studentLane" isHorizontal="true">
+        <omgdc:Bounds height="261" width="541" x="60" y="60"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35" width="35" x="100" y="150"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="55" width="105" x="170" y="140"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="boundarysignal2" id="BPMNShape_boundarysignal2">
+        <omgdc:Bounds height="30" width="30" x="230" y="187"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
+        <omgdc:Bounds height="40" width="40" x="310" y="147"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
+        <omgdc:Bounds height="55" width="105" x="390" y="194"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask2" id="BPMNShape_scripttask2">
+        <omgdc:Bounds height="55" width="105" x="390" y="93"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endeventCanceled" id="BPMNShape_endeventCanceled">
+        <omgdc:Bounds height="35" width="35" x="530" y="260"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endeventConfirmed" id="BPMNShape_endeventConfirmed">
+        <omgdc:Bounds height="35" width="35" x="530" y="103"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endeventConfirmed" id="BPMNShape_endeventConfirmed">
+        <omgdc:Bounds height="35" width="35" x="530" y="103"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endeventCanceled" id="BPMNShape_endeventCanceled">
+        <omgdc:Bounds height="35" width="35" x="530" y="260"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="135" y="167"></omgdi:waypoint>
+        <omgdi:waypoint x="170" y="167"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="275" y="167"></omgdi:waypoint>
+        <omgdi:waypoint x="310" y="167"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="330" y="187"></omgdi:waypoint>
+        <omgdi:waypoint x="330" y="221"></omgdi:waypoint>
+        <omgdi:waypoint x="390" y="221"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="0" y="8"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="330" y="147"></omgdi:waypoint>
+        <omgdi:waypoint x="330" y="120"></omgdi:waypoint>
+        <omgdi:waypoint x="390" y="120"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="-17" y="-17"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="495" y="221"></omgdi:waypoint>
+        <omgdi:waypoint x="547" y="222"></omgdi:waypoint>
+        <omgdi:waypoint x="547" y="260"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="495" y="120"></omgdi:waypoint>
+        <omgdi:waypoint x="530" y="120"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="245" y="217"></omgdi:waypoint>
+        <omgdi:waypoint x="244" y="277"></omgdi:waypoint>
+        <omgdi:waypoint x="530" y="277"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
