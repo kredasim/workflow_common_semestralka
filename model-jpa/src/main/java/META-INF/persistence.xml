@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="model-jpa" transaction-type="RESOURCE_LOCAL">
+		<class>model.AcceptanceResult</class>
+		<class>model.Address</class>
+		<class>model.AppUser</class>
+		<class>model.AppUserTaskRole</class>
+		<class>model.Contact</class>
+		<class>model.ContactType</class>
+		<class>model.Country</class>
+		<class>model.FieldOfActivity</class>
+		<class>model.Institution</class>
+		<class>model.InstitutionSubject</class>
+		<class>model.InstitutionType</class>
+		<class>model.Project</class>
+		<class>model.Role</class>
+		<class>model.StudentSubject</class>
+		<class>model.StudyProgram</class>
+		<class>model.Subject</class>
+		<class>model.SubjectTask</class>
+		<class>model.SubjectTaskAssignmentState</class>
+		<class>model.Task</class>
+		<class>model.TaskSolution</class>
+		<class>model.TaskTaskRole</class>
+		<class>model.TaskTaskState</class>
+		<class>model.TaskPhase</class>
+		<class>model.TaskRole</class>
+		<class>model.TaskRoleAssignmentState</class>
+		<class>model.TaskSolutionAcceptance</class>
+		<class>model.TaskState</class>
+		<class>model.TeacherSubject</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://jbpm.is.fit.cvut.cz:5432"/>
+			<property name="javax.persistence.jdbc.user" value="jbpm_pssp"/>
+			<property name="javax.persistence.jdbc.password" value="pru1mys2l"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
