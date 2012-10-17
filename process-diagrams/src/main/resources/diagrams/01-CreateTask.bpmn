@@ -8,7 +8,6 @@
       <lane id="taskManagerLine" name="Task manager">
         <flowNodeRef>startevent1</flowNodeRef>
         <flowNodeRef>usertask1</flowNodeRef>
-        <flowNodeRef>subprocess1</flowNodeRef>
         <flowNodeRef>scripttask2</flowNodeRef>
         <flowNodeRef>exclusivegateway3</flowNodeRef>
         <flowNodeRef>exclusivegateway4</flowNodeRef>
@@ -46,7 +45,7 @@
     <scriptTask id="scripttask5" name="Inform task manager about low account balance">
       <script></script>
     </scriptTask>
-    <callActivity id="callactivity1" name="Assign Course"></callActivity>
+    <callActivity id="callactivity1" name="Assign Course" calledElement="assignCourse"></callActivity>
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow17" name="" sourceRef="scripttask2" targetRef="exclusivegateway3"></sequenceFlow>
     <sequenceFlow id="flow18" name="Balance low" sourceRef="exclusivegateway3" targetRef="scripttask5"></sequenceFlow>
@@ -105,7 +104,7 @@
         <omgdi:waypoint x="610" y="93"></omgdi:waypoint>
         <omgdi:waypoint x="696" y="88"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="-11" y="8"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-11" y="8"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow19" id="BPMNEdge_flow19">
@@ -117,7 +116,7 @@
         <omgdi:waypoint x="630" y="157"></omgdi:waypoint>
         <omgdi:waypoint x="800" y="157"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="-35" y="6"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-35" y="6"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow21" id="BPMNEdge_flow21">
