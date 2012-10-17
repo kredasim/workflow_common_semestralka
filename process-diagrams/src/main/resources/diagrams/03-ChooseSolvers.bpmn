@@ -47,47 +47,40 @@
         <flowNodeRef>endevent3</flowNodeRef>
       </lane>
     </laneSet>
-    <scriptTask id="scripttask1" name="Load and sort candidates">
-      <script></script>
-    </scriptTask>
     <userTask id="usertask1" name="01 - Choose solvers and assign positions, 02 - Solver detail, 03 - Edit task"></userTask>
     <callActivity id="callactivity1" name="03.00 - Confirm collaboration" activiti:async="true"></callActivity>
     <scriptTask id="scripttask3" name="Initiate task">
       <script></script>
     </scriptTask>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <sequenceFlow id="flow30" name="" sourceRef="startevent1" targetRef="scripttask1"></sequenceFlow>
-    <sequenceFlow id="flow33" name="" sourceRef="scripttask1" targetRef="usertask1"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
-    <sequenceFlow id="flow37" name="Team incomplete" sourceRef="exclusivegateway1" targetRef="scripttask1"></sequenceFlow>
     <endEvent id="endevent1" name="End"></endEvent>
+    <endEvent id="endevent2" name="End"></endEvent>
+    <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
+    <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow39" name="Task cancelled" sourceRef="exclusivegateway1" targetRef="endevent1"></sequenceFlow>
     <sequenceFlow id="flow40" name="Team complete" sourceRef="exclusivegateway1" targetRef="scripttask3"></sequenceFlow>
-    <endEvent id="endevent2" name="End"></endEvent>
     <sequenceFlow id="flow41" name="" sourceRef="scripttask3" targetRef="endevent2"></sequenceFlow>
-    <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <sequenceFlow id="flow42" name="" sourceRef="usertask1" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow43" name="" sourceRef="parallelgateway1" targetRef="exclusivegateway1"></sequenceFlow>
     <sequenceFlow id="flow44" name="" sourceRef="parallelgateway1" targetRef="callactivity1"></sequenceFlow>
-    <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow45" name="" sourceRef="callactivity1" targetRef="endevent3"></sequenceFlow>
+    <sequenceFlow id="flow46" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow47" name="Team incomplete" sourceRef="exclusivegateway1" targetRef="usertask1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
     <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
       <bpmndi:BPMNShape bpmnElement="industryPartnerPool" id="BPMNShape_industryPartnerPool" isHorizontal="true">
-        <omgdc:Bounds height="361" width="1291" x="20" y="40"></omgdc:Bounds>
+        <omgdc:Bounds height="361" width="1021" x="20" y="40"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="taskManagerLine" id="BPMNShape_taskManagerLine" isHorizontal="true">
-        <omgdc:Bounds height="361" width="1271" x="40" y="40"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
-        <omgdc:Bounds height="55" width="105" x="150" y="190"></omgdc:Bounds>
+        <omgdc:Bounds height="361" width="1001" x="40" y="40"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
-        <omgdc:Bounds height="101" width="105" x="310" y="167"></omgdc:Bounds>
+        <omgdc:Bounds height="101" width="105" x="230" y="167"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="callactivity1" id="BPMNShape_callactivity1">
-        <omgdc:Bounds height="71" width="105" x="498" y="100"></omgdc:Bounds>
+        <omgdc:Bounds height="71" width="105" x="498" y="110"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="scripttask3" id="BPMNShape_scripttask3">
         <omgdc:Bounds height="55" width="105" x="770" y="190"></omgdc:Bounds>
@@ -110,23 +103,6 @@
       <bpmndi:BPMNShape bpmnElement="endevent3" id="BPMNShape_endevent3">
         <omgdc:Bounds height="35" width="35" x="533" y="50"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="flow30" id="BPMNEdge_flow30">
-        <omgdi:waypoint x="115" y="217"></omgdi:waypoint>
-        <omgdi:waypoint x="150" y="217"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow33" id="BPMNEdge_flow33">
-        <omgdi:waypoint x="255" y="217"></omgdi:waypoint>
-        <omgdi:waypoint x="310" y="217"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow37" id="BPMNEdge_flow37">
-        <omgdi:waypoint x="650" y="237"></omgdi:waypoint>
-        <omgdi:waypoint x="649" y="295"></omgdi:waypoint>
-        <omgdi:waypoint x="200" y="295"></omgdi:waypoint>
-        <omgdi:waypoint x="202" y="245"></omgdi:waypoint>
-        <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="10" y="0"></omgdc:Bounds>
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow39" id="BPMNEdge_flow39">
         <omgdi:waypoint x="650" y="197"></omgdi:waypoint>
         <omgdi:waypoint x="650" y="135"></omgdi:waypoint>
@@ -146,7 +122,7 @@
         <omgdi:waypoint x="930" y="217"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow42" id="BPMNEdge_flow42">
-        <omgdi:waypoint x="415" y="217"></omgdi:waypoint>
+        <omgdi:waypoint x="335" y="217"></omgdi:waypoint>
         <omgdi:waypoint x="530" y="217"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow43" id="BPMNEdge_flow43">
@@ -155,11 +131,24 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow44" id="BPMNEdge_flow44">
         <omgdi:waypoint x="550" y="197"></omgdi:waypoint>
-        <omgdi:waypoint x="550" y="171"></omgdi:waypoint>
+        <omgdi:waypoint x="550" y="181"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow45" id="BPMNEdge_flow45">
-        <omgdi:waypoint x="550" y="100"></omgdi:waypoint>
+        <omgdi:waypoint x="550" y="110"></omgdi:waypoint>
         <omgdi:waypoint x="550" y="85"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow46" id="BPMNEdge_flow46">
+        <omgdi:waypoint x="115" y="217"></omgdi:waypoint>
+        <omgdi:waypoint x="230" y="217"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow47" id="BPMNEdge_flow47">
+        <omgdi:waypoint x="650" y="237"></omgdi:waypoint>
+        <omgdi:waypoint x="650" y="317"></omgdi:waypoint>
+        <omgdi:waypoint x="283" y="317"></omgdi:waypoint>
+        <omgdi:waypoint x="282" y="268"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="12" width="100" x="10" y="0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
