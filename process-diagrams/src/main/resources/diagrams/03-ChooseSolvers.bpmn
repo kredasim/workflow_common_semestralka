@@ -39,15 +39,21 @@
     <endEvent id="endevent2" name="End"></endEvent>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <endEvent id="endevent3" name="End"></endEvent>
-    <sequenceFlow id="flow39" name="Task cancelled" sourceRef="exclusivegateway1" targetRef="endevent1"></sequenceFlow>
-    <sequenceFlow id="flow40" name="Team complete" sourceRef="exclusivegateway1" targetRef="scripttask1"></sequenceFlow>
+    <sequenceFlow id="flow39" name="Task cancelled" sourceRef="exclusivegateway1" targetRef="endevent1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${exclusiveGatewayDesicion == "cancelled"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow40" name="Team complete" sourceRef="exclusivegateway1" targetRef="scripttask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${exclusiveGatewayDesicion == "complete"}]]></conditionExpression>
+    </sequenceFlow>
     <sequenceFlow id="flow41" name="" sourceRef="scripttask1" targetRef="endevent2"></sequenceFlow>
     <sequenceFlow id="flow42" name="" sourceRef="usertask1" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow43" name="" sourceRef="parallelgateway1" targetRef="exclusivegateway1"></sequenceFlow>
     <sequenceFlow id="flow44" name="" sourceRef="parallelgateway1" targetRef="callactivity1"></sequenceFlow>
     <sequenceFlow id="flow45" name="" sourceRef="callactivity1" targetRef="endevent3"></sequenceFlow>
     <sequenceFlow id="flow46" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
-    <sequenceFlow id="flow47" name="Team incomplete" sourceRef="exclusivegateway1" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow47" name="Team incomplete" sourceRef="exclusivegateway1" targetRef="usertask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${exclusiveGatewayDesicion == "incomplete"}]]></conditionExpression>
+    </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
     <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
