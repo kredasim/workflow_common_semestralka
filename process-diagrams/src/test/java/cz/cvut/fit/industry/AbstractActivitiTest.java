@@ -30,6 +30,10 @@ public class AbstractActivitiTest {
 		assertNodeVisitedTimes(instance, activityId, 1);
 	}
 	
+	protected void assertNodeNotVisited(ProcessInstance instance, String activityId) {
+		assertNodeVisitedTimes(instance, activityId, 0);
+	}
+	
 	protected void completeTask(TaskService taskService, ProcessInstance instance, String taskName) {
 		Task taskInstance = taskService.createTaskQuery().taskDefinitionKey(taskName)
 				.processInstanceId(instance.getId()).singleResult();
