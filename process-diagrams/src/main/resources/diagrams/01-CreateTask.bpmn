@@ -34,7 +34,7 @@
         <activiti:formProperty id="taskResources" name="zdroje" type="string"></activiti:formProperty>
       </extensionElements>
     </userTask>
-    <scriptTask id="scripttask2" name="Ceck amount of credit">
+    <scriptTask id="scripttask2" name="Check amount of credit">
       <script></script>
     </scriptTask>
     <exclusiveGateway id="exclusivegateway3" name="Lack of credit?"></exclusiveGateway>
@@ -46,6 +46,7 @@
     <scriptTask id="scripttask5" name="Inform task manager about low account balance">
       <script></script>
     </scriptTask>
+    <callActivity id="callactivity1" name="Assign Course"></callActivity>
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow17" name="" sourceRef="scripttask2" targetRef="exclusivegateway3"></sequenceFlow>
     <sequenceFlow id="flow18" name="Balance low" sourceRef="exclusivegateway3" targetRef="scripttask5"></sequenceFlow>
@@ -53,7 +54,6 @@
     <sequenceFlow id="flow20" name="Balance OK" sourceRef="exclusivegateway3" targetRef="exclusivegateway4"></sequenceFlow>
     <sequenceFlow id="flow21" name="" sourceRef="exclusivegateway4" targetRef="scripttask3"></sequenceFlow>
     <sequenceFlow id="flow22" name="" sourceRef="scripttask3" targetRef="endevent3"></sequenceFlow>
-    <callActivity id="callactivity1" name="Assign Course"></callActivity>
     <sequenceFlow id="flow23" name="" sourceRef="usertask1" targetRef="callactivity1"></sequenceFlow>
     <sequenceFlow id="flow24" name="" sourceRef="callactivity1" targetRef="scripttask2"></sequenceFlow>
   </process>
