@@ -36,13 +36,10 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 		TaskService taskService = activitiRule.getTaskService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
 		
-		Task taskInstance = taskService.createTaskQuery().taskDefinitionKey("usertask1")
-				.processInstanceId(instance.getId()).singleResult();
-		
 		runtimeService.setVariable(instance.getId(), "exclusiveGatewayDesicion", "complete");
+
+		completeTask(taskService, instance, "usertask1");
 		
-		taskService.complete(taskInstance.getId());
-				
 		assertNodeVisited(instance, "scripttask1");
 	}
 	
@@ -53,11 +50,10 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 		TaskService taskService = activitiRule.getTaskService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
 		
-		Task taskInstance = taskService.createTaskQuery().taskDefinitionKey("usertask1")
-				.processInstanceId(instance.getId()).singleResult();
 		
-		runtimeService.setVariable(instance.getId(), "exclusiveGatewayDesicion", "canceled");		
-		taskService.complete(taskInstance.getId());			
+		runtimeService.setVariable(instance.getId(), "exclusiveGatewayDesicion", "canceled");
+		completeTask(taskService, instance, "usertask1");
+							
 		assertNodeVisited(instance, "endevent1");
 	}
 
