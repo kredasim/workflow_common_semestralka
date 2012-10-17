@@ -36,7 +36,7 @@
     </dependency>
     <dependency>
     	<groupId>cz.cvut.fit.industry</groupId>
-    	<artifactId>model-jpa</artifactId>
+    	<artifactId>industry-model-jpa</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
