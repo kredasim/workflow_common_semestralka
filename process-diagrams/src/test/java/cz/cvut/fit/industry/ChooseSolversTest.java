@@ -56,4 +56,17 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 		assertNodeVisited(instance, "endevent1");
 	}
 
+	@Test
+	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn"})
+	public void processShouldExecuteEnterTaskChooseSolversTwoTimes() {
+		RuntimeService runtimeService = activitiRule.getRuntimeService();
+		TaskService taskService = activitiRule.getTaskService();
+		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
+		
+		
+		runtimeService.setVariable(instance.getId(), "exclusiveGatewayDesicion", "incomplete");
+		completeTask(taskService, instance, "usertask1");
+							
+		assertNodeVisitedTimes(instance, "usertask1", 2);
+	}
 }

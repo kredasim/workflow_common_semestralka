@@ -18,10 +18,16 @@ public class AbstractActivitiTest {
 		super();
 	}
 
-	protected void assertNodeVisited(ProcessInstance instance, String activityId) {
+	// asserts how many times process should be in node
+	protected void assertNodeVisitedTimes(ProcessInstance instance, String activityId, int howMany) {
 		HistoryService historyService = activitiRule.getHistoryService();
 		long count = historyService.createHistoricActivityInstanceQuery().processInstanceId(instance.getId()).activityId(activityId).count();
-		if(count < 1 ) fail("Node "+activityId+" not visited");
+		if(count < howMany ) 
+			fail("Node "+activityId+" not visited " + howMany + " times but only " + count + " times.");
+	}
+	
+	protected void assertNodeVisited(ProcessInstance instance, String activityId) {
+		assertNodeVisitedTimes(instance, activityId, 1);
 	}
 	
 	protected void completeTask(TaskService taskService, ProcessInstance instance, String taskName) {
