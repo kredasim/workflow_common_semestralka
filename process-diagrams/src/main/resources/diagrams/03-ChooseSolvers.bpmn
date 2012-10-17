@@ -7,37 +7,18 @@
     <laneSet id="laneSet_chooseSolvers">
       <lane id="taskManagerLine" name="Task manager">
         <flowNodeRef>usertask1</flowNodeRef>
-        <flowNodeRef>scripttask1</flowNodeRef>
         <flowNodeRef>usertask1</flowNodeRef>
         <flowNodeRef>exclusivegateway1</flowNodeRef>
-        <flowNodeRef>usertask2</flowNodeRef>
         <flowNodeRef>callactivity1</flowNodeRef>
-        <flowNodeRef>usertask2</flowNodeRef>
-        <flowNodeRef>usertask3</flowNodeRef>
-        <flowNodeRef>exclusivegateway2</flowNodeRef>
-        <flowNodeRef>exclusivegateway3</flowNodeRef>
-        <flowNodeRef>exclusivegateway4</flowNodeRef>
-        <flowNodeRef>scripttask2</flowNodeRef>
-        <flowNodeRef>scripttask3</flowNodeRef>
         <flowNodeRef>endevent1</flowNodeRef>
-        <flowNodeRef>exclusivegateway5</flowNodeRef>
-        <flowNodeRef>scripttask4</flowNodeRef>
-        <flowNodeRef>signalintermediatethrowevent1</flowNodeRef>
-        <flowNodeRef>exclusivegateway6</flowNodeRef>
         <flowNodeRef>endevent1</flowNodeRef>
         <flowNodeRef>endevent1</flowNodeRef>
         <flowNodeRef>endevent2</flowNodeRef>
         <flowNodeRef>startevent1</flowNodeRef>
-        <flowNodeRef>scripttask5</flowNodeRef>
         <flowNodeRef>endevent2</flowNodeRef>
         <flowNodeRef>endevent2</flowNodeRef>
-        <flowNodeRef>exclusivegateway7</flowNodeRef>
-        <flowNodeRef>signalintermediatethrowevent1</flowNodeRef>
         <flowNodeRef>endevent2</flowNodeRef>
         <flowNodeRef>endevent3</flowNodeRef>
-        <flowNodeRef>exclusivegateway7</flowNodeRef>
-        <flowNodeRef>signalintermediatethrowevent1</flowNodeRef>
-        <flowNodeRef>exclusivegateway8</flowNodeRef>
         <flowNodeRef>exclusivegateway1</flowNodeRef>
         <flowNodeRef>endevent1</flowNodeRef>
         <flowNodeRef>endevent2</flowNodeRef>
@@ -48,25 +29,31 @@
       </lane>
     </laneSet>
     <userTask id="usertask1" name="01 - Choose solvers and assign positions, 02 - Solver detail, 03 - Edit task"></userTask>
-    <callActivity id="callactivity1" name="03.00 - Confirm collaboration" activiti:async="true"></callActivity>
-    <scriptTask id="scripttask3" name="Initiate task">
+    <callActivity id="callactivity1" name="03.00 - Confirm collaboration" activiti:async="true" calledElement="confirmCollaboration"></callActivity>
+    <scriptTask id="scripttask1" name="Initiate task" scriptFormat="javascript">
       <script></script>
     </scriptTask>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway" default="flow39"></exclusiveGateway>
     <endEvent id="endevent1" name="End"></endEvent>
     <endEvent id="endevent2" name="End"></endEvent>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <endEvent id="endevent3" name="End"></endEvent>
-    <sequenceFlow id="flow39" name="Task cancelled" sourceRef="exclusivegateway1" targetRef="endevent1"></sequenceFlow>
-    <sequenceFlow id="flow40" name="Team complete" sourceRef="exclusivegateway1" targetRef="scripttask3"></sequenceFlow>
-    <sequenceFlow id="flow41" name="" sourceRef="scripttask3" targetRef="endevent2"></sequenceFlow>
+    <sequenceFlow id="flow39" name="Task cancelled" sourceRef="exclusivegateway1" targetRef="endevent1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${exclusiveGatewayDesicion == "cancelled"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow40" name="Team complete" sourceRef="exclusivegateway1" targetRef="scripttask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${exclusiveGatewayDesicion == "complete"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow41" name="" sourceRef="scripttask1" targetRef="endevent2"></sequenceFlow>
     <sequenceFlow id="flow42" name="" sourceRef="usertask1" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow43" name="" sourceRef="parallelgateway1" targetRef="exclusivegateway1"></sequenceFlow>
     <sequenceFlow id="flow44" name="" sourceRef="parallelgateway1" targetRef="callactivity1"></sequenceFlow>
     <sequenceFlow id="flow45" name="" sourceRef="callactivity1" targetRef="endevent3"></sequenceFlow>
     <sequenceFlow id="flow46" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
-    <sequenceFlow id="flow47" name="Team incomplete" sourceRef="exclusivegateway1" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow47" name="Team incomplete" sourceRef="exclusivegateway1" targetRef="usertask1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${exclusiveGatewayDesicion == "incomplete"}]]></conditionExpression>
+    </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
     <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
@@ -82,7 +69,7 @@
       <bpmndi:BPMNShape bpmnElement="callactivity1" id="BPMNShape_callactivity1">
         <omgdc:Bounds height="71" width="105" x="498" y="110"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="scripttask3" id="BPMNShape_scripttask3">
+      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
         <omgdc:Bounds height="55" width="105" x="770" y="190"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
@@ -107,14 +94,14 @@
         <omgdi:waypoint x="650" y="197"></omgdi:waypoint>
         <omgdi:waypoint x="650" y="135"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="10" y="0"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow40" id="BPMNEdge_flow40">
         <omgdi:waypoint x="670" y="217"></omgdi:waypoint>
         <omgdi:waypoint x="770" y="217"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="-50" y="-17"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-50" y="-17"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow41" id="BPMNEdge_flow41">
@@ -147,7 +134,7 @@
         <omgdi:waypoint x="283" y="317"></omgdi:waypoint>
         <omgdi:waypoint x="282" y="268"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="10" y="0"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

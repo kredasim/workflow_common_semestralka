@@ -200,6 +200,7 @@ public class SolutionSubmissionTest extends IndustryJUnitTestCase{
 		executeHumanTask(taskService, OWNER, LANG, TASK_COMMENT_COLLABORATION_WITH_SOLVER);
 		executeHumanTask(taskService, OWNER, LANG, TASK_COMMENT_COLLABORATION_WITH_TASK_MANAGER);
 		
+		
 		assertNodeTriggered(processInstance.getId(), "gate5");
 		assertNodeTriggered(processInstance.getId(), "Public comments");
 		assertNodeTriggered(processInstance.getId(), "Task finished");
