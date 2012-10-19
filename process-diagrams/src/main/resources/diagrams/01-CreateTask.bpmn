@@ -11,9 +11,9 @@
         <flowNodeRef>scripttask2</flowNodeRef>
         <flowNodeRef>exclusivegateway3</flowNodeRef>
         <flowNodeRef>exclusivegateway4</flowNodeRef>
-        <flowNodeRef>scripttask3</flowNodeRef>
+        <flowNodeRef>scriptTaskPublishTask</flowNodeRef>
         <flowNodeRef>endevent3</flowNodeRef>
-        <flowNodeRef>scripttask5</flowNodeRef>
+        <flowNodeRef>scriptTaskInformTaskManager</flowNodeRef>
         <flowNodeRef>callactivity1</flowNodeRef>
       </lane>
     </laneSet>
@@ -33,26 +33,30 @@
         <activiti:formProperty id="taskResources" name="zdroje" type="string"></activiti:formProperty>
       </extensionElements>
     </userTask>
-    <scriptTask id="scripttask2" name="Check amount of credit">
+    <scriptTask id="scripttask2" name="Check amount of credit" scriptFormat="javascript">
       <script></script>
     </scriptTask>
-    <exclusiveGateway id="exclusivegateway3" name="Lack of credit?"></exclusiveGateway>
+    <exclusiveGateway id="exclusivegateway3" name="Lack of credit?" default="flow20"></exclusiveGateway>
     <exclusiveGateway id="exclusivegateway4" name="Exclusive Gateway"></exclusiveGateway>
-    <scriptTask id="scripttask3" name="Publish task">
+    <scriptTask id="scriptTaskPublishTask" name="Publish task">
       <script></script>
     </scriptTask>
     <endEvent id="endevent3" name="Task published"></endEvent>
-    <scriptTask id="scripttask5" name="Inform task manager about low account balance">
+    <scriptTask id="scriptTaskInformTaskManager" name="Inform task manager about low account balance" scriptFormat="javascript">
       <script></script>
     </scriptTask>
     <callActivity id="callactivity1" name="Assign Course" calledElement="assignCourse"></callActivity>
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow17" name="" sourceRef="scripttask2" targetRef="exclusivegateway3"></sequenceFlow>
-    <sequenceFlow id="flow18" name="Balance low" sourceRef="exclusivegateway3" targetRef="scripttask5"></sequenceFlow>
-    <sequenceFlow id="flow19" name="" sourceRef="scripttask5" targetRef="exclusivegateway4"></sequenceFlow>
-    <sequenceFlow id="flow20" name="Balance OK" sourceRef="exclusivegateway3" targetRef="exclusivegateway4"></sequenceFlow>
-    <sequenceFlow id="flow21" name="" sourceRef="exclusivegateway4" targetRef="scripttask3"></sequenceFlow>
-    <sequenceFlow id="flow22" name="" sourceRef="scripttask3" targetRef="endevent3"></sequenceFlow>
+    <sequenceFlow id="flow18" name="Balance low" sourceRef="exclusivegateway3" targetRef="scriptTaskInformTaskManager">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${creditStatus == "low"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow19" name="" sourceRef="scriptTaskInformTaskManager" targetRef="exclusivegateway4"></sequenceFlow>
+    <sequenceFlow id="flow20" name="Balance ok" sourceRef="exclusivegateway3" targetRef="exclusivegateway4">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${creditStatus == "ok"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow21" name="" sourceRef="exclusivegateway4" targetRef="scriptTaskPublishTask"></sequenceFlow>
+    <sequenceFlow id="flow22" name="" sourceRef="scriptTaskPublishTask" targetRef="endevent3"></sequenceFlow>
     <sequenceFlow id="flow23" name="" sourceRef="usertask1" targetRef="callactivity1"></sequenceFlow>
     <sequenceFlow id="flow24" name="" sourceRef="callactivity1" targetRef="scripttask2"></sequenceFlow>
   </process>
@@ -79,13 +83,13 @@
       <bpmndi:BPMNShape bpmnElement="exclusivegateway4" id="BPMNShape_exclusivegateway4">
         <omgdc:Bounds height="40" width="40" x="800" y="137"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="scripttask3" id="BPMNShape_scripttask3">
+      <bpmndi:BPMNShape bpmnElement="scriptTaskPublishTask" id="BPMNShape_scriptTaskPublishTask">
         <omgdc:Bounds height="55" width="105" x="885" y="130"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent3" id="BPMNShape_endevent3">
         <omgdc:Bounds height="35" width="35" x="1020" y="140"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="scripttask5" id="BPMNShape_scripttask5">
+      <bpmndi:BPMNShape bpmnElement="scriptTaskInformTaskManager" id="BPMNShape_scriptTaskInformTaskManager">
         <omgdc:Bounds height="76" width="105" x="696" y="50"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="callactivity1" id="BPMNShape_callactivity1">

@@ -18,6 +18,7 @@ import org.activiti.engine.history.HistoricVariableUpdate;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.test.Deployment;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class CreateTaskTest extends AbstractActivitiTest {
@@ -27,6 +28,7 @@ public class CreateTaskTest extends AbstractActivitiTest {
 	private static final String TASK_BEAN_NAME = "task";
 
 	@Test
+	@Ignore
 	@Deployment(resources = { "diagrams/01-CreateTask.bpmn" })
 	public void processShouldAcceptTaskParams() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
@@ -104,6 +106,34 @@ public class CreateTaskTest extends AbstractActivitiTest {
 		assertTrue(retrievTask instanceof model.Task);
 		// assertEquals(1,
 		// taskService.createTaskQuery().taskDefinitionKey("Assign Course").processInstanceId(instance.getId()).count());
+	}
+	@Test
+	@Deployment(resources = { "diagrams/01-CreateTask.bpmn",  "diagrams/Mock-AssignCourseImediatlyComplete.bpmn" })
+	public void processShouldExecuteInformTaskManager() {
+		RuntimeService runtimeService = activitiRule.getRuntimeService();
+		TaskService taskService = activitiRule.getTaskService();
+		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
+		runtimeService.setVariable(instance.getId(), "creditStatus", "low");
+		taskService.complete(
+				taskService.createTaskQuery().taskDefinitionKey("usertask1")
+						.processInstanceId(instance.getId()).singleResult()
+						.getId());
+		assertNodeVisited(instance, "scriptTaskInformTaskManager");
+	}
+	
+	@Test
+	@Deployment(resources = { "diagrams/01-CreateTask.bpmn",  "diagrams/Mock-AssignCourseImediatlyComplete.bpmn" })
+	public void processShouldExecutePublishTaskButNotExecuteInformTaskManager() {
+		RuntimeService runtimeService = activitiRule.getRuntimeService();
+		TaskService taskService = activitiRule.getTaskService();
+		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
+		runtimeService.setVariable(instance.getId(), "creditStatus", "ok");
+		taskService.complete(
+				taskService.createTaskQuery().taskDefinitionKey("usertask1")
+						.processInstanceId(instance.getId()).singleResult()
+						.getId());
+		assertNodeVisited(instance, "scriptTaskPublishTask");
+		assertNodeNotVisited(instance, "scriptTaskInformTaskManager");
 	}
 
 }
