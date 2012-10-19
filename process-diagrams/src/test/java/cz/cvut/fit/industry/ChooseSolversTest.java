@@ -69,4 +69,17 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 							
 		assertNodeVisitedTimes(instance, "usertask1", 2);
 	}
+	
+	@Test
+	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn", "diagrams/Mock-ConfirmCollaboration.bpmn"})
+	public void processShouldExecuteEnterEndAfterConfirmCollaboration() {
+		RuntimeService runtimeService = activitiRule.getRuntimeService();
+		TaskService taskService = activitiRule.getTaskService();
+		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
+
+		runtimeService.setVariable(instance.getId(), "exclusiveGatewayDesicion", "canceled");
+		completeTask(taskService, instance, "usertask1");
+							
+		assertNodeVisited(instance, "callactivity1");
+	}
 }
