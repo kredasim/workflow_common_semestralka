@@ -21,7 +21,7 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 	}
 	
 	@Test
-	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn"})
+	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn", "diagrams/Mock-ConfirmCollaboration.bpmn"})
 	public void processShouldExecuteEnterTask01ChooseSolvers() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
@@ -29,7 +29,7 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 	}
 	
 	@Test
-	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn"})
+	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn", "diagrams/Mock-ConfirmCollaboration.bpmn"})
 	public void processShouldExecuteEnterInitiateTask() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		TaskService taskService = activitiRule.getTaskService();
@@ -43,7 +43,7 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 	}
 	
 	@Test
-	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn"})
+	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn", "diagrams/Mock-ConfirmCollaboration.bpmn"})
 	public void processShouldExecuteEnterTaskCanceled() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		TaskService taskService = activitiRule.getTaskService();
@@ -57,7 +57,7 @@ public class ChooseSolversTest extends AbstractActivitiTest{
 	}
 
 	@Test
-	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn"})
+	@Deployment(resources = {"diagrams/03-ChooseSolvers.bpmn", "diagrams/Mock-ConfirmCollaboration.bpmn"})
 	public void processShouldExecuteEnterTaskChooseSolversTwoTimes() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		TaskService taskService = activitiRule.getTaskService();
