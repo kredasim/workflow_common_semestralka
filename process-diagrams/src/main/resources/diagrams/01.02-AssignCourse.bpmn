@@ -33,9 +33,9 @@
         </activiti:formProperty>
       </extensionElements>
     </userTask>
-    <boundaryEvent id="boundarytimer1" name="" cancelActivity="false" attachedToRef="usertask1">
+    <boundaryEvent id="boundarytimer1" name="" cancelActivity="true" attachedToRef="usertask1">
       <timerEventDefinition>
-        <timeDuration>PT1M</timeDuration>
+        <timeDuration>PT1S</timeDuration>
       </timerEventDefinition>
     </boundaryEvent>
     <startEvent id="startevent1" name="Start">
@@ -62,7 +62,7 @@
     </scriptTask>
     <endEvent id="endevent4" name="End"></endEvent>
     <exclusiveGateway id="exclusivegateway3" name="Exclusive Gateway" default="flow9"></exclusiveGateway>
-    <scriptTask id="scripttask2" name="Inform referent for industry" scriptFormat="javascript">
+    <scriptTask id="scripttask2" name="Inform referent for industry" scriptFormat="groovy">
       <script></script>
     </scriptTask>
     <endEvent id="endevent1" name="End"></endEvent>
@@ -91,13 +91,13 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
     <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
       <bpmndi:BPMNShape bpmnElement="pool1" id="BPMNShape_pool1" isHorizontal="true">
-        <omgdc:Bounds height="391" width="601" x="40" y="40"></omgdc:Bounds>
+        <omgdc:Bounds height="391" width="741" x="40" y="40"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="lane1" id="BPMNShape_lane1" isHorizontal="true">
-        <omgdc:Bounds height="150" width="581" x="60" y="40"></omgdc:Bounds>
+        <omgdc:Bounds height="150" width="721" x="60" y="40"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="lane2" id="BPMNShape_lane2" isHorizontal="true">
-        <omgdc:Bounds height="241" width="581" x="60" y="190"></omgdc:Bounds>
+        <omgdc:Bounds height="241" width="721" x="60" y="190"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
         <omgdc:Bounds height="71" width="105" x="150" y="222"></omgdc:Bounds>
@@ -188,10 +188,16 @@
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
         <omgdi:waypoint x="205" y="310"></omgdi:waypoint>
         <omgdi:waypoint x="202" y="370"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow12" id="BPMNEdge_flow12">
         <omgdi:waypoint x="255" y="257"></omgdi:waypoint>
         <omgdi:waypoint x="310" y="257"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow13" id="BPMNEdge_flow13">
         <omgdi:waypoint x="255" y="397"></omgdi:waypoint>
