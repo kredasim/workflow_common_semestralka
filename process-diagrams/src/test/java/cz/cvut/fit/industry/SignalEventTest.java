@@ -3,7 +3,6 @@ package cz.cvut.fit.industry;
 import static org.junit.Assert.assertNotNull;
 
 import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.test.Deployment;
 import org.junit.Test;
@@ -35,7 +34,6 @@ private static final String DEFINITION_KEY = "signalEventTest";
 	public void processShouldReactOnSignal() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
-		TaskService taskService = activitiRule.getTaskService();
 
 		runtimeService.signalEventReceived("signal");
 		
