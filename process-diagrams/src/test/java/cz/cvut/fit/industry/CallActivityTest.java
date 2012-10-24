@@ -17,6 +17,6 @@ private static final String DEFINITION_KEY = "callActivityTestProcess";
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
 		
-		assertNodeVisited(instance, "scripttask2");
+		assertNodeVisited(instance, "callactivity1");
 	}
 }
