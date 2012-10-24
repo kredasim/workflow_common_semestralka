@@ -1,7 +1,6 @@
 package cz.cvut.fit.industry;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -65,9 +64,7 @@ public class ConfirmCollaborationTest extends AbstractActivitiTest{
 	public void processShouldStopWaitingForConfirmingCollaborationAfterSignal() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
-		TaskService taskService = activitiRule.getTaskService();
-		
-		//runtimeService.setVariable(instance.getId(), "exclusiveGatewayDesicion", "rejected");
+
 		runtimeService.signalEventReceived("collaborationInitiatedSignal");
 		assertNodeNotVisited(instance, "exclusivegateway1");
 		assertNodeVisited(instance, "endeventCanceled");

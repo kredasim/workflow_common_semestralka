@@ -1,6 +1,5 @@
 package cz.cvut.fit.industry;
 
-import static org.junit.Assert.assertNotNull;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.runtime.ProcessInstance;
