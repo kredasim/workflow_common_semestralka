@@ -19,14 +19,9 @@ public class TaskState implements Serializable {
 
 	private String name;
 
-	//bi-directional many-to-one association to Task
-	@ManyToMany
-	@JoinTable(
-			name = "Task_TaskState",
-			joinColumns = @JoinColumn(name = "taskStateID"),
-			inverseJoinColumns = @JoinColumn(name = "taskID")
-			)
-	private List<Task> tasks;
+	//bi-directional many-to-one association to Task_TaskState
+	@OneToMany
+	private List<TaskTaskState> tasksTaskState;
 
 	public TaskState() {
 	}
@@ -47,12 +42,12 @@ public class TaskState implements Serializable {
 		this.name = name;
 	}
 
-	public List<Task> getTasks() {
-		return this.tasks;
+	public List<TaskTaskState> getTaskTaskStates() {
+		return this.tasksTaskState;
 	}
 
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
+	public void setTaskTaskStates(List<TaskTaskState> taskTaskStates) {
+		this.tasksTaskState = taskTaskStates;
 	}
 
 }
