@@ -7,10 +7,6 @@ import org.junit.Test;
 
 public class AssignSubjectTest extends AbstractActivitiTest {
 
-	@Test
-	@Ignore
-	public void test() {
-		fail("Not yet implemented");
-	}
+	
 
 }

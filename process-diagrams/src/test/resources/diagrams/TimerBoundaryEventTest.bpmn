@@ -4,7 +4,7 @@
     <startEvent id="startevent1" name="Start"></startEvent>
     <endEvent id="endevent1" name="End"></endEvent>
     <userTask id="usertask1" name="User Task"></userTask>
-    <boundaryEvent id="boundarytimer1" name="" cancelActivity="true" attachedToRef="usertask1">
+    <boundaryEvent id="boundarytimer1" name="" cancelActivity="false" attachedToRef="usertask1">
       <timerEventDefinition>
         <timeDuration>PT1S</timeDuration>
       </timerEventDefinition>
@@ -37,9 +37,6 @@
         <omgdi:waypoint x="299" y="234"></omgdi:waypoint>
         <omgdi:waypoint x="349" y="256"></omgdi:waypoint>
         <omgdi:waypoint x="400" y="257"></omgdi:waypoint>
-        <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="14" width="100" x="10" y="0"></omgdc:Bounds>
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
         <omgdi:waypoint x="505" y="257"></omgdi:waypoint>

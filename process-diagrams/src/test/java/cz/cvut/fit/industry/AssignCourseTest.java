@@ -28,6 +28,8 @@ public class AssignCourseTest extends AbstractActivitiTest {
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
 		assertNodeVisited(instance, "usertask1");
 	}
+	
+	
 	@Test
 	@Deployment(resources = {"diagrams/01.02-AssignCourse.bpmn"})
 	public void processShouldExecuteInformReferentForIndustry() {
@@ -41,6 +43,8 @@ public class AssignCourseTest extends AbstractActivitiTest {
 		}
 		assertNodeVisited(instance, "scripttask2");
 	}
+	
+	
 	@Test
 	@Deployment(resources = {"diagrams/01.02-AssignCourse.bpmn"})
 	public void processShouldExecuteScripttask1() {
@@ -98,12 +102,17 @@ public class AssignCourseTest extends AbstractActivitiTest {
 	}
 
 	@Test
-	@Ignore
 	@Deployment(resources = {"diagrams/TimerBoundaryEventTest.bpmn"})
-	public void processShouldStart2() {
+	public void processEndevent2() {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY2);
-		assertNotNull(instance.getId());
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertNodeVisited(instance, "endevent2");
 	}
 	
 
