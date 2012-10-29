@@ -1,6 +1,8 @@
 package cz.cvut.fit.industry;
 
 import org.activiti.engine.ProcessEngine;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -25,6 +27,16 @@ class ActivitLibraryImpl implements ActivitiLibrary {
 	public ProcessEngine getProcessEngine() {
 		if(!initialized) throw new IllegalStateException("Not initialized. Call initialize() before getting proces engine.");
 		return processEngine;
+	}
+
+	@Override
+	public RuntimeService getRuntimeService() {
+		return getProcessEngine().getRuntimeService();
+	}
+
+	@Override
+	public TaskService getTaskService() {
+		return getProcessEngine().getTaskService();
 	}
 
 	@Override
