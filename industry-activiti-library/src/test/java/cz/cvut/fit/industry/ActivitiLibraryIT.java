@@ -9,7 +9,7 @@ public class ActivitiLibraryIT {
 
 	@Test
 	public void test() {
-		ActivitiLibrary activitiLibrary = ActivitiPortletLibraryFactory.getActivitiLibrary();
+		ActivitiLibrary activitiLibrary = ActivitiLibraryFactory.getActivitiLibrary();
 		activitiLibrary.initialize();
 		ProcessEngine processEngine = activitiLibrary.getProcessEngine();
 		assertNotNull(processEngine);
