@@ -47,4 +47,9 @@ class ActivitLibraryImpl implements ActivitiLibrary {
 		initialized = true;
 	}
 
+	@Override
+	public ConfigurableApplicationContext getContext() {
+		return context;
+	}
+
 }
