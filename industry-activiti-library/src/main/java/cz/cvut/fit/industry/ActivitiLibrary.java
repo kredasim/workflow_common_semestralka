@@ -3,6 +3,7 @@ package cz.cvut.fit.industry;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * Main class for working with pre-configured
@@ -65,4 +66,6 @@ public interface ActivitiLibrary {
 	 * process engine by calling {@link #getProcessEngine()}. 
 	 */
 	void initialize();
+	
+	ConfigurableApplicationContext getContext();
 }
