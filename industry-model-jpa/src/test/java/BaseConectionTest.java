@@ -16,10 +16,10 @@ public class BaseConectionTest {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("model-jpa");
 		EntityManager em= emf.createEntityManager();
 		em.getTransaction().begin();
-		AppUser appUser= new AppUser();
-		appUser.setFirstName("Honza");
-		appUser.setSurName("vom·Ëka");
-		em.persist(appUser);
+			AppUser appUser= new AppUser();
+			appUser.setFirstName("Honza");
+			appUser.setSurName("vom·Ëka");
+			em.persist(appUser);
 		em.getTransaction().commit();
 		assertNotNull(appUser.getAppUserID());
 	}

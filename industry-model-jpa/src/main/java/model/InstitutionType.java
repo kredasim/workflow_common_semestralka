@@ -18,7 +18,7 @@ public class InstitutionType implements Serializable {
 	private Integer institutionTypeID;
 
 	private String description;
-
+	
 	private String name;
 
 	//bi-directional many-to-one association to Institution
