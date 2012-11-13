@@ -4,6 +4,14 @@
 	<groupId>cz.cvut.fit.industry</groupId>
 	<artifactId>industry-activiti-library</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>flexik.tk-snapshots</id>
+			<url>http://flexik.tk:8080/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -59,7 +67,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.1.7.Final</version>
+			<version>4.1.6.Final</version>
 		</dependency>
 	</dependencies>
 
@@ -68,9 +76,27 @@
 			<id>Activiti</id>
 			<url>https://maven.alfresco.com/nexus/content/repositories/activiti/</url>
 		</repository>
+		<repository>
+			<id>flexik.tk-snapshots</id>
+			<url>http://flexik.tk:8080/nexus/content/repositories/snapshots</url>
+		</repository>
 	</repositories>
-	
+
 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -85,5 +111,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
 </project>

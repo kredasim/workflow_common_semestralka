@@ -1,6 +1,5 @@
 package cz.cvut.fit.industry;
 
-import static org.junit.Assert.assertNotNull;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -17,6 +16,6 @@ private static final String DEFINITION_KEY = "callActivityTestProcess";
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
 		
-		assertNodeVisited(instance, "scripttask2");
+		assertNodeVisited(instance, "callactivity1");
 	}
 }

@@ -49,7 +49,7 @@
 		<property name="jpaEntityManagerFactory" ref="entityManagerFactory" />
 		<property name="jpaHandleTransaction" value="true" />
 		<property name="jpaCloseEntityManager" value="true" />
-		<property name="deploymentResources" value="classpath*:bpmn/HelloProcess.bpmn" />
+		<property name="deploymentResources" value="classpath*:diagrams/*.bpmn" />
 		<property name="jobExecutorActivate" value="true" />
 	</bean>
 	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">

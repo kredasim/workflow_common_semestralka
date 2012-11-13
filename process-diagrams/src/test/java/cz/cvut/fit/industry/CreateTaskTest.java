@@ -27,6 +27,7 @@ public class CreateTaskTest extends AbstractActivitiTest {
 	private static final String SAMPLE_NAME = "stuff";
 	private static final String TASK_BEAN_NAME = "task";
 
+	/*
 	@Test
 	@Ignore
 	@Deployment(resources = { "diagrams/01-CreateTask.bpmn" })
@@ -48,7 +49,7 @@ public class CreateTaskTest extends AbstractActivitiTest {
 				instance.getId(), TASK_BEAN_NAME);
 		assertEquals(SAMPLE_NAME, storedTask.getName());
 	}
-
+*/
 	@Test
 	@Deployment(resources = { "diagrams/01-CreateTask.bpmn" })
 	public void processShouldExecuteEnterTaskInfo() {

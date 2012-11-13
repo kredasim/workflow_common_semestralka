@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
-  <process id="process1" name="process1">
+  <signal id="deadlineChanged" name="Deadline Changed"></signal>
+  <process id="mainProcess" name="Main overview process">
     <startEvent id="startevent1" name="Start"></startEvent>
-    <callActivity id="callactivity1" name="01 - Create task"></callActivity>
-    <callActivity id="callactivity2" name="03 - Choose solvers"></callActivity>
-    <callActivity id="callactivity3" name="02 - Apply for a task"></callActivity>
+    <callActivity id="callactivity1" name="01 - Create task" calledElement="createTask"></callActivity>
+    <callActivity id="callactivity2" name="03 - Choose solvers" calledElement="chooseSolvers"></callActivity>
+    <callActivity id="callactivity3" name="02 - Apply for a task" calledElement="applyForTask"></callActivity>
     <boundaryEvent id="boundarysignal1" name="" cancelActivity="true" attachedToRef="callactivity3">
-      <signalEventDefinition></signalEventDefinition>
+      <signalEventDefinition signalRef="deadlineChanged"></signalEventDefinition>
     </boundaryEvent>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <parallelGateway id="parallelgateway4" name="Parallel Gateway"></parallelGateway>
-    <callActivity id="callactivity4" name="04 - Submit solution"></callActivity>
+    <callActivity id="callactivity4" name="04 - Submit solution" calledElement="submitSolution"></callActivity>
     <exclusiveGateway id="exclusivegateway5" name="Task canceled?"></exclusiveGateway>
     <endEvent id="endevent1" name="Task canceled"></endEvent>
     <endEvent id="endevent2" name="Task finished"></endEvent>
     <exclusiveGateway id="exclusivegateway6" name="Exclusive Gateway"></exclusiveGateway>
+    <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="callactivity1"></sequenceFlow>
     <sequenceFlow id="flow2" name="" sourceRef="callactivity1" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow8" name="" sourceRef="parallelgateway1" targetRef="callactivity3"></sequenceFlow>
@@ -28,11 +30,10 @@
     <sequenceFlow id="flow31" name="" sourceRef="callactivity3" targetRef="parallelgateway4"></sequenceFlow>
     <sequenceFlow id="flow32" name="Deadline changed" sourceRef="boundarysignal1" targetRef="callactivity3"></sequenceFlow>
     <sequenceFlow id="flow33" name="" sourceRef="callactivity2" targetRef="parallelgateway4"></sequenceFlow>
-    <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow34" name="" sourceRef="exclusivegateway6" targetRef="endevent3"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_process1">
-    <bpmndi:BPMNPlane bpmnElement="process1" id="BPMNPlane_process1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_mainProcess">
+    <bpmndi:BPMNPlane bpmnElement="mainProcess" id="BPMNPlane_mainProcess">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35" width="35" x="60" y="150"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -98,14 +99,14 @@
         <omgdi:waypoint x="952" y="207"></omgdi:waypoint>
         <omgdi:waypoint x="952" y="256"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="-78" y="6"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-78" y="6"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow22" id="BPMNEdge_flow22">
         <omgdi:waypoint x="972" y="187"></omgdi:waypoint>
         <omgdi:waypoint x="1072" y="187"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="-48" y="-17"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-48" y="-17"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow28" id="BPMNEdge_flow28">
@@ -135,7 +136,7 @@
         <omgdi:waypoint x="382" y="263"></omgdi:waypoint>
         <omgdi:waypoint x="400" y="240"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="12" width="100" x="-15" y="5"></omgdc:Bounds>
+          <omgdc:Bounds height="14" width="100" x="-15" y="5"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow33" id="BPMNEdge_flow33">
