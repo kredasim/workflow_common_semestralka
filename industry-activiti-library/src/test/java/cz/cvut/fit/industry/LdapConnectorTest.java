@@ -2,6 +2,8 @@ package cz.cvut.fit.industry;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -40,12 +42,19 @@ public class LdapConnectorTest {
 		
 	}
 	
-	@Test
-	@Ignore
+	@Test	
 	public void testGetGroup(){
 		LdapConnector connector = new LdapConnectorImpl();
 		connector.initialize(hostName);
-		connector.getUsersInGroup("guvnor");
+		LdapUser david= new LdapUser();
+		david.setCommonName("David Veselý");
+		david.setEmail("veselda7@fit.cvut.cz");
+		david.setGivenName("David");
+		david.setSurname("Veselý");
+		david.setuID("veselda7");
+		List<LdapUser> usersInGroup = connector.getUsersInGroup("guvnor");	
+		assertNotNull(usersInGroup);
+		assertTrue(usersInGroup.contains(david));
 		
 	}
 	
