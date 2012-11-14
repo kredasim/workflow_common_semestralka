@@ -3,6 +3,8 @@ package cz.cvut.fit.industry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.naming.directory.Attribute;
 import javax.naming.directory.Attributes;
@@ -15,6 +17,17 @@ public class LdapConnectorImpl implements LdapConnector {
 	private InitialDirContext ctx;
 	private String hostname;
 
+	private LdapUser getUserFromDn(String dn) throws NamingException {
+		Attributes attrs = ctx.getAttributes(dn);
+		LdapUser user = new LdapUser();
+		user.setuID(attrs.get("uid").get().toString());
+		user.setCommonName(attrs.get("cn").get().toString());
+		user.setGivenName(attrs.get("givenName").get().toString());
+		user.setSurname(attrs.get("sn").get().toString());
+		user.setEmail(attrs.get("mail").get().toString());// attrs.get("mail").toString());
+		return user;
+	}
+
 	@Override
 	public LdapUser getUser(String uid) {
 		if (!connected) {
@@ -22,15 +35,8 @@ public class LdapConnectorImpl implements LdapConnector {
 					"Not initialized. Call initialize() before getUser().");
 		}
 		try {
-			Attributes attrs = ctx.getAttributes("uid=" + uid
-					+ ", ou=People,o=fit.cvut.cz");
-			LdapUser user = new LdapUser();
-			user.setuID(uid);
-			user.setCommonName(attrs.get("cn").get().toString());
-			user.setGivenName(attrs.get("givenName").get().toString());
-			user.setSurname(attrs.get("sn").get().toString());
-			user.setEmail(attrs.get("mail").get().toString());// attrs.get("mail").toString());
-			return user;
+			String dn = "uid=" + uid + ", ou=People,o=fit.cvut.cz";
+			return getUserFromDn(dn);
 		} catch (NamingException e) {
 			throw (new UserNotFoundException(e));
 		}
@@ -38,7 +44,7 @@ public class LdapConnectorImpl implements LdapConnector {
 	}
 
 	public void initialize(String hostName) {
-		// public void initialize(/*String user, String password, server ip*/) {
+		// public void initialize(/*String user, String password, hostNAme*/) {
 		if (connected) {
 			return;
 			// ASKTIBOR
@@ -75,12 +81,19 @@ public class LdapConnectorImpl implements LdapConnector {
 					"Not initialized. Call initialize() before getUser().");
 		}
 		try {
-			System.out.println("cn=" + gid + ",ou=is,ou=groups,o=" + hostname);
 			Attributes attrs = ctx.getAttributes("cn=" + gid
 					+ ", ou=is,ou=groups,o=" + hostname);
 			ArrayList<LdapUser> group = new ArrayList<LdapUser>();
 			Attribute members = attrs.get("uniqueMember");
-			members.getAll().next();
+			NamingEnumeration<String> namingEnumeration = (NamingEnumeration<String>) members
+					.getAll();
+			String memberDn;
+			while (namingEnumeration.hasMore()) {
+				// System.out.println(memberDn.toString());
+				memberDn = namingEnumeration.next();
+				group.add(getUserFromDn(memberDn));				
+				
+			}
 
 			return group;
 		} catch (NamingException e) {
