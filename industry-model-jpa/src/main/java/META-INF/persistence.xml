@@ -33,7 +33,7 @@
 		<class>model.TaskState</class>
 		<class>model.TeacherSubject</class>
 		<properties>
-			<property name="hibernate.connection.url" value="jdbc:postgresql://jbpm.is.fit.cvut.cz:5432" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://is.fit.cvut.cz:2632" />
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
 			<property name="hibernate.connection.username" value="jbpm_pssp" />
 			<property name="hibernate.connection.password" value="pru1mys2l" />
