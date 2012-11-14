@@ -65,4 +65,6 @@
 		factory-method="getHistoryService" />
 	<bean id="managementService" factory-bean="processEngine"
 		factory-method="getManagementService" />
+		
+	<bean id="taskCreator" class="cz.cvut.fit.industry.TaskCreatorImpl" />
 </beans>
