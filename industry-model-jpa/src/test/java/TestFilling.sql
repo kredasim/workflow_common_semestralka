@@ -1,0 +1,43 @@
+insert into institutiontype(institutiontypeid,name, description) 
+	values(1,"testInstitutionType1","institution test type number 1")
+insert into institutiontype(institutiontypeid,name, description) 
+	values(2,"testInstitutionType2","institution test type number 2")
+insert into institutiontype(institutiontypeid,name, description) 
+	values(3,"testInstitutionType3","institution test type number 3")
+
+insert into taskstate(taskstateid,name)
+	values(1,"testTaskType1")
+insert into taskstate(taskstateid,name)
+	values(2,"testTaskType2")
+insert into taskstate(taskstateid,name)
+	values(3,"testTaskType3")
+	
+insert into taskrole(taskroleid,name)
+	values(1,"testTaskRole1")
+insert into taskrole(taskroleid,name)
+	values(2,"testTaskRole2")
+insert into taskrole(taskroleid,name)
+	values(3,"testTaskRole3")
+
+insert into role(roleid,name,description)
+	values(1,"testRole1","test role number 1")
+insert into role(roleid,name,description)
+	values(2,"testRole2","test role number 2")
+insert into role(roleid,name,description)
+	values(3,"testRole3","test role number 3")
+	
+insert into fieldofactivity(fieldofactivityid,name,ident)
+	values(1,"testFieldOfActivity1","testFOA1")
+insert into fieldofactivity(fieldofactivityid,name,ident)
+	values(2,"testFieldOfActivity1","testFOA2")
+insert into fieldofactivity(fieldofactivityid,name,ident)
+	values(3,"testFieldOfActivity1","testFOA3")
+	
+insert into contacttype(contacttypeid,name)
+	values(1,"email")
+insert into contacttype(contacttypeid,name)
+	values(2,"telefon")
+insert into contacttype(contacttypeid,name)
+	values(3,"fax")
+	
+
