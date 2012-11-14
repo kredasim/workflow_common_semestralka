@@ -1,5 +1,10 @@
 package cz.cvut.fit.industry;
 
+import java.util.List;
+
+
 public interface LdapConnector {
-	String getUserInfo();
+	LdapUser getUser(String uid);
+	List<LdapUser> getUsersInGroup(String gid);
+	public void initialize(String hostName);
 }

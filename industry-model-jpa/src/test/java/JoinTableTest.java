@@ -91,8 +91,14 @@ public class JoinTableTest {
 		
 		assertNotNull(taskSolution.getTaskSolutionID());
 		assertNotNull(task.getTaskId());
-		
-		
+		assertNotNull(
+		    em.createQuery(
+		    		"select tasksolution.* " +
+		    		"from tasksolution " +
+		    		"where tasksolution " +
+		    		"natural join task_tasksolution;"
+		    		).getSingleResult()
+			);
 	}
 
 }

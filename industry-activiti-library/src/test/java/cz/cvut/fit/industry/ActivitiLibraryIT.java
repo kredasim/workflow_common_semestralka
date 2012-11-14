@@ -39,6 +39,7 @@ public class ActivitiLibraryIT {
 		processEngine = activitiLibrary.getProcessEngine();
 	}
 
+	
 	@Test
 	public void testInitialize() {
 		assertNotNull(processEngine);
