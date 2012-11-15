@@ -28,9 +28,9 @@ public class LdapConnectorTest {
 		*/
 		assertEquals("veselda7@fit.cvut.cz", david.getEmail());
 		assertEquals("David", david.getGivenName());
-		assertEquals("Veselý", david.getSurname());
+		assertEquals("Veselï¿½", david.getSurname());
 		assertEquals("veselda7", david.getuID());
-		assertEquals("David Veselý", david.getCommonName());
+		assertEquals("David Veselï¿½", david.getCommonName());
 
 	}
 	
@@ -47,10 +47,10 @@ public class LdapConnectorTest {
 		LdapConnector connector = new LdapConnectorImpl();
 		connector.initialize(hostName);
 		LdapUser david= new LdapUser();
-		david.setCommonName("David Veselý");
+		david.setCommonName("David Veselï¿½");
 		david.setEmail("veselda7@fit.cvut.cz");
 		david.setGivenName("David");
-		david.setSurname("Veselý");
+		david.setSurname("Veselï¿½");
 		david.setuID("veselda7");
 		List<LdapUser> usersInGroup = connector.getUsersInGroup("guvnor");	
 		assertNotNull(usersInGroup);

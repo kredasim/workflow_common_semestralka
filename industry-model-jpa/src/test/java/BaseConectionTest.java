@@ -18,7 +18,7 @@ public class BaseConectionTest {
 		em.getTransaction().begin();
 			AppUser appUser= new AppUser();
 			appUser.setFirstName("Honza");
-			appUser.setSurName("vom·Ëka");
+			appUser.setSurName("vomka");
 			em.persist(appUser);
 		em.getTransaction().commit();
 		assertNotNull(appUser.getAppUserID());
