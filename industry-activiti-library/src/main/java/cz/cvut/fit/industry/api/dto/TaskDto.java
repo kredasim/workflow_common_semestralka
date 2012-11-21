@@ -22,13 +22,13 @@ public class TaskDto {
     private String goals;
     private int workIntensity;
     private int studentReward;
-    private List<PositionDto> positions;
+//    private List<PositionDto> positions;
     private String outputs;
     private Date today;
     private Date validFrom;
     private Date validTo;
     private Date registrationEnd;
-    private ProjectDto project;
+//    private ProjectDto project;
     private String subjects;
     private String sources;
     private String requirements;
@@ -82,13 +82,13 @@ public class TaskDto {
         this.studentReward = studentReward;
     }
 
-    public List<PositionDto> getPositions() {
-        return positions;
-    }
-
-    public void setPositions(List<PositionDto> positions) {
-        this.positions = positions;
-    }
+//    public List<UnitRoleDto> getUnitRoles() {
+//        return unitRoles;
+//    }
+//
+//    public void setUnitRoles(List<UnitRoleDto> unitRoles) {
+//        this.unitRoles = unitRoles;
+//    }
 
     public String getOutputs() {
         return outputs;
@@ -130,13 +130,13 @@ public class TaskDto {
         this.registrationEnd = registrationEnd;
     }
 
-    public ProjectDto getProject() {
-        return project;
-    }
-
-    public void setProject(ProjectDto project) {
-        this.project = project;
-    }
+//    public ProjectDto getProject() {
+//        return project;
+//    }
+//
+//    public void setProject(ProjectDto project) {
+//        this.project = project;
+//    }
 
     public String getSubjects() {
         return subjects;
