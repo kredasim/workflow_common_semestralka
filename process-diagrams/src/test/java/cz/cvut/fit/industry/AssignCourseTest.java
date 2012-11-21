@@ -36,7 +36,7 @@ public class AssignCourseTest extends AbstractActivitiTest {
 		RuntimeService runtimeService = activitiRule.getRuntimeService();
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey(DEFINITION_KEY);
 		try {
-			System.out.println("I´m going to sleep");
+			System.out.println("Iï¿½m going to sleep");
 			Thread.sleep(1000);
 			System.out.println("I woke up");
 		} catch (InterruptedException e) {
