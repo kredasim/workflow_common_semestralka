@@ -1,5 +1,7 @@
 package cz.cvut.fit.industry;
 
+import cz.cvut.fit.industry.api.service.ActivitiLibrary;
+
 /**
  * Static factory class for creating new
  * ActivitiLibrary instances.

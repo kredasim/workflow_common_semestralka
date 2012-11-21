@@ -1,4 +1,4 @@
-package cz.cvut.fit.industry;
+package cz.cvut.fit.industry.api.service;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RuntimeService;

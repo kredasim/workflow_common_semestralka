@@ -1,5 +1,6 @@
 package cz.cvut.fit.industry;
 
+import cz.cvut.fit.industry.api.service.ActivitiLibrary;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;

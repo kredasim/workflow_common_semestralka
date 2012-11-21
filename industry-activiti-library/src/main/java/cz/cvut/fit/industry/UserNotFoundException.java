@@ -1,5 +1,7 @@
 package cz.cvut.fit.industry;
 
+import cz.cvut.fit.industry.api.exception.IndustryException;
+
 public class UserNotFoundException extends IndustryException {
 
 	public UserNotFoundException() {

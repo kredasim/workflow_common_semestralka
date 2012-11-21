@@ -1,4 +1,4 @@
-package cz.cvut.fit.industry;
+package cz.cvut.fit.industry.api.exception;
 
 public class IndustryException extends RuntimeException {
 
