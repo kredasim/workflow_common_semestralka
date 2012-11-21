@@ -16,8 +16,9 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.TaskQuery;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-
+@Ignore
 public class ActivitiLibraryIT {
 
 	private ActivitiLibrary activitiLibrary;

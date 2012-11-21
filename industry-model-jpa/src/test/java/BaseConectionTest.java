@@ -6,9 +6,10 @@ import javax.persistence.Persistence;
 
 import model.AppUser;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-
+@Ignore
 public class BaseConectionTest {
 
 	@Test

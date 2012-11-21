@@ -14,9 +14,10 @@ import model.Project;
 import model.Task;
 import model.TaskSolution;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-
+@Ignore
 public class JoinTableTest {
 
 	@Test

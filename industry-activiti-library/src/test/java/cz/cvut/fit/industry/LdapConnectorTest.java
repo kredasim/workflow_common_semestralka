@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-
+@Ignore
 public class LdapConnectorTest {
 	private String hostName="fit.cvut.cz";
 	
