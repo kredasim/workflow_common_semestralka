@@ -38,7 +38,7 @@ public class WorkflowServiceImpl implements WorkflowService {
             RuntimeService runtimeService = activitiLibrary.getRuntimeService();
             result = runtimeService.startProcessInstanceByKey(processKey).getId();
         } catch (Exception e) {
-            LOG.warn("Error occurred.", e);
+            LOG.warn("Error occurred. Error message is " + e.getMessage());
         }
         return result;
     }
@@ -46,6 +46,9 @@ public class WorkflowServiceImpl implements WorkflowService {
     @Override
     public void completeTaskByProcessId(String processId, Map<String, Object> data) {
         try {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Received data: \n " + data.toString());
+            }
             // Get the first task
             TaskService taskService = activitiLibrary.getTaskService();
             TaskQuery taskQuery = taskService.createTaskQuery()
@@ -53,8 +56,9 @@ public class WorkflowServiceImpl implements WorkflowService {
 
             Task task = taskQuery.singleResult();
             taskService.complete(task.getId(), data);
+            LOG.debug("Task was completed.");
         } catch (Exception e) {
-            LOG.warn("Error occurred.", e);
+            LOG.warn("Error occurred. Error message is " + e.getMessage());
         }
     }
 }
