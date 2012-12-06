@@ -26,9 +26,11 @@
             </map>
         </constructor-arg>
     </bean>
+    <bean id="activitiTaskService" class="cz.cvut.fit.industry.TaskServiceAdapter"/>
+    <bean id="activitiProcessService" class="cz.cvut.fit.industry.ProcessServiceAdapter"/>
 
-    <bean id="activitiTaskService" class="cz.cvut.fit.bpm.dummy.ActivitiDummyTaskServiceImpl"/>
+    <!--<bean id="activitiTaskService" class="cz.cvut.fit.bpm.dummy.ActivitiDummyTaskServiceImpl"/>-->
     <bean id="lombardyTaskService" class="cz.cvut.fit.bpm.dummy.LombardyDummyTaskServiceImpl"/>
-    <bean id="activitiProcessService" class="cz.cvut.fit.bpm.dummy.ActivityDummyProcessServiceImpl"/>
+    <!--<bean id="activitiProcessService" class="cz.cvut.fit.bpm.dummy.ActivityDummyProcessServiceImpl"/>-->
     <bean id="lombardyProcessService" class="cz.cvut.fit.bpm.dummy.LombardyDummyProcessServiceImpl"/>
 </beans>
