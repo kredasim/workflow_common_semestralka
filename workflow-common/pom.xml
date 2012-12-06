@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cz.cvut.fit</groupId>
+    <groupId>cz.cvut.fit.bpm</groupId>
     <artifactId>workflow-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -20,6 +20,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>cz.cvut.fit.bpm</groupId>
+            <artifactId>unified_bpm_interface</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>cz.cvut.fit.industry</groupId>
             <artifactId>industry-activiti-library</artifactId>
