@@ -27,7 +27,7 @@ public interface WorkflowService {
      * Starts process by provided id.
      *
      * @param processId process id
-     * @return process ID
+     * @return process instance ID
      */
     String startProcess(String processId);
 

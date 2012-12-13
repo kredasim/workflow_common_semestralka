@@ -10,6 +10,7 @@ package cz.cvut.fit.bpm.activity.converter;
 
 import cz.cvut.fit.bpm.api.dto.BpmTaskDto;
 import cz.cvut.fit.bpm.api.dto.BpmType;
+import org.activiti.engine.task.DelegationState;
 import org.activiti.engine.task.Task;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +30,10 @@ public class TaskToDtoConverter extends GenericConverter<Task,BpmTaskDto> {
         result.setProcessId(task.getParentTaskId());
         result.setProcessName(task.getProcessDefinitionId());
         result.setOwner(task.getOwner());
-        result.setState(task.getDelegationState().toString());
+        DelegationState delegationState = task.getDelegationState();
+        if (delegationState != null) {
+            result.setState(delegationState.toString());
+        }
         result.setStatus(null);
         result.setRunUrl(null);
         return result;

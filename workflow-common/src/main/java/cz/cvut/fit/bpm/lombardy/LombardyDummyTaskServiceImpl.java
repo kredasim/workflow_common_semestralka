@@ -43,6 +43,10 @@ public class LombardyDummyTaskServiceImpl implements TaskService {
     }
 
     @Override
+    public void claimTask(String taskId, String userId) {
+    }
+
+    @Override
     public void completeTask(String taskId) {
     }
 
@@ -52,6 +56,11 @@ public class LombardyDummyTaskServiceImpl implements TaskService {
 
     @Override
     public BpmTaskDto getTaskById(String taskId) {
+        return null;
+    }
+
+    @Override
+    public String getTaskIdByProcessInstance(String processId, String userId) {
         return null;
     }
 }
