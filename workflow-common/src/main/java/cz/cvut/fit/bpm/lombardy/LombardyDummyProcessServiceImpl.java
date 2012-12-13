@@ -6,22 +6,29 @@
  * divested of its trade secrets.
  *
  * =========================================================================== */
-package cz.cvut.fit.bpm.dummy;
+package cz.cvut.fit.bpm.lombardy;
+
+import java.util.Collections;
+import java.util.List;
 
 import cz.cvut.fit.bpm.api.dto.BpmProcessDto;
 import cz.cvut.fit.bpm.api.service.ProcessService;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 /**
  * @author Miroslav Ligas <miroslav.ligas@ibacz.eu>
  */
-@Component
+@Component("lombardyProcessService")
 public class LombardyDummyProcessServiceImpl implements ProcessService {
 
     @Override
     public List<BpmProcessDto> getAllProcessesForUser(String userId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Collections.emptyList();
+    }
+
+    @Override
+    public String startProcess(String processId) {
+        return null;
+
     }
 }

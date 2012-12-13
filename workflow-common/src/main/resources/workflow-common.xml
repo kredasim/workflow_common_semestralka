@@ -5,9 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <import resource="classpath:activiti-context.xml"/>
 
-    <context:component-scan base-package="cz.cvut.fit.workflow.common"/>
+    <context:component-scan base-package="cz.cvut.fit.bpm"/>
+
+    <import resource="activity.xml"/>
 
     <bean class="cz.cvut.fit.bpm.common.TaskServiceProvider">
         <constructor-arg>
@@ -26,11 +27,4 @@
             </map>
         </constructor-arg>
     </bean>
-    <bean id="activitiTaskService" class="cz.cvut.fit.industry.TaskServiceAdapter"/>
-    <bean id="activitiProcessService" class="cz.cvut.fit.industry.ProcessServiceAdapter"/>
-
-    <!--<bean id="activitiTaskService" class="cz.cvut.fit.bpm.dummy.ActivitiDummyTaskServiceImpl"/>-->
-    <bean id="lombardyTaskService" class="cz.cvut.fit.bpm.dummy.LombardyDummyTaskServiceImpl"/>
-    <!--<bean id="activitiProcessService" class="cz.cvut.fit.bpm.dummy.ActivityDummyProcessServiceImpl"/>-->
-    <bean id="lombardyProcessService" class="cz.cvut.fit.bpm.dummy.LombardyDummyProcessServiceImpl"/>
 </beans>

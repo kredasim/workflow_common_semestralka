@@ -6,17 +6,17 @@
  * divested of its trade secrets.
  *
  * =========================================================================== */
-package cz.cvut.fit.workflow.common;
+package cz.cvut.fit.bpm;
 
-import cz.cvut.fit.bpm.AbstractTest;
-import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Miroslav Ligas <miroslav.ligas@ibacz.eu>
  */
-public class InitializationTest extends AbstractTest{
-    @Test
-    public void testGetActivitiLibrary() throws Exception {
-
-    }
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {
+    "classpath:workflow-common.xml"})
+public abstract class AbstractTest {
 }

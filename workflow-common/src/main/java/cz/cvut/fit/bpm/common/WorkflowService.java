@@ -8,11 +8,11 @@
  * =========================================================================== */
 package cz.cvut.fit.bpm.common;
 
-import cz.cvut.fit.bpm.api.dto.BpmProcessDto;
-import cz.cvut.fit.bpm.api.dto.BpmTaskDto;
-
 import java.util.List;
 import java.util.Map;
+
+import cz.cvut.fit.bpm.api.dto.BpmProcessDto;
+import cz.cvut.fit.bpm.api.dto.BpmTaskDto;
 
 /**
  * @author Miroslav Ligas <miroslav.ligas@ibacz.eu>
@@ -24,14 +24,14 @@ public interface WorkflowService {
     List<BpmProcessDto> getAllProcessesForUser(String userId);
 
     /**
-     * Starts process by provided key.
+     * Starts process by provided id.
      *
-     * @param processKey process key
+     * @param processId process id
      * @return process ID
      */
-    String startProcess(String processKey);
+    String startProcess(String processId);
 
 
     //TODO: Should bye connected to taskId not processId. Need to be fixed.
-    void completeTaskByProcessId(String processId, String userId, Map<String, Object> data);
+    void completeTaskByProcessId(String processId, Map<String, Object> data);
 }

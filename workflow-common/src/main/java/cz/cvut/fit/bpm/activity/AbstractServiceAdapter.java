@@ -6,17 +6,16 @@
  * divested of its trade secrets.
  *
  * =========================================================================== */
-package cz.cvut.fit.workflow.common;
+package cz.cvut.fit.bpm.activity;
 
-import cz.cvut.fit.bpm.AbstractTest;
-import org.junit.Test;
+import cz.cvut.fit.industry.api.service.ActivitiLibrary;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Miroslav Ligas <miroslav.ligas@ibacz.eu>
  */
-public class InitializationTest extends AbstractTest{
-    @Test
-    public void testGetActivitiLibrary() throws Exception {
+public class AbstractServiceAdapter {
+    @Autowired
+    protected ActivitiLibrary activitiLibrary;
 
-    }
 }

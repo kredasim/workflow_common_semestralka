@@ -9,6 +9,10 @@
 package cz.cvut.fit.bpm.common;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import cz.cvut.fit.bpm.api.dto.BpmProcessDto;
 import cz.cvut.fit.bpm.api.dto.BpmTaskDto;
 import cz.cvut.fit.bpm.api.dto.BpmType;
@@ -16,10 +20,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author Miroslav Ligas <miroslav.ligas@ibacz.eu>
@@ -52,11 +52,11 @@ public class WorkflowServiceImpl implements WorkflowService {
     }
 
     @Override
-    public String startProcess(String processKey) {
+    public String startProcess(String processId) {
         String result = null;
         try {
             LOG.info("Creating task");
-            result = taskService.getTaskService(BpmType.ACTIVITI).startTask(processKey);
+            result = processService.getProcessService(BpmType.ACTIVITI).startProcess(processId);
         } catch (Exception e) {
             LOG.warn("Error occurred. Error message is " + e.getMessage());
         }
@@ -64,12 +64,12 @@ public class WorkflowServiceImpl implements WorkflowService {
     }
 
     @Override
-    public void completeTaskByProcessId(String processId, String userId, Map<String, Object> data) {
+    public void completeTaskByProcessId(String processId, Map<String, Object> data) {
         try {
             if (LOG.isDebugEnabled()) {
                 LOG.debug("Received data: \n " + data.toString());
             }
-            taskService.getTaskService(BpmType.ACTIVITI).completeTask(processId, userId, data);
+            taskService.getTaskService(BpmType.ACTIVITI).completeTask(processId, data);
             LOG.debug("Task was completed.");
         } catch (Exception e) {
             LOG.warn("Error occurred. Error message is " + e.getMessage());
