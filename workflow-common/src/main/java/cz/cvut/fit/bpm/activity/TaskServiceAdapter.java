@@ -92,6 +92,10 @@ public class TaskServiceAdapter extends AbstractServiceAdapter implements cz.cvu
             .processInstanceId(processId);
 
         Task task = taskQuery.singleResult();
-        return task.getId();
+        if (task != null) {
+            return task.getId();
+        } else{
+            return null;
+        }
     }
 }

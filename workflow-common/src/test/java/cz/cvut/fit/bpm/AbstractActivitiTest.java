@@ -11,6 +11,7 @@ package cz.cvut.fit.bpm;
 import cz.cvut.fit.industry.api.service.ActivitiLibrary;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.repository.ProcessDefinition;
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,6 +26,7 @@ public abstract class AbstractActivitiTest extends AbstractTest {
     protected ActivitiLibrary activitiLibrary;
 
     protected String testProcessId;
+    protected String testProcessKey;
 
     @Before
     public void setUp() throws Exception {
@@ -34,7 +36,9 @@ public abstract class AbstractActivitiTest extends AbstractTest {
                 .addClasspathResource("testprocess.bpmn20.xml")
                 .deploy();
             String deployId = deploy.getId();
-            testProcessId = repositoryService.createProcessDefinitionQuery().deploymentId(deployId).singleResult().getId();
+            ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().deploymentId(deployId).singleResult();
+            testProcessId = processDefinition.getId();
+            testProcessKey = processDefinition.getKey();
         }
     }
 }

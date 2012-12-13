@@ -22,7 +22,9 @@ public class ProcessDefinitionToDtoConverter extends GenericConverter<ProcessDef
     @Override
     public BpmProcessDto convert(ProcessDefinition processDefinition) {
         BpmProcessDto result = new BpmProcessDto();
-        result.setId(processDefinition.getId());
+//        TODO: switch to processId when portlets are capable of sending it
+//        result.setId(processDefinition.getId());
+        result.setId(processDefinition.getKey());
         result.setProcessName(processDefinition.getName());
         result.setSystem(BpmType.ACTIVITI);
         result.setStartUrl(null);

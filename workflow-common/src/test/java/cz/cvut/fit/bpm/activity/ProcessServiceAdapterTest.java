@@ -36,7 +36,9 @@ public class ProcessServiceAdapterTest extends AbstractActivitiTest {
 
     @Test
     public void testStartProcess() throws Exception {
-        String proceseInstaceId = processServiceAdapter.startProcess(testProcessId);
+//       TODO: switch to processId when portlets are capable of sending it
+//       String proceseInstaceId = processServiceAdapter.startProcess(testProcessId);
+        String proceseInstaceId = processServiceAdapter.startProcess(testProcessKey);
 
         assertThat(proceseInstaceId, is(notNullValue()));
     }

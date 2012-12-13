@@ -43,6 +43,9 @@ public class ProcessServiceAdapter extends AbstractServiceAdapter implements Pro
     @Override
     public String startProcess(String processId) {
         RuntimeService runtimeService = activitiLibrary.getRuntimeService();
-        return runtimeService.startProcessInstanceById(processId).getId();
+
+//        TODO: switch to processId when portlets are capable of sending it
+//        return runtimeService.startProcessInstanceById(processId).getId();
+        return runtimeService.startProcessInstanceByKey(processId).getId();
     }
 }
