@@ -28,7 +28,7 @@
         </constructor-arg>
     </bean>
     
-    <bean id="dummySkillDtoService" class="cz.cvut.fit.bpm.activity.DummySkillDtoService" />
+<!--     <bean id="dummySkillDtoService" class="cz.cvut.fit.bpm.activity.DummySkillDtoService" /> -->
     
-    <bean id="dummyTaskDtoService" class="cz.cvut.fit.bpm.activity.DummyTaskDtoService" />
+<!--     <bean id="dummyTaskDtoService" class="cz.cvut.fit.bpm.activity.DummyTaskDtoService" /> -->
 </beans>
